@@ -5,5 +5,3 @@ export const App: React.FC = () => {
     <h1>Product catalog</h1>
   );
 };
-
-export default App;
