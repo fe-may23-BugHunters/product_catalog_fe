@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import s from './MainLayout.module.scss';
 import '../../styles/blocks/_container.scss';
 
-export const MainLayout: React.FC<PropsWithChildren> = ({children}) => {
+export const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className={s.page}>
       {/* <Header /> */}
