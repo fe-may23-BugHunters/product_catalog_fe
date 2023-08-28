@@ -1,16 +1,4 @@
-@import './variables';
-
-@mixin onTablet {
-  @media (min-width: $tablet-min-width) {
-    @content;
-  }
-}
-
-@mixin onDesktop {
-  @media (min-width: $desktop-min-width) {
-    @content;
-  }
-}
+@import './breakpoints';
 
 @mixin contentPaddingInline {
   padding-inline: 16px;
