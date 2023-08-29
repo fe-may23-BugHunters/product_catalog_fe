@@ -1,0 +1,28 @@
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+iframe {
+  display: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 48px;
+
+  border-bottom: solid 1px $color-white;
+
+  background-color: $color-dark;
+
+  &__left {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  @include onDesktop {
+    height: 64px;
+  }
+}

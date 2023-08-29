@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Routes, Route, HashRouter as Router } from 'react-router-dom';
+import App from '../App';
 // import { HomePage } from '../pages/HomePage';
 // import { CatalogPage } from '../pages/CatalogPage';
 // import { ItemPage } from '../pages/ItemPage';
@@ -12,7 +13,7 @@ export const AppRouter: FC = () => {
     <Router>
       <Routes>
         <Route path="/">
-          <Route index element={<h1>Home Page</h1>} />
+          <Route index element={<App />} />
           <Route path="catalog">
             <Route index element={<h1>catalog Page</h1>} />
             <Route path=":itemId?" element={<h1>item Page</h1>} />

@@ -1,0 +1,98 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.buttons {
+  display: flex;
+}
+
+.icon-wrapper {
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  cursor: pointer;
+
+  border: solid 1px $color-white;
+
+  &:hover {
+    border-color: $color-icons;
+  }
+
+  @include onTablet {
+    display: flex;
+  }
+
+  @include onDesktop{
+    width: 64px;
+    height: 64px;
+
+    .ellipse-for-cart {
+      top: 20px;
+      right: 18px;
+    }
+  }
+
+  &--menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}
+
+.icon-wrapper.active,
+.icon-wrapper.is-active {
+  border-bottom: 3px solid $color-icons;
+}
+
+.icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+
+  &--menu {
+    background-image: url(../../assets/icons/Menu.png);
+  }
+
+  &--menu.is-active,
+  &--close {
+    background-image: url(../../assets/icons/Close.png);
+  }
+
+  &--favourites {
+    background-image: url(../../assets/icons/Favourites.png);
+    position: relative;
+  }
+
+  &--cart {
+    background-image: url(../../assets/icons/Cart.png);
+  }
+}
+
+.ellipse {
+  font-size: 9px;
+  color: $color-white;
+  background-color: $color-red;
+  position: relative;
+  top: -6px;
+  right: -6px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid $color-white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,6 +1,20 @@
 import React from 'react';
-import s from './Header.module.scss';
+import { Logo } from '../Logo';
+import { Navigation } from '../Navigation';
+import { Buttons } from '../Buttons';
+
+import './Header.scss';
 
 export const Header: React.FC = () => {
-  return <div className={s.header}></div>;
+  return (
+    <header className="header">
+      <div className="header__left">
+        <Logo />
+
+        <Navigation />
+      </div>
+
+      <Buttons />
+    </header>
+  );
 };
