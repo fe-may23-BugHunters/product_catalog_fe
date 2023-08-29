@@ -1,19 +1,25 @@
-import React, { PropsWithChildren } from 'react';
+import React, { ReactNode } from 'react';
 import s from './MainLayout.module.scss';
 import '../../styles/blocks/_container.scss';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 
-export const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
+interface Props {
+  children: ReactNode;
+}
+
+export const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className={s.page}>
-      {/* <Header /> */}
+      <Header />
 
-      <main className={s.page_content}>
+      <main className={s.page__content}>
         <div className="container">
           {children}
         </div>
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
