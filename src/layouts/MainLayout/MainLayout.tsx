@@ -15,6 +15,9 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
 
       <main className={s.page__content}>
         <div className="container">{children}</div>
+        <div className="container">
+          {children}
+        </div>
       </main>
 
       <Footer />

@@ -14,6 +14,7 @@ export const AppRouter: FC = () => {
       <Routes>
         <Route path="/">
           <Route index element={<App />} />
+          <Route index element={<h1>Home Page</h1>} />
           <Route path="catalog">
             <Route index element={<h1>catalog Page</h1>} />
             <Route path=":itemId?" element={<h1>item Page</h1>} />
