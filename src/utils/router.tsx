@@ -13,7 +13,7 @@ export const AppRouter: FC = () => {
         <Router>
             <Routes>
                 <Route path="/product_catalog_fe">
-                    <Route path="home" element={<HomePage />} />
+                    <Route index element={<HomePage />} />
                     <Route path="phones">
                         <Route index element={<CatalogPage />} />
                         <Route path=":itemId?" element={<ItemPage />} />
