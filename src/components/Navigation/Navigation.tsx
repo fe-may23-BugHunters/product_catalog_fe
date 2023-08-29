@@ -1,3 +1,6 @@
+import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
+
 import './Navigation.scss';
 import React from 'react';
 
@@ -6,24 +9,42 @@ export const Navigation: React.FC = () => {
     <nav className="nav">
       <ul className="nav__list">
         <li className="nav__item">
-          <a className="nav__link" href="home">
+          <NavLink className={({ isActive }) => cn(
+            'nav__link', { 'is-active': isActive },
+          )}
+          to="home">
             home
-          </a>
+          </NavLink>
         </li>
+
         <li className="nav__item">
-          <a className="nav__link" href="phones">
+          <NavLink className={({ isActive }) => cn(
+            'nav__link', { 'is-active': isActive },
+          )}
+          to="phones"
+          >
             phones
-          </a>
+          </NavLink>
         </li>
+
         <li className="nav__item">
-          <a className="nav__link" href="tablets">
+          <NavLink className={({ isActive }) => cn(
+            'nav__link', { 'is-active': isActive },
+          )}
+          to="tablets
+          ">
             tablets
-          </a>
+          </NavLink>
         </li>
+
         <li className="nav__item">
-          <a className="nav__link" href="accessories">
+          <NavLink className={({ isActive }) => cn(
+            'nav__link', { 'is-active': isActive },
+          )}
+          to="accesso
+          ries">
             accessories
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

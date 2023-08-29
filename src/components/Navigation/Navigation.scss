@@ -4,13 +4,6 @@
 .nav {
   display: flex;
 
-  &__item {
-    &:active {
-      color: $white;
-      border-bottom: 3px solid $white;
-    }
-  }
-
   &__list {
     display: none;
     margin-left: 16px;
@@ -42,12 +35,18 @@
     color: $gray-secondary;
 
     &:hover {
-      color: $white;
+      color: $color-white;
     }
 
     @include onDesktop {
       height: $headers-height-desctop;
       line-height: $headers-height-desctop;
     }
+  }
+
+  &__link.is-active {
+    color: $color-white;
+
+    border-bottom: 3px solid $color-white;;
   }
 }
