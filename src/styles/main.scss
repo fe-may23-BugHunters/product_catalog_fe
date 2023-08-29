@@ -1,9 +1,2 @@
 @import 'utils/reset';
 @import 'utils/typography';
-@import 'utils/variables';
-
-:root {
-  font-family: $font-family;
-  font-weight: 400;
-  scroll-behavior: smooth;
-}
