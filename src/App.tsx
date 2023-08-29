@@ -1,12 +1,13 @@
 import React from 'react';
 import './styles/main.scss';
 import { MainLayout } from './layouts/MainLayout';
-import { Example } from './components/Example';
+import { Outlet } from "react-router-dom";
+
 
 export const App: React.FC = () => {
   return (
-    <MainLayout>
-      <Example />
-    </MainLayout>
+        <MainLayout>
+            <Outlet/>
+        </MainLayout>
   );
 };
