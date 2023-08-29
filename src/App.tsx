@@ -1,12 +1,14 @@
 import React from 'react';
 import './styles/main.scss';
 import { MainLayout } from './layouts/MainLayout';
-import { Example } from './components/Example';
+import { Example } from './pages/Example';
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   return (
     <MainLayout>
       <Example />
     </MainLayout>
   );
 };
+
+export default App;
