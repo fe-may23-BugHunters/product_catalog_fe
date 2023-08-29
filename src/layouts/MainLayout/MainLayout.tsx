@@ -9,7 +9,6 @@ export const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
 
       <main className={s.page_content}>
         <div className="container">
-          {/* <Outlet /> */}
           {children}
         </div>
       </main>

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, HashRouter as Router } from 'react-router-dom';
 // import { HomePage } from '../pages/HomePage';
 // import { CatalogPage } from '../pages/CatalogPage';
 // import { ItemPage } from '../pages/ItemPage';
@@ -7,12 +7,11 @@ import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 // import { CartPage } from '../pages/CartPage';
 // import { NotFoundPage } from '../pages/NotFoundPage';
 
-
 export const AppRouter: FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/product_catalog_fe">
+        <Route path="/">
           <Route index element={<h1>Home Page</h1>} />
           <Route path="catalog">
             <Route index element={<h1>catalog Page</h1>} />
@@ -25,6 +24,6 @@ export const AppRouter: FC = () => {
 
         <Route path="*" element={<h1>Not Found Page</h1>} />
       </Routes>
-    </Router>
+     </Router>
   );
 };
