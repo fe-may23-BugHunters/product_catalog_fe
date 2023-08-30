@@ -7,9 +7,9 @@ export const NotFound: React.FC = () => {
       <div className='notfound'>
         <h1 className='notfound__title'>404 - Page Not Found</h1>
 
-        <h2 className='notfound__title'>
+        <p className='notfound__title'>
           Oops! The page you are looking for does not exist
-        </h2>
+        </p>
       </div>
     </div>
   );
