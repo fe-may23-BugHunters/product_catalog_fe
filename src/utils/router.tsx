@@ -25,6 +25,6 @@ export const AppRouter: FC = () => {
 
         <Route path="*" element={<h1>Not Found Page</h1>} />
       </Routes>
-     </Router>
+    </Router>
   );
 };

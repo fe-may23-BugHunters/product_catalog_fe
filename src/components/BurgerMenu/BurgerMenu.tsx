@@ -6,90 +6,84 @@ import './BurgerMenu.scss';
 export const BurgerMenu: React.FC = () => {
   return (
     <div className="burger">
-    <nav className='burger__nav'>
-      <ul className='burger__list'>
-        <li className='burger__item'>
-          <NavLink
-          className={({ isActive }) => cn(
-            'burger__link', { 'is-active': isActive },
-          )}
-          to="home"
-          >
-            home
-          </NavLink>
+      <nav className="burger__nav">
+        <ul className="burger__list">
+          <li className="burger__item">
+            <NavLink
+              className={({ isActive }) =>
+                cn('burger__link', { 'is-active': isActive })
+              }
+              to="home"
+            >
+              home
+            </NavLink>
           </li>
 
-          <li className='burger__item'>
-          <NavLink
-          className={({ isActive }) => cn(
-            'burger__link', { 'is-active': isActive },
-          )}
-          to="phones"
-          >
-            phones
-          </NavLink>
-        </li>
+          <li className="burger__item">
+            <NavLink
+              className={({ isActive }) =>
+                cn('burger__link', { 'is-active': isActive })
+              }
+              to="phones"
+            >
+              phones
+            </NavLink>
+          </li>
 
-        <li className='burger__item'>
-          <NavLink
-          className={({ isActive }) => cn(
-            'burger__link', { 'is-active': isActive },
-          )}
-          to="tablets"
-          >
-            tablets
-          </NavLink>
-        </li>
+          <li className="burger__item">
+            <NavLink
+              className={({ isActive }) =>
+                cn('burger__link', { 'is-active': isActive })
+              }
+              to="tablets"
+            >
+              tablets
+            </NavLink>
+          </li>
 
-        <li className='burger__item'>
-          <NavLink
-          className={({ isActive }) => cn(
-            'burger__link', { 'is-active': isActive },
-          )}
-          to="accessories"
-          >
-            accessories
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+          <li className="burger__item">
+            <NavLink
+              className={({ isActive }) =>
+                cn('burger__link', { 'is-active': isActive })
+              }
+              to="accessories"
+            >
+              accessories
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
 
-    <div className='burger__buttons'>
-        <NavLink
-          to="favourite"
-          className="burger__icon"
-        >
+      <div className="burger__buttons">
+        <NavLink to="favourite" className="burger__icon">
           <div className="icon icon--favourites">
-            <div className='ellipse'></div>
+            <div className="ellipse"></div>
           </div>
         </NavLink>
 
-        <NavLink
-          to="favourite"
-          className="burger__icon"
-        >
+        <NavLink to="favourite" className="burger__icon">
           <div className="icon icon--favourites"></div>
-          </NavLink>
+        </NavLink>
 
-          <NavLink
-            to="cart"
-            className={({ isActive }) => cn(
-              'burger__icon', { 'is-active': isActive },
-            )}
-            >
-              <div className='icon icon--cart'>
-                <div className='ellipse'></div>
-              </div>
-            </NavLink>
-          <NavLink
-            to="cart"
-            className={({ isActive }) => cn(
-              'burger__icon', { 'is-active': isActive },
-            )}
-            >
-              <div className='icon icon--cart'></div>
-            </NavLink>
+        <NavLink
+          to="cart"
+          className={({ isActive }) =>
+            cn('burger__icon', { 'is-active': isActive })
+          }
+        >
+          <div className="icon icon--cart">
+            <div className="ellipse"></div>
+          </div>
+        </NavLink>
+        <NavLink
+          to="cart"
+          className={({ isActive }) =>
+            cn('burger__icon', { 'is-active': isActive })
+          }
+        >
+          <div className="icon icon--cart"></div>
+        </NavLink>
+      </div>
     </div>
-  </div>
   );
 };

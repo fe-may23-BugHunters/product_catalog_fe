@@ -15,49 +15,33 @@ export const Buttons: React.FC = () => {
         onClick={() => setIsActiveBurger(!isActiveBurger)}
       >
         <div
-          className={cn(
-            'icon icon--menu', { 'is-active': isActiveBurger },
-          )}
+          className={cn('icon icon--menu', { 'is-active': isActiveBurger })}
         ></div>
       </div>
 
       {isActiveBurger && (
-        <div
-          onClick={() => setIsActiveBurger(false)}
-        >
-          <BurgerMenu/>
+        <div onClick={() => setIsActiveBurger(false)}>
+          <BurgerMenu />
         </div>
       )}
 
-        <NavLink
-          to="favourites"
-          className='icon-wrapper'
-        >
-          <div className="icon icon--favourites">
-            <div className='ellipse'></div>
-          </div>
-        </NavLink>
-        <NavLink
-          to="favourites"
-          className="icon-wrapper"
-        >
-          <div className="icon icon--favourites"></div>
-        </NavLink>
+      <NavLink to="favourites" className="icon-wrapper">
+        <div className="icon icon--favourites">
+          <div className="ellipse"></div>
+        </div>
+      </NavLink>
+      <NavLink to="favourites" className="icon-wrapper">
+        <div className="icon icon--favourites"></div>
+      </NavLink>
 
-        <NavLink
-          to="cart"
-          className='icon-wrapper'
-        >
-          <div className="icon icon--cart">
-            <div className='ellipse'></div>
-          </div>
-        </NavLink>
-        <NavLink
-          to="cart"
-          className="icon-wrapper"
-        >
-          <div className="icon icon--cart"></div>
-        </NavLink>
+      <NavLink to="cart" className="icon-wrapper">
+        <div className="icon icon--cart">
+          <div className="ellipse"></div>
+        </div>
+      </NavLink>
+      <NavLink to="cart" className="icon-wrapper">
+        <div className="icon icon--cart"></div>
+      </NavLink>
     </div>
   );
 };
