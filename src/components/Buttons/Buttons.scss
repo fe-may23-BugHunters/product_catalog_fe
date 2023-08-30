@@ -16,10 +16,11 @@
 
   cursor: pointer;
 
-  border: solid 1px $color-white;
+  border-left: solid 1px $color-elements;
+  border-right: solid 1px $color-elements;
 
   &:hover {
-    border-color: $color-icons;
+    border-color: $color-white;
   }
 
   @include onTablet {
@@ -49,7 +50,7 @@
 
 .icon-wrapper.active,
 .icon-wrapper.is-active {
-  border-bottom: 3px solid $color-icons;
+  border-bottom: 3px solid $color-white;
 }
 
 .icon {
@@ -63,21 +64,21 @@
   text-decoration: none;
 
   &--menu {
-    background-image: url(../../assets/icons/Menu.png);
+    background-image: url(../../assets/icons/Menu.svg);
   }
 
   &--menu.is-active,
   &--close {
-    background-image: url(../../assets/icons/Close.png);
+    background-image: url(../../assets/icons/Close.svg);
   }
 
   &--favourites {
-    background-image: url(../../assets/icons/Favourites.png);
+    background-image: url(../../assets/icons/Favourites.svg);
     position: relative;
   }
 
   &--cart {
-    background-image: url(../../assets/icons/Cart.png);
+    background-image: url(../../assets/icons/Cart.svg);
   }
 }
 
@@ -90,7 +91,6 @@
   right: -6px;
   width: 15px;
   height: 15px;
-  border: 1px solid $color-white;
   border-radius: 50%;
   display: flex;
   justify-content: center;

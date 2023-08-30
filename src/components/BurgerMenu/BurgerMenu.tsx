@@ -21,7 +21,7 @@ export const BurgerMenu: React.FC<Props> = ({
               className={({ isActive }) =>
                 cn('burger__link', { 'is-active': isActive })
               }
-              to="home"
+              to="/home"
             >
               home
             </NavLink>
@@ -32,7 +32,7 @@ export const BurgerMenu: React.FC<Props> = ({
               className={({ isActive }) =>
                 cn('burger__link', { 'is-active': isActive })
               }
-              to="phones"
+              to="/phones"
             >
               phones
             </NavLink>
@@ -43,7 +43,7 @@ export const BurgerMenu: React.FC<Props> = ({
               className={({ isActive }) =>
                 cn('burger__link', { 'is-active': isActive })
               }
-              to="tablets"
+              to="/tablets"
             >
               tablets
             </NavLink>
@@ -54,7 +54,7 @@ export const BurgerMenu: React.FC<Props> = ({
               className={({ isActive }) =>
                 cn('burger__link', { 'is-active': isActive })
               }
-              to="accessories"
+              to="/accessories"
             >
               accessories
             </NavLink>

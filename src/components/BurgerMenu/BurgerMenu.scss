@@ -2,15 +2,25 @@
 @import '../../styles/utils/mixins';
 
 .burger {
+  overflow-y: auto;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   position: absolute;
+  // position: fixed;
+  // inset-block-start: 0;
+  // inset-inline: 0;
   top: 48px;
   right: 0;
   bottom: 0;
+  background-color: $color-dark;
+
+  // transform: translateX(-150%);
 
   width: 100vw;
+  height: 100vh;
+
+  // transition: transform $effectDuration;
 
   padding-top: 24px;
 
@@ -18,6 +28,10 @@
 
   border-left: solid 1px $color-white;
   border-bottom: solid 1px $color-white;
+
+  // &:target {
+  //   transform: translateX(0);
+  // }
 
   @include onTablet {
     display: none;
@@ -65,9 +79,9 @@
   }
 
   &__link.is-active {
-    color: $color-icons;
+    color: $color-white;
 
-    border-bottom: 3px solid $color-icons;
+    border-bottom: 3px solid $color-white;
   }
 
   &__buttons {
@@ -85,15 +99,12 @@
     width: 50%;
     height: 64px;
 
-    border: solid 1px $color-white;
+    border: solid 1px $color-elements;
 
-    &:hover {
-      border-color: $color-icons;
-    }
   }
 
   &__icon.active,
   &__icon.is-active {
-    border-bottom: 3px solid $color-icons;
+    border-bottom: 3px solid $color-white;
   }
 }

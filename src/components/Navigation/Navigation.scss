@@ -24,7 +24,7 @@
 
   &__link {
     display: block;
-    height: 48px;
+    height: 46px;
 
     font-size: 12px;
     font-family: 'Mont', sans-serif;
@@ -39,7 +39,7 @@
     }
 
     @include onDesktop {
-      height: 64px;
+      height: 62px;
       line-height: 64px;
     }
   }

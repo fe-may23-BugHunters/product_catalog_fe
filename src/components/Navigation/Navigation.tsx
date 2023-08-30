@@ -13,7 +13,7 @@ export const Navigation: React.FC = () => {
             className={({ isActive }) =>
               cn('nav__link', { 'is-active': isActive })
             }
-            to="home"
+            to="/home"
           >
             home
           </NavLink>
@@ -24,7 +24,7 @@ export const Navigation: React.FC = () => {
             className={({ isActive }) =>
               cn('nav__link', { 'is-active': isActive })
             }
-            to="phones"
+            to="/phones"
           >
             phones
           </NavLink>
@@ -35,8 +35,7 @@ export const Navigation: React.FC = () => {
             className={({ isActive }) =>
               cn('nav__link', { 'is-active': isActive })
             }
-            to="tablets
-          "
+            to="/tablets"
           >
             tablets
           </NavLink>
@@ -47,8 +46,7 @@ export const Navigation: React.FC = () => {
             className={({ isActive }) =>
               cn('nav__link', { 'is-active': isActive })
             }
-            to="accesso
-          ries"
+            to="/accessories"
           >
             accessories
           </NavLink>
