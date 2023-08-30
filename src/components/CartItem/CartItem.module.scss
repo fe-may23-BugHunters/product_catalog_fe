@@ -1,0 +1,135 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background-color: $color-surface1;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    &:first-child {
+      justify-content: flex-start;
+    }
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 24px;
+    }
+  }
+
+  &__remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    box-sizing: border-box;
+
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    transition: border $effectDuration;
+
+    @include onTablet {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      border: 1px solid $color-icons;
+    }
+
+    &:active {
+      transform: $effectScaleBtn;
+    }
+  }
+
+  &__imageBlock {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    padding: 7px;
+    box-sizing: border-box;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    font-weight: 600;
+    line-height: 150%;
+
+    @include onTablet {
+      max-width: 100%;
+    }
+  }
+
+  &__count {
+    flex: 0 0 96px;
+  }
+
+  &__increase,
+  &__decreaseBtn,
+  &__amount {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    color: $color-white;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  &__increase,
+  &__decreaseBtn {
+    border: 1px solid $color-surface2;
+    background-color: $color-surface2;
+    transition: background-color $effectDuration;
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+
+    &:active {
+      transform: $effectScaleBtn;
+    }
+  }
+
+  &__disabled {
+    color: $color-white;
+    background-color: transparent;
+    border: 1px solid $color-elements;
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__price {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+}
