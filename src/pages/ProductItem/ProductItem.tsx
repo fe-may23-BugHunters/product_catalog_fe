@@ -20,19 +20,19 @@ export const ProductItem: React.FC = () => {
 
       <div className={s.product__content}>
         <div className={s.product__photos}>
-            <ProductPhotos />
+          <ProductPhotos />
         </div>
 
         <div className={s.product__variants}>
-            <ProductVariants />
+          <ProductVariants />
         </div>
 
         <div className={s.product__about}>
-            <ProductAbout />
+          <ProductAbout />
         </div>
 
         <div className={s.product__techSpecs}>
-            <ProductTechSpecs />
+          <ProductTechSpecs />
         </div>
       </div>
 
