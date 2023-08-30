@@ -3,7 +3,15 @@ import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './BurgerMenu.scss';
 
-export const BurgerMenu: React.FC = () => {
+interface Props {
+  productsInFavourite: number;
+  productsInCart: number;
+}
+
+export const BurgerMenu: React.FC<Props> = ({
+  productsInCart,
+  productsInFavourite,
+}) => {
   return (
     <div className="burger">
       <nav className="burger__nav">
@@ -53,29 +61,32 @@ export const BurgerMenu: React.FC = () => {
           </li>
         </ul>
       </nav>
-
       <div className="burger__buttons">
-        <NavLink to="favourite" className="burger__icon">
-          <div className="icon icon--favourites">
-            <div className="ellipse"></div>
-          </div>
-        </NavLink>
-
-        <NavLink to="favourite" className="burger__icon">
+        {productsInFavourite ? (
+                  <NavLink to="favourite" className="burger__icon">
+                  <div className="icon icon--favourites">
+                    <div className="ellipse">{productsInFavourite}</div>
+                  </div>
+                </NavLink>
+        ) : (
+          <NavLink to="favourite" className="burger__icon">
           <div className="icon icon--favourites"></div>
         </NavLink>
+        )}
 
-        <NavLink
+        {productsInCart ? (
+          <NavLink
           to="cart"
           className={({ isActive }) =>
             cn('burger__icon', { 'is-active': isActive })
           }
         >
           <div className="icon icon--cart">
-            <div className="ellipse"></div>
+            <div className="ellipse">{productsInCart}</div>
           </div>
         </NavLink>
-        <NavLink
+        ) : (
+          <NavLink
           to="cart"
           className={({ isActive }) =>
             cn('burger__icon', { 'is-active': isActive })
@@ -83,6 +94,7 @@ export const BurgerMenu: React.FC = () => {
         >
           <div className="icon icon--cart"></div>
         </NavLink>
+        )}
       </div>
     </div>
   );

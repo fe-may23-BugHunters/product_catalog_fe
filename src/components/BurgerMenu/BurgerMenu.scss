@@ -2,9 +2,13 @@
 @import '../../styles/utils/mixins';
 
 .burger {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   position: absolute;
   top: 48px;
   right: 0;
+  bottom: 0;
 
   width: 100vw;
 

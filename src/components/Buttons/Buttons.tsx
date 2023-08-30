@@ -7,6 +7,17 @@ import { BurgerMenu } from '../BurgerMenu';
 
 export const Buttons: React.FC = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
+  const favouriteItemIds = [1, 2, 3, 4, 5, 6, 10, 11,
+    11, 21, 1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
+    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
+    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
+    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
+    1, 2, 3, 4, 5, 6, 10, 11,
+    11, 21, 1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
+    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
+    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
+    1, 2, 3, 4, 5, 6, 10, 11, 11, 21];
+  const cartItemIds = [];
 
   return (
     <div className="buttons">
@@ -21,27 +32,34 @@ export const Buttons: React.FC = () => {
 
       {isActiveBurger && (
         <div onClick={() => setIsActiveBurger(false)}>
-          <BurgerMenu />
+          <BurgerMenu
+          productsInFavourite={favouriteItemIds.length}
+          productsInCart={cartItemIds.length}
+          />
         </div>
       )}
-
-      <NavLink to="favourites" className="icon-wrapper">
+      {favouriteItemIds.length ? (
+        <NavLink to="favourites" className="icon-wrapper">
         <div className="icon icon--favourites">
-          <div className="ellipse"></div>
+         <div className="ellipse">{favouriteItemIds.length}</div>
         </div>
       </NavLink>
-      <NavLink to="favourites" className="icon-wrapper">
+      ) : (
+        <NavLink to="favourites" className="icon-wrapper">
         <div className="icon icon--favourites"></div>
       </NavLink>
-
-      <NavLink to="cart" className="icon-wrapper">
-        <div className="icon icon--cart">
-          <div className="ellipse"></div>
-        </div>
-      </NavLink>
-      <NavLink to="cart" className="icon-wrapper">
+      )}
+      {cartItemIds.length ? (
+          <NavLink to="cart" className="icon-wrapper">
+          <div className="icon icon--cart">
+            <div className="ellipse">{cartItemIds.length}</div>
+          </div>
+        </NavLink>
+      ) : (
+        <NavLink to="cart" className="icon-wrapper">
         <div className="icon icon--cart"></div>
       </NavLink>
+      )}
     </div>
   );
 };
