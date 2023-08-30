@@ -26,6 +26,6 @@ export const AppRouter: React.FC = () => {
           <Route path="*" element={<h1>Not Found Page</h1>} />
         </Route>
       </Routes>
-     </Router>
+    </Router>
   );
 };

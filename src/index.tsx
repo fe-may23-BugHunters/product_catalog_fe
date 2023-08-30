@@ -8,6 +8,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-      <AppRouter />
+    <AppRouter />
   </React.StrictMode>,
 );
