@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
 import App from '../App';
+import { ProductItem } from '../pages/ProductItem';
 
 export const AppRouter: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ export const AppRouter: React.FC = () => {
 
           <Route path="catalog">
             <Route index element={<h1>Catalog Page</h1>} />
-            <Route path=":itemId" element={<h1>Product Page</h1>} />
+            <Route path=":itemId" element={<ProductItem />} />
           </Route>
 
           <Route path="favourites" element={<h1>Favourites Page</h1>} />
