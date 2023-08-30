@@ -1,34 +1,20 @@
-@import "../../styles/utils/mixins";
-@import "../../styles/utils/variables";
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
 
-#main {
-  display: table;
-  width: 100%;
-  height: calc(100vh - 40px - 283px);
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
   text-align: center;
-  background-color: #3B3E4A;
-
-  @include onTablet {
-    height: calc(100vh - 48px - 101px);
-  }
-
-  @include onDesktop {
-    height: calc(100vh - 64px - 101px);
-  }
-
-  font-family: "Lato", sans-serif;
-  color: #F1F2F9;
-  margin: 0;
-}
-
-.notfound {
-  display: table-cell;
-  vertical-align: middle;
 
   &__title {
-    font-size: 25px;
-    display: inline-block;
-    padding-right: 12px;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  &__message {
+    font-size: 18px;
   }
 }
-
