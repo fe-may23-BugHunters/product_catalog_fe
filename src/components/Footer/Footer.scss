@@ -38,12 +38,12 @@
 
   &__btn-wrapper {
     display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
     justify-content: center;
     box-sizing: border-box;
     border: 1px solid $color-icons;
-    align-items: center;
-    width: 32px;
-    height: 32px;
     background-color: $color-surface2;
     cursor: pointer;
     transition: background-color $effectDuration;
@@ -68,9 +68,9 @@
   &__list {
     display: flex;
     flex-direction: column;
+    height: 100%;
     padding: 0;
     margin: 0;
-    height: 100%;
     gap: 16px;
 
     @include onTablet {
@@ -119,4 +119,3 @@
     }
   }
 }
-

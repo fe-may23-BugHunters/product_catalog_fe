@@ -26,11 +26,7 @@ export const Footer = () => {
             <ul className="nav__list">
               {footerLinks.map((link) => (
                 <li key={link.title} className="nav__item">
-                  <NavLink
-                    to={link.path}
-                    target="_blank"
-                    className="nav__link"
-                  >
+                  <NavLink to={link.path} target="_blank" className="nav__link">
                     {link.title}
                   </NavLink>
                 </li>
