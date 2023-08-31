@@ -6,6 +6,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
+import { NotFound } from '../components/NotFound';
 import App from '../App';
 
 export const AppRouter: React.FC = () => {
@@ -23,7 +24,7 @@ export const AppRouter: React.FC = () => {
 
           <Route path="favourites" element={<h1>Favourites Page</h1>} />
           <Route path="cart" element={<CartPage />} />
-          <Route path="*" element={<h1>Not Found Page</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>
