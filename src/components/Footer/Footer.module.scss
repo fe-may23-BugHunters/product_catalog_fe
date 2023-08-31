@@ -1,4 +1,118 @@
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
 .footer {
-  border-top: 1px solid white;
-  height: 96px;
+  box-sizing: border-box;
+  border-top: 1px solid $color-elements;
+  padding-block: 32px;
+  text-transform: uppercase;
+
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+
+    @include onTablet() {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    width: 89px;
+    align-self: flex-start;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    color: $color-secondary;
+    text-transform: none;
+    cursor: pointer;
+
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  &__nav {
+    align-self: flex-start;
+  }
+}
+
+.nav {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+
+    @include onTablet() {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    @include onDesktop {
+      gap: 60px;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+
+    &:not(:first-child) {
+      margin: 0;
+      margin-top: 16px;
+    }
+
+    @include onTablet() {
+      &:not(:first-child) {
+        margin: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    align-items: center;
+    line-height: 32px;
+    text-decoration: none;
+    color: $color-white;
+    cursor: pointer;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid $color-icons;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: $color-surface2;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-icons;
+  }
+}
+
+.button__up {
+  width: 16px;
+  height: 16px;
+  background: url('../../assets/icons/gray-arrows/arrow-up.svg') no-repeat;
 }
