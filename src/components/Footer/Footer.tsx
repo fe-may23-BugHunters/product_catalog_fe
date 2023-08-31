@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
 import '../../styles/blocks/_container.scss';
-import styles from './Footer.module.scss';
+import './Footer.scss';
 
 const footerLinks = [
   {
@@ -15,21 +15,21 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className="footer">
       <div className="container">
-        <div className={styles.footer__content}>
-          <div className={styles.footer__logo}>
+        <div className="footer__content">
+          <div className="footer__logo">
             <Logo />
           </div>
 
-          <nav className={`${styles.footer__nav} ${styles.nav}`}>
-            <ul className={styles.nav__list}>
+          <nav className="footer__nav nav">
+            <ul className="nav__list">
               {footerLinks.map((link) => (
-                <li key={link.title} className={styles.nav__item}>
+                <li key={link.title} className="nav__item">
                   <NavLink
                     to={link.path}
                     target="_blank"
-                    className={styles.nav__link}
+                    className="nav__link"
                   >
                     {link.title}
                   </NavLink>
@@ -38,12 +38,12 @@ export const Footer = () => {
             </ul>
           </nav>
 
-          <a href="#root" className={styles.footer__button}>
-            <span className={styles.footer__button__text}>Back to top</span>
-            <button type="button" className={styles.button}>
-              <div className={styles.button__up} />
-            </button>
-          </a>
+          <div className="footer__moveUp">
+            <span className="footer__label">Back to top</span>
+            <a href="#root" className="footer__btn-wrapper">
+              <div className="footer__btn" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
