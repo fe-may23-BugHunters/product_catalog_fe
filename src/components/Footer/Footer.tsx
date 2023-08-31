@@ -14,6 +14,10 @@ const footerLinks = [
 ];
 
 export const Footer = () => {
+  function goUp() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <footer className="footer">
       <div className="container">
@@ -34,11 +38,11 @@ export const Footer = () => {
             </ul>
           </nav>
 
-          <div className="footer__moveUp">
+          <div className="footer__moveUp" onClick={goUp}>
             <span className="footer__label">Back to top</span>
-            <a href="#root" className="footer__btn-wrapper">
+            <button type="button" className="footer__btn-wrapper">
               <div className="footer__btn" />
-            </a>
+            </button>
           </div>
         </div>
       </div>
