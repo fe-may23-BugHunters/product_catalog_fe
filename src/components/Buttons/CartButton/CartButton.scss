@@ -14,11 +14,17 @@
   font-size: 14px;
   color: $color-white;
   background-color: $color-accent;
-  transition: $effectDuration;
+  transition:
+    background-color $effectDuration,
+    transform $effectDuration;
   cursor: pointer;
 
   &:hover {
     background-color: $color-accent-light;
+  }
+
+  &:active {
+    transform: $effectScaleBtn;
   }
 
   &--active {
