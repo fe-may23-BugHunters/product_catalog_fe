@@ -13,7 +13,7 @@ export const CartButton = () => {
       })}
       onClick={() => setIsAddedToCart(!isAddedToCart)}
     >
-      {isAddedToCart ? 'Added' : 'Add to car'}
+      {isAddedToCart ? 'Added' : 'Add to cart'}
     </button>
   );
 };

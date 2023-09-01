@@ -6,7 +6,7 @@
   width: 48px;
   height: 40px;
   box-sizing: border-box;
-
+  border: 1px solid transparent;
   background-color: $color-surface2;
   transition: background-color $effectDuration;
   cursor: pointer;
