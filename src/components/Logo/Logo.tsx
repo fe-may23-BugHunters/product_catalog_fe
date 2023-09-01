@@ -7,10 +7,7 @@ export const Logo: React.FC = () => {
   return (
     <div className="logo">
       <NavLink to="/" className="logo_link">
-        <img className="logo__img"
-          src={logo}
-          alt="logo"
-        />
+        <img className="logo__img" src={logo} alt="logo" />
       </NavLink>
     </div>
   );

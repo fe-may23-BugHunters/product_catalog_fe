@@ -42,10 +42,7 @@ export const Footer = () => {
           <div className="footer__moveUp" onClick={goUp}>
             <span className="footer__label">Back to top</span>
             <button type="button" className="footer__btn-wrapper">
-              <img className="footer__btn"
-                src={arrowUp}
-                alt="arrowUp"
-              />
+              <img className="footer__btn" src={arrowUp} alt="arrowUp" />
             </button>
           </div>
         </div>
