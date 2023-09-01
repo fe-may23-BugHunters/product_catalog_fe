@@ -4,8 +4,8 @@ import cn from 'classnames';
 import './BurgerMenu.scss';
 
 interface Props {
-  productsInFavourite: number;
-  productsInCart: number;
+  productsInFavourite: number | null;
+  productsInCart: number | null;
 }
 
 export const BurgerMenu: React.FC<Props> = ({

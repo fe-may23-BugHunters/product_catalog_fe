@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo } from '../Logo';
+import { HeaderLogo } from '../HeaderLogo';
 import { Navigation } from '../Navigation';
 import { Buttons } from '../Buttons';
 
@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header__left">
-        <Logo />
+        <HeaderLogo />
 
         <Navigation />
       </div>

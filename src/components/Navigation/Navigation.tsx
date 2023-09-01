@@ -13,7 +13,7 @@ export const Navigation: React.FC = () => {
             className={({ isActive }) =>
               cn('nav__link', { 'is-active': isActive })
             }
-            to="/home"
+            to="/"
           >
             home
           </NavLink>

@@ -9,7 +9,7 @@ export const Buttons: React.FC = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
 
   const favouriteItemsCount = 10;
-  const cartItemIds = [];
+  const cartItemIds = null;
 
   useEffect(() => {
     const body = document.querySelector('body') as HTMLBodyElement;
@@ -32,32 +32,24 @@ export const Buttons: React.FC = () => {
         <div onClick={() => setIsActiveBurger(false)}>
           <BurgerMenu
             productsInFavourite={favouriteItemsCount}
-            productsInCart={cartItemIds.length}
+            productsInCart={cartItemIds}
           />
         </div>
       )}
-      {favouriteItemsCount ? (
-        <NavLink to="favourites" className="icon-wrapper">
-          <div className="icon icon--favourites">
+
+      <NavLink to="favourites" className="icon-wrapper">
+        <div className="icon icon--favourites">
+          {favouriteItemsCount && (
             <div className="ellipse">{favouriteItemsCount}</div>
-          </div>
-        </NavLink>
-      ) : (
-        <NavLink to="favourites" className="icon-wrapper">
-          <div className="icon icon--favourites"></div>
-        </NavLink>
-      )}
-      {cartItemIds.length ? (
-        <NavLink to="cart" className="icon-wrapper">
-          <div className="icon icon--cart">
-            <div className="ellipse">{cartItemIds.length}</div>
-          </div>
-        </NavLink>
-      ) : (
-        <NavLink to="cart" className="icon-wrapper">
-          <div className="icon icon--cart"></div>
-        </NavLink>
-      )}
+          )}
+        </div>
+      </NavLink>
+
+      <NavLink to="cart" className="icon-wrapper">
+        <div className="icon icon--cart">
+          {cartItemIds && <div className="ellipse">{cartItemIds}</div>}
+        </div>
+      </NavLink>
     </div>
   );
 };
