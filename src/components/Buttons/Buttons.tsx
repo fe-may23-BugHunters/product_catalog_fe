@@ -14,9 +14,7 @@ export const Buttons: React.FC = () => {
   useEffect(() => {
     const body = document.querySelector('body') as HTMLBodyElement;
 
-    body.style.overflow = isActiveBurger
-      ? 'hidden'
-      : 'visible';
+    body.style.overflow = isActiveBurger ? 'hidden' : 'visible';
   }, [isActiveBurger]);
 
   return (
@@ -33,32 +31,32 @@ export const Buttons: React.FC = () => {
       {isActiveBurger && (
         <div onClick={() => setIsActiveBurger(false)}>
           <BurgerMenu
-          productsInFavourite={favouriteItemsCount}
-          productsInCart={cartItemIds.length}
+            productsInFavourite={favouriteItemsCount}
+            productsInCart={cartItemIds.length}
           />
         </div>
       )}
       {favouriteItemsCount ? (
         <NavLink to="favourites" className="icon-wrapper">
-        <div className="icon icon--favourites">
-         <div className="ellipse">{favouriteItemsCount}</div>
-        </div>
-      </NavLink>
+          <div className="icon icon--favourites">
+            <div className="ellipse">{favouriteItemsCount}</div>
+          </div>
+        </NavLink>
       ) : (
         <NavLink to="favourites" className="icon-wrapper">
-        <div className="icon icon--favourites"></div>
-      </NavLink>
+          <div className="icon icon--favourites"></div>
+        </NavLink>
       )}
       {cartItemIds.length ? (
-          <NavLink to="cart" className="icon-wrapper">
+        <NavLink to="cart" className="icon-wrapper">
           <div className="icon icon--cart">
             <div className="ellipse">{cartItemIds.length}</div>
           </div>
         </NavLink>
       ) : (
         <NavLink to="cart" className="icon-wrapper">
-        <div className="icon icon--cart"></div>
-      </NavLink>
+          <div className="icon icon--cart"></div>
+        </NavLink>
       )}
     </div>
   );
