@@ -6,11 +6,7 @@ import { FavouriteButton } from '../Buttons/FavouriteButton';
 export const CardItem: React.FC = () => {
   return (
     <article className="card">
-      <img
-        className="card__photo"
-        src="http://surl.li/krahu"
-        alt="name"
-      />
+      <img className="card__photo" src="http://surl.li/krahu" alt="name" />
 
       <h2 className="card__title">Apple iPhone Xs 64GB Silver (iMT9G2FS/A)</h2>
 

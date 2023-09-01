@@ -15,20 +15,11 @@ export const FavouriteButton: React.FC = () => {
       })}
       onClick={() => setIsFavourite(!isFavourite)}
     >
-    {isFavourite ? (
-      <img
-      className="favBtn__icon"
-      src={likeBtnRed}
-      alt="likeBtnRed"
-    />
-
-    ) : (
-      <img
-        className="favBtn__icon"
-        src={likeBtn}
-        alt="likeBtn"
-      />
-    )}
+      {isFavourite ? (
+        <img className="favBtn__icon" src={likeBtnRed} alt="likeBtnRed" />
+      ) : (
+        <img className="favBtn__icon" src={likeBtn} alt="likeBtn" />
+      )}
     </button>
   );
 };
