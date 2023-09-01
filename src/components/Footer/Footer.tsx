@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
 import '../../styles/blocks/_container.scss';
 import './Footer.scss';
+import arrowUp from '../../assets/icons/gray-arrows/arrow-up.svg';
 
 const footerLinks = [
   {
@@ -41,7 +42,10 @@ export const Footer = () => {
           <div className="footer__moveUp" onClick={goUp}>
             <span className="footer__label">Back to top</span>
             <button type="button" className="footer__btn-wrapper">
-              <div className="footer__btn" />
+              <img className="footer__btn"
+                src={arrowUp}
+                alt="arrowUp"
+              />
             </button>
           </div>
         </div>
