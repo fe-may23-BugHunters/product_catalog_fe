@@ -2,36 +2,22 @@
 @import '../../styles/utils/mixins';
 
 .burger {
-  overflow-y: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
   position: absolute;
-  // position: fixed;
-  // inset-block-start: 0;
-  // inset-inline: 0;
   top: 48px;
   right: 0;
   bottom: 0;
-  background-color: $color-dark;
 
-  // transform: translateX(-150%);
-
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   width: 100vw;
-  height: 100vh;
-
-  // transition: transform $effectDuration;
-
+  height: calc(100vh - 48px);
   padding-top: 24px;
 
-  z-index: 300;
+  background-color: $color-dark;
 
   border-left: solid 1px $color-white;
   border-bottom: solid 1px $color-white;
-
-  // &:target {
-  //   transform: translateX(0);
-  // }
 
   @include onTablet {
     display: none;
@@ -41,7 +27,11 @@
     display: flex;
     flex-direction: column;
 
-    margin-bottom: 50%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__list {
@@ -78,17 +68,13 @@
     }
   }
 
-  &__link.is-active {
-    color: $color-white;
-
-    border-bottom: 3px solid $color-white;
-  }
-
   &__buttons {
     display: flex;
     flex-direction: row;
 
     min-width: 320px;
+
+    overflow: hidden;
   }
 
   &__icon {
@@ -100,7 +86,6 @@
     height: 64px;
 
     border: solid 1px $color-elements;
-
   }
 
   &__icon.active,

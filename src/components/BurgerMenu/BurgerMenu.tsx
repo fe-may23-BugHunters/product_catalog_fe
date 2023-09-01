@@ -61,40 +61,26 @@ export const BurgerMenu: React.FC<Props> = ({
           </li>
         </ul>
       </nav>
-      <div className="burger__buttons">
-        {productsInFavourite ? (
-                  <NavLink to="favourite" className="burger__icon">
-                  <div className="icon icon--favourites">
-                    <div className="ellipse">{productsInFavourite}</div>
-                  </div>
-                </NavLink>
-        ) : (
-          <NavLink to="favourite" className="burger__icon">
-          <div className="icon icon--favourites"></div>
-        </NavLink>
-        )}
 
-        {productsInCart ? (
-          <NavLink
-          to="cart"
+      <div className="burger__buttons">
+        <NavLink to="/favourites" className="burger__icon">
+          <div className="icon icon--favourites">
+            {productsInFavourite && (
+              <div className="ellipse">{productsInFavourite}</div>
+            )}
+          </div>
+        </NavLink>
+
+        <NavLink
+          to="/cart"
           className={({ isActive }) =>
             cn('burger__icon', { 'is-active': isActive })
           }
         >
           <div className="icon icon--cart">
-            <div className="ellipse">{productsInCart}</div>
+            {productsInCart && <div className="ellipse">{productsInCart}</div>}
           </div>
         </NavLink>
-        ) : (
-          <NavLink
-          to="cart"
-          className={({ isActive }) =>
-            cn('burger__icon', { 'is-active': isActive })
-          }
-        >
-          <div className="icon icon--cart"></div>
-        </NavLink>
-        )}
       </div>
     </div>
   );

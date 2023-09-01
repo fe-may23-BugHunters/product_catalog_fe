@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -7,17 +7,17 @@ import { BurgerMenu } from '../BurgerMenu';
 
 export const Buttons: React.FC = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
-  const favouriteItemIds = [1, 2, 3, 4, 5, 6, 10, 11,
-    11, 21, 1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
-    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
-    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
-    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
-    1, 2, 3, 4, 5, 6, 10, 11,
-    11, 21, 1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
-    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
-    1, 2, 3, 4, 5, 6, 10, 11, 11, 21,
-    1, 2, 3, 4, 5, 6, 10, 11, 11, 21];
+
+  const favouriteItemsCount = 10;
   const cartItemIds = [];
+
+  useEffect(() => {
+    const body = document.querySelector('body') as HTMLBodyElement;
+
+    body.style.overflow = isActiveBurger
+      ? 'hidden'
+      : 'visible';
+  }, [isActiveBurger]);
 
   return (
     <div className="buttons">
@@ -33,15 +33,15 @@ export const Buttons: React.FC = () => {
       {isActiveBurger && (
         <div onClick={() => setIsActiveBurger(false)}>
           <BurgerMenu
-          productsInFavourite={favouriteItemIds.length}
+          productsInFavourite={favouriteItemsCount}
           productsInCart={cartItemIds.length}
           />
         </div>
       )}
-      {favouriteItemIds.length ? (
+      {favouriteItemsCount ? (
         <NavLink to="favourites" className="icon-wrapper">
         <div className="icon icon--favourites">
-         <div className="ellipse">{favouriteItemIds.length}</div>
+         <div className="ellipse">{favouriteItemsCount}</div>
         </div>
       </NavLink>
       ) : (

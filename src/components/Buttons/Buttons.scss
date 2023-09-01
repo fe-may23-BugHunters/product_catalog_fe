@@ -17,10 +17,10 @@
   cursor: pointer;
 
   border-left: solid 1px $color-elements;
-  border-right: solid 1px $color-elements;
+  transition: background-color $effectDuration;
 
   &:hover {
-    border-color: $color-white;
+    background-color: $color-surface2;
   }
 
   @include onTablet {
