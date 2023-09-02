@@ -2,6 +2,10 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
+.test {
+  width: 272px;
+}
+
 .card {
   display: flex;
   box-sizing: border-box;
@@ -11,7 +15,9 @@
   gap: 8px;
   border: 1px solid transparent;
   background-color: $color-surface1;
-  transition: box-shadow, border $effectDuration;
+  transition:
+    box-shadow,
+    border $effectDuration;
 
   &:hover {
     border: 1px solid $color-surface2;

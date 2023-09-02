@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './CartPage.module.scss';
 import { CartItem } from '../../components/CartItem';
+import { CardItem } from '../../components/CardItem';
 
 export const CartPage: React.FC = () => {
   return (
@@ -48,6 +49,7 @@ export const CartPage: React.FC = () => {
           <div className={s.cart__decor}></div>
           <button className={s.cart__checkoutBtn}>Checkout</button>
         </div>
+        <CardItem />
       </div>
     </section>
   );
