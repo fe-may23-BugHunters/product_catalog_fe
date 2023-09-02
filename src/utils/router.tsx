@@ -6,8 +6,8 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
-import { NotFound } from '../components/NotFound';
 import App from '../App';
+import { NotFound } from '../components/NotFound';
 
 export const AppRouter: React.FC = () => {
   return (
