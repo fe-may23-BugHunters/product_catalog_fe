@@ -1,14 +1,18 @@
 @import '../../styles/utils/mixins';
 @import '../../styles/utils/variables';
 
-.not-found {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+.notFound {
+  padding-top: 150px;
   line-height: 1.5;
   text-align: center;
+
+  @include onTablet {
+    padding-top: 250px;
+  }
+
+  @media (orientation: landscape) {
+    padding-top: 200px;
+  }
 
   &__title {
     margin-bottom: 10px;

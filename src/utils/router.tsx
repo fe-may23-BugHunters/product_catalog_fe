@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
 import App from '../App';
-import { NotFound } from '../components/NotFound';
+import { NotFound } from '../pages/NotFound';
 
 export const AppRouter: React.FC = () => {
   return (
