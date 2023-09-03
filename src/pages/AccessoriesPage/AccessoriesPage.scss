@@ -8,10 +8,6 @@
     @include onTablet {
       padding-inline: 16px;
     }
-
-    @include onDesktop {
-      padding-inline: 16px;
-    }
   }
 
   &__title {
