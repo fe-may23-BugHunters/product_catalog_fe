@@ -8,13 +8,14 @@ import {
 import { CartPage } from '../pages/CartPage';
 import App from '../App';
 import { NotFound } from '../components/NotFound';
+import { HomePage } from '../pages/HomePage/HomePage';
 
 export const AppRouter: React.FC = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<h1>Home Page</h1>} />
+          <Route index element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
 
           <Route path="catalog">

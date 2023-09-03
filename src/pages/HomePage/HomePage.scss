@@ -1,0 +1,96 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.home-page {
+  @include onTablet {
+    padding: 0 24px;
+  }
+
+  @include onDesktop {
+    padding: 0 32px;
+  }
+
+  &__title {
+    margin: 24px auto;
+    margin-left: 16px;
+
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.32px;
+    text-align: left;
+    color: $color-white;
+
+    @include onTablet {
+      margin: 24px auto;
+    }
+
+    max-width: 1136px;
+  }
+
+  &__slider {
+    max-width: 1136px;
+    margin: 0 auto 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__new {
+    max-width: 1136px;
+    margin-bottom: 64px;
+    margin-left: 16px;
+
+    @include onTablet {
+      margin: auto;
+    }
+
+    @include onDesktop {
+      margin: 80px auto;
+    }
+  }
+
+  &__category {
+    max-width: 1136px;
+    margin-bottom: 56px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    @include onTablet {
+      margin: 64px auto;
+    }
+
+    @include onDesktop {
+      margin: 80px auto;
+    }
+
+    &-title {
+      margin-bottom: 24px;
+
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 140%;
+      color: $color-white;
+
+    }
+  }
+
+  &__hot {
+    max-width: 1136px;
+    margin-bottom: 64px;
+    margin-left: 16px;
+
+    @include onTablet {
+      margin: auto;
+    }
+
+    @include onDesktop {
+      margin: 80px auto;
+    }
+  }
+}
