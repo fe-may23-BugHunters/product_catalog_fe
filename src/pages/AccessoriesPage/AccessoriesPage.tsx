@@ -24,24 +24,26 @@ export const AccessoriesPage: React.FC = () => {
 
   return (
     <article className="accessories">
-      <h2 className="accessories__title">Accessories</h2>
-      <p className="accessories__model">{displayedCards.length} models</p>
+      <div className="accessories__header">
+        <h2 className="accessories__title">Accessories</h2>
+        <p className="accessories__model">{displayedCards.length} models</p>
 
-      <div className="accessories__select__block">
-        <div className="accessories__select__item">
-          <SelectBlock
-            selectName='Sort by'
-            defaultValue='Newest'
-            options={options}
-          />
-        </div>
+        <div className="accessories__select__block">
+          <div className="accessories__select__item">
+            <SelectBlock
+              selectName='Sort by'
+              defaultValue='Newest'
+              options={options}
+            />
+          </div>
 
-        <div className="accessories__select__item">
-          <SelectBlock
-            selectName='Items on page'
-            defaultValue={4}
-            options={[4, 8, 12, 16]}
-          />
+          <div className="accessories__select__item">
+            <SelectBlock
+              selectName='Items on page'
+              defaultValue={4}
+              options={[4, 8, 12, 16]}
+            />
+          </div>
         </div>
       </div>
 

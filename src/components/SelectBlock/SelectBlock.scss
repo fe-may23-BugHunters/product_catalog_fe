@@ -47,9 +47,18 @@
     }
   }
 
-  &__selected-option,
-  &__img {
+  &__selected-option {
     padding: 15px;
+    text-wrap: nowrap;
+  }
+
+  &__img {
+    position: absolute;
+    right: 10px;
+
+    &-img {
+      display: flex;
+    }
   }
 
   &__options {

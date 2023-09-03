@@ -2,11 +2,23 @@
 @import '../../styles/utils/breakpoints';
 
 .phones {
+  padding-top: 24px;
+
+  &__header {
+    @include onTablet {
+      padding-inline: 16px;
+    }
+
+    @include onDesktop {
+      padding-inline: 16px;
+    }
+  }
+
   &__title {
     margin-bottom: 5px;
     box-sizing: border-box;
     font-size: 32px;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 41px;
     color: $color-white;
   }
@@ -33,16 +45,10 @@
 
   &__cards {
     display: grid;
-    gap: 30px;
+    justify-items: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     margin-bottom: 30px;
-
-    @include onTablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include onDesktop {
-      grid-template-columns: repeat(4, 1fr);
-    }
   }
 
   &__card {

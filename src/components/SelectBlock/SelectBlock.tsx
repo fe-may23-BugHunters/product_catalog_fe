@@ -60,9 +60,17 @@ export const SelectBlock: React.FC<Props> = ({
           </div>
           <div className="selectBlock__img">
             {isOpen ? (
-              <img src={arrowUp} alt="arrowUp" />
+              <img
+                className='selectBlock__img-img'
+                src={arrowUp}
+                alt="arrowUp"
+              />
             ) : (
-              <img src={arrowDown} alt="arrowDown" />
+              <img
+                className='selectBlock__img-img'
+                src={arrowDown}
+                alt="arrowDown"
+              />
             )}
           </div>
         </div>

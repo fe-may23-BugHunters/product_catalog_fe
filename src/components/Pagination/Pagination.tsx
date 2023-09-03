@@ -2,7 +2,6 @@ import React from 'react';
 import './Pagination.scss';
 import arrowLeft from '../../assets/icons/arrowPaginationLeft.svg';
 import arrowRight from '../../assets/icons/arrowPaginationRight.svg';
-
 import cn from 'classnames';
 
 type Props = {
