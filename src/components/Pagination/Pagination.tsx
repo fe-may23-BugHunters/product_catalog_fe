@@ -29,7 +29,7 @@ export const Pagination: React.FC<Props> = ({
         key={page}
         onClick={() => onPageClick(page)}
         className={cn('pagination__item', {
-          'selected': page === currentPage,
+          selected: page === currentPage,
         })}
       >
         {page}
@@ -56,21 +56,21 @@ export const Pagination: React.FC<Props> = ({
   };
 
   return (
-    <div className='pagination'>
+    <div className="pagination">
       <button
         onClick={onPrevClick}
         className={cn('pagination__item-arrow', {
-          'disabledLeft': isFirstPage,
+          disabledLeft: isFirstPage,
         })}
         disabled={isFirstPage}
       >
         <img src={arrowLeft} alt="arrowLeft" />
       </button>
-        {pages}
+      {pages}
       <button
         onClick={onNextClick}
         className={cn('pagination__item-arrow', {
-          'disabledRight': isLastPage,
+          disabledRight: isLastPage,
         })}
         disabled={isLastPage}
       >

@@ -29,8 +29,10 @@ export const SelectBlock: React.FC<Props> = ({
   };
 
   const handleClickOutside = (clickEvent: MouseEvent) => {
-    if (wrapperRef.current
-      && !wrapperRef.current.contains(clickEvent.target as Node)) {
+    if (
+      wrapperRef.current
+      && !wrapperRef.current.contains(clickEvent.target as Node)
+    ) {
       setIsOpen(false);
     }
   };
@@ -46,37 +48,30 @@ export const SelectBlock: React.FC<Props> = ({
   return (
     <div className="selectBlock">
       <h3 className="selectBlock__title">{selectName}</h3>
-      <div
-        className="selectBlock__wrapper"
-        ref={wrapperRef}
-      >
+      <div className="selectBlock__wrapper" ref={wrapperRef}>
         <div
           className="selectBlock__content"
           tabIndex={0}
           onClick={toggleDropdown}
         >
-          <div className="selectBlock__selected-option">
-            {selectedValue}
-          </div>
+          <div className="selectBlock__selected-option">{selectedValue}</div>
           <div className="selectBlock__img">
             {isOpen ? (
               <img
-                className='selectBlock__img-img'
+                className="selectBlock__img-img"
                 src={arrowUp}
                 alt="arrowUp"
               />
             ) : (
               <img
-                className='selectBlock__img-img'
+                className="selectBlock__img-img"
                 src={arrowDown}
                 alt="arrowDown"
               />
             )}
           </div>
         </div>
-        <ul
-          className={cn('selectBlock__options', { 'active': isOpen })}
-        >
+        <ul className={cn('selectBlock__options', { active: isOpen })}>
           {options.map((option) => (
             <li
               key={option}

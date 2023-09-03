@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/HeaderLogo.svg';
+import logo from '../../assets/Logo.svg';
 import './HeaderLogo.scss';
 
 export const HeaderLogo: React.FC = () => {

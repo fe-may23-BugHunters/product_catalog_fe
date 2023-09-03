@@ -6,7 +6,11 @@ import { Pagination } from '../../components/Pagination';
 
 const cards = getMockPages(0, 20);
 const options = [
-  'Default', 'Price Lowest', 'Price Highest', 'Newest', 'Oldest',
+  'Default',
+  'Price Lowest',
+  'Price Highest',
+  'Newest',
+  'Oldest',
 ];
 
 export const AccessoriesPage: React.FC = () => {
@@ -31,15 +35,15 @@ export const AccessoriesPage: React.FC = () => {
         <div className="accessories__select__block">
           <div className="accessories__select__item">
             <SelectBlock
-              selectName='Sort by'
-              defaultValue='Newest'
+              selectName="Sort by"
+              defaultValue="Newest"
               options={options}
             />
           </div>
 
           <div className="accessories__select__item">
             <SelectBlock
-              selectName='Items on page'
+              selectName="Items on page"
               defaultValue={4}
               options={[4, 8, 12, 16]}
             />
@@ -48,10 +52,8 @@ export const AccessoriesPage: React.FC = () => {
       </div>
 
       <div className="accessories__cards">
-        {displayedCards.map(card => (
-          <div
-            className="accessories__card"
-            key={card}>
+        {displayedCards.map((card) => (
+          <div className="accessories__card" key={card}>
             {card}
           </div>
         ))}
