@@ -2,13 +2,22 @@ import React from 'react';
 import { CartButton } from '../Buttons/CartButton/CartButton';
 import './CardItem.scss';
 import { FavouriteButton } from '../Buttons/FavouriteButton';
+import { NavLink } from 'react-router-dom';
 
 export const CardItem: React.FC = () => {
   return (
     <div className="test">
       <article className="card">
-        <img className="card__photo" src="http://surl.li/krahu" alt="name" />
-
+        <NavLink
+          to='/products'
+          target="_blank"
+          className="card__photo">
+              <img
+                className="card__photo"
+                src="http://surl.li/krahu"
+                alt="name"
+              />
+        </NavLink>
         <h2 className="card__title">
           Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
         </h2>

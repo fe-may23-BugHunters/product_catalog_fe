@@ -3,7 +3,15 @@
 @import '../../styles/utils/mixins';
 
 .test {
-  width: 272px;
+  width: 212px;
+
+  @include onTablet {
+    width: 237px;
+  }
+
+  @include onDesktop {
+    width: 272px;
+  }
 }
 
 .card {
@@ -33,11 +41,20 @@
 
   &__photo {
     display: flex;
-    margin: 0 0;
+    justify-content: center;
     margin-bottom: 16px;
-    max-width: 208px;
-    max-height: 196px;
+    height: 130px;
     object-fit: contain;
+    cursor: pointer;
+    transition: transform $effectDuration;
+
+    @include onTablet {
+      height: 196px;
+    }
+
+    &:hover {
+      transform: $effectScaleBtn;
+    }
   }
 
   &__price {
