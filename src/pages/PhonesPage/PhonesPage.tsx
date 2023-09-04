@@ -3,6 +3,7 @@ import './PhonesPage.scss';
 import { SelectBlock } from '../../components/SelectBlock';
 import { getMockPages } from '../../helpers/getMockPages';
 import { Pagination } from '../../components/Pagination';
+import { CardItem } from '../../components/CardItem';
 
 const cards = getMockPages(0, 20);
 const options = [
@@ -54,7 +55,7 @@ export const PhonesPage: React.FC = () => {
       <div className="phones__cards">
         {displayedCards.map((card) => (
           <div className="phones__card" key={card}>
-            {card}
+            <CardItem />
           </div>
         ))}
       </div>
