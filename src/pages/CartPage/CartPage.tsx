@@ -4,7 +4,6 @@ import { CartItem } from '../../components/CartItem';
 import { BtnBack } from '../../components/BtnBack';
 import { WideBtn } from '../../components/WideBtn';
 import { CartModal } from '../../components/CartModal';
-import { BannerSlider } from '../../components/BannerSlider';
 
 export const CartPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -41,8 +40,6 @@ export const CartPage: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <BannerSlider />
     </section>
   );
 };
