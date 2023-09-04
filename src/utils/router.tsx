@@ -10,8 +10,7 @@ import App from '../App';
 import { AccessoriesPage } from '../pages/AccessoriesPage';
 import { PhonesPage } from '../pages/PhonesPage';
 import { TabletsPage } from '../pages/TabletsPage';
-import { NotFound } from '../components/NotFound';
-
+import { NotFound } from '../pages/NotFound';
 
 export const AppRouter: React.FC = () => {
   return (

@@ -6,7 +6,7 @@
   max-height: 59px;
   margin-bottom: 20px;
 
-  @include onTablet{
+  @include onTablet {
     max-width: 187px;
   }
 
@@ -27,7 +27,7 @@
     min-height: 40px;
     background-color: $color-surface2;
 
-    @include onTablet{
+    @include onTablet {
       min-width: 187px;
     }
 

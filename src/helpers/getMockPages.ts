@@ -3,7 +3,7 @@ export function getMockPages(from: number, to: number) {
 
   for (let i = from; i < to; i++) {
     cardItems.push(`${i} Card Item`);
-  };
+  }
 
   return cardItems;
 }
