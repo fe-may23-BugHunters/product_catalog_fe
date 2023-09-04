@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import './styles/main.scss';
 import { MainLayout } from './layouts/MainLayout';
@@ -10,26 +12,26 @@ const App: React.FC = () => {
 
   useEffect(() => {
     getSpecifiedProducts()
-    .then(products => {
-      setProducts(products.data);
-      console.log(products);
-    })
-    .catch(err => {
-      console.log(err);
+      .then((someProducts) => {
+        setProducts(someProducts.data);
+        console.log(someProducts);
+      })
+      .catch((err) => {
+        console.log(err);
 
-      return Promise.reject();
-    });
+        throw new Error(err);
+      });
 
     getProductById('e50752f4-46a4-11ee-ac61-fed709f87b70')
-    .then(product => {
-      setProduct(product.data);
-      console.log(product);
-    })
-    .catch(err => {
-      console.log(err);
+      .then((someProduct) => {
+        setProduct(someProduct.data);
+        console.log(someProduct);
+      })
+      .catch((err) => {
+        console.log(err);
 
-      return Promise.reject();
-    });
+        throw new Error(err);
+      });
   }, []);
 
   return (
