@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './CardSlider.scss';
 import classNames from 'classnames';
+import { CardItem } from '../CardItem';
 
 interface Props {}
 
@@ -16,7 +17,7 @@ export const CardSlider: React.FC<Props> = () => {
 
       setMaxScroll(maxScrollValue);
     }
-  }, []);
+  }, [window.innerWidth]);
 
   const handleScrollLeft = () => {
     if (containerRef.current) {
@@ -67,26 +68,39 @@ export const CardSlider: React.FC<Props> = () => {
         onScroll={handleScroll}
       >
         <div className="carouselSlider">
-          <div className="cardContainer">1</div>
-          <div className="cardContainer">2</div>
-          <div className="cardContainer">3</div>
-          <div className="cardContainer">4</div>
-          <div className="cardContainer">5</div>
-          <div className="cardContainer">6</div>
-          <div className="cardContainer">7</div>
-          <div className="cardContainer">8</div>
-          <div className="cardContainer">9</div>
-          <div className="cardContainer">10</div>
-          <div className="cardContainer">11</div>
-          <div className="cardContainer">12</div>
-          <div className="cardContainer">13</div>
-          <div className="cardContainer">14</div>
-          <div className="cardContainer">15</div>
-          <div className="cardContainer">16</div>
-          <div className="cardContainer">17</div>
-          <div className="cardContainer">18</div>
-          <div className="cardContainer">19</div>
-          <div className="cardContainer">20</div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
+          <div className="cardContainer">
+            <CardItem />
+          </div>
         </div>
       </div>
     </div>

@@ -4,17 +4,14 @@
 
 .cardContainer {
   width: 212px;
-  height: 506px;
   background-color: $color-secondary;
 
   @include onTablet {
     width: 237px;
-    height: 506px;
   }
 
   @include onDesktop {
     width: 272px;
-    height: 506px;
   }
 }
 
