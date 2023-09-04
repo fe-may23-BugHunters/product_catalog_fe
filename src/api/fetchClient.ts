@@ -1,4 +1,3 @@
-// you can remove this plug if you write in this file
 import axios from 'axios';
 
 const BASE_URL = 'https://fe-may23-bughunters.onrender.com';

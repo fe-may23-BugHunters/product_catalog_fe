@@ -9,15 +9,13 @@ export const FavouritesPage: React.FC = () => {
 
   return (
     <article className="favourites">
-      <div className="tablets__breadCrumbs">
+      <div className="favourites__breadCrumbs">
         <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
       </div>
 
-      <div className="headerContent">
-        <div className="headerContent__title">Favourites</div>
+      <h1 className="favourites__title">Favourites</h1>
 
-        <div className="headerContent__itemsCount">5 items</div>
-      </div>
+      <p className="favourites__count">5 items</p>
 
       <div className="favourites__cards">
         <div className="favourites__card">
