@@ -14,7 +14,7 @@ export const ProductItem: React.FC = () => {
   return (
     <div className="product">
       <div className="product__breadCrumbs">
-        <BreadCrumbs pathname={pathname} onPathChange={onPathChange}/>
+        <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
       </div>
 
       <div className="product__btnBack">
