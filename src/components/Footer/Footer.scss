@@ -57,12 +57,12 @@
     height: 16px;
   }
 
-  &__nav {
+  &__footerNav {
     align-self: flex-start;
   }
 }
 
-.nav {
+.footerNav {
   &__list {
     display: flex;
     flex-direction: column;
