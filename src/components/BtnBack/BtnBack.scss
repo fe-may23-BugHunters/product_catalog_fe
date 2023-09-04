@@ -1,0 +1,22 @@
+@import '../../styles/utils/variables';
+
+.btnBack {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: $color-white;
+  transition: color $effectDuration;
+
+  &:hover {
+    color: $color-accent;
+
+    #arrowBackBtn {
+      fill: $color-accent;
+    }
+  }
+}
+
+#arrowBackBtn {
+  transition: fill $effectDuration;
+}

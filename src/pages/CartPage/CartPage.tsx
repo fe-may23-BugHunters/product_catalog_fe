@@ -1,31 +1,51 @@
 import React from 'react';
-import s from './CartPage.module.scss';
+import './CartPage.scss';
 import { CartItem } from '../../components/CartItem';
 import { BtnBack } from '../../components/BtnBack';
+import { WideBtn } from '../../components/WideBtn';
+import { CartModal } from '../../components/CartModal';
+import { BannerSlider } from '../../components/BannerSlider';
+import { CardItem } from '../../components/CardItem';
 
 export const CartPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
   return (
-    <section className={s.cart}>
-      <div className={s.cart__btnBack}>
+    <section className="cart">
+      {isModalOpen && <CartModal handleClick={() => setIsModalOpen(false)} />}
+
+      <div className="cart__btnBack">
         <BtnBack />
       </div>
 
-      <h1 className={s.cart__title}>Cart</h1>
+      <h1 className="cart__title">Cart</h1>
 
-      <div className={s.cart__content}>
-        <div className={s.cart__items}>
+      <div className="cart__content">
+        <div className="cart__items">
           <CartItem />
           <CartItem />
           <CartItem />
           <CartItem />
         </div>
 
-        <div className={s.cart__checkout}>
-          <p className={s.cart__sum}>$2657</p>
-          <p className={s.cart__count}>Total for 3 items</p>
-          <div className={s.cart__decor}></div>
-          <button className={s.cart__checkoutBtn}>Checkout</button>
+        <div className="cart__checkout">
+          <p className="cart__sum">$2657</p>
+          <p className="cart__count">Total for 3 items</p>
+          <div className="cart__decor"></div>
+
+          <div
+            className="cart__checkoutBtn"
+            role="button"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <WideBtn mainTitle={'Checkout'} />
+          </div>
         </div>
+      </div>
+
+      <BannerSlider />
+      <div style={{ width: '300px', height: '100%' }}>
+        <CardItem />
       </div>
     </section>
   );
