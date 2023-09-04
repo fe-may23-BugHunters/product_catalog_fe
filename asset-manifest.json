@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/product_catalog_fe/static/css/main.a73dfa71.css",
-    "main.js": "/product_catalog_fe/static/js/main.8a961587.js",
+    "main.css": "/product_catalog_fe/static/css/main.f65037c8.css",
+    "main.js": "/product_catalog_fe/static/js/main.7caf9a83.js",
     "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.82f82c9ade36c8bb9559f23b90157ac2.svg",
     "static/media/Mont-Regular.ttf": "/product_catalog_fe/static/media/Mont-Regular.7c9521719ef1f902cd6e.ttf",
     "static/media/Mont-SemiBold.ttf": "/product_catalog_fe/static/media/Mont-SemiBold.c21ff6b111e2dd3dc2cf.ttf",
     "static/media/Mont-Bold.ttf": "/product_catalog_fe/static/media/Mont-Bold.53b78fdf82658f151a04.ttf",
-    "static/media/Category_tablets.jpg": "/product_catalog_fe/static/media/Category_tablets.e9479f3f870125299d9e.jpg",
     "static/media/Category_accessories.jpg": "/product_catalog_fe/static/media/Category_accessories.fcfc0e03193ac666740c.jpg",
-    "static/media/Category_phones.jpg": "/product_catalog_fe/static/media/Category_phones.eb4e7a703a6a58fa6a93.jpg",
+    "static/media/Category_tablets.jpg": "/product_catalog_fe/static/media/Category_tablets.d0f6c542e485c8505183.jpg",
+    "static/media/Category_phones.jpg": "/product_catalog_fe/static/media/Category_phones.15938cdd57a15c0eb87f.jpg",
     "static/media/Cart.svg": "/product_catalog_fe/static/media/Cart.fbb7bb4b7513df420fa1.svg",
     "static/media/likeBtn.svg": "/product_catalog_fe/static/media/likeBtn.75d1cf69424fbf740ba8401885512d6f.svg",
     "static/media/Favourites.svg": "/product_catalog_fe/static/media/Favourites.28f6088c83570782c6af.svg",
@@ -20,11 +20,11 @@
     "static/media/arrowDown.svg": "/product_catalog_fe/static/media/arrowDown.0a75b98d9165f32dc53134e728970af1.svg",
     "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.d7ccf9e94d5187a54e6e787c5eea5faf.svg",
     "index.html": "/product_catalog_fe/index.html",
-    "main.a73dfa71.css.map": "/product_catalog_fe/static/css/main.a73dfa71.css.map",
-    "main.8a961587.js.map": "/product_catalog_fe/static/js/main.8a961587.js.map"
+    "main.f65037c8.css.map": "/product_catalog_fe/static/css/main.f65037c8.css.map",
+    "main.7caf9a83.js.map": "/product_catalog_fe/static/js/main.7caf9a83.js.map"
   },
   "entrypoints": [
-    "static/css/main.a73dfa71.css",
-    "static/js/main.8a961587.js"
+    "static/css/main.f65037c8.css",
+    "static/js/main.7caf9a83.js"
   ]
 }
