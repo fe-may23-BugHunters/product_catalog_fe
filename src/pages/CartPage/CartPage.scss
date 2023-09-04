@@ -10,17 +10,7 @@
   }
 
   &__btnBack {
-    display: flex;
-    align-items: center;
     margin-block-end: 24px;
-    font-size: 12px;
-    font-weight: 700;
-    color: $color-white;
-    transition: color $effectDuration;
-
-    &:hover {
-      color: $color-secondary;
-    }
 
     @include onTablet {
       margin-block-end: 16px;
@@ -83,24 +73,7 @@
   }
 
   &__checkoutBtn {
-    display: block;
     width: 100%;
     height: 48px;
-    background-color: $color-accent;
-    color: $color-white;
-    font-weight: 700;
-    line-height: 150%;
-    border: none;
-    transition:
-      background-color $effectDuration,
-      transform $effectDuration;
-
-    &:hover {
-      background-color: $color-accent-light;
-    }
-
-    &:active {
-      transform: $effectScaleBtn;
-    }
   }
 }
