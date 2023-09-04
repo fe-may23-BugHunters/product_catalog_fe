@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './CartPage.module.scss';
 import { CartItem } from '../../components/CartItem';
-import { Categories } from '../../components/Categories';
 
 export const CartPage: React.FC = () => {
   return (
@@ -50,7 +49,6 @@ export const CartPage: React.FC = () => {
           <button className={s.cart__checkoutBtn}>Checkout</button>
         </div>
       </div>
-      <Categories />
     </section>
   );
 };
