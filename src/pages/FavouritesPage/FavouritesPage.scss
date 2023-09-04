@@ -3,10 +3,15 @@
 @import "src/styles/utils/mixins";
 
 .favourites {
-  padding-block: 24px;
-  
+  padding-block-start: 24px;
+  padding-block-end: 56px;
+
   @include onTablet {
-    padding-block: 40px;
+    padding-block-end: 64px;
+  }
+
+  @include onDesktop {
+    padding-block-end: 80px;
   }
 
   &__breadCrumbs {
@@ -17,12 +22,32 @@
     }
   }
 
+  &__title {
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 41px;
+    letter-spacing: -0.32px;
+    color: $color-white;
+  }
+
+  &__count {
+    margin-block-end: 32px;
+    color: $color-secondary;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+
+    @include onTablet {
+      margin-block-end: 40px;
+    }
+  }
+
   &__cards {
     display: grid;
-    justify-items: center;
     gap: 16px;
+    justify-items: center;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    margin-bottom: 30px;
   }
 
   &__card {
@@ -39,37 +64,3 @@
     }
   }
 }
-
-.headerContent {
-  padding-bottom: 32px;
-
-  @include onTablet {
-    padding-bottom: 40px;
-  }
-}
-
-.headerContent__itemsCount {
-  color: $color-secondary;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 21px
-}
-
-.headerContent__title {
-  margin-top: 40px;
-  margin-bottom: 8px;
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 41px;
-  letter-spacing: -0.32px;
-  text-align: left;
-  color: $color-white;
-
-  @include onTablet {
-    font-size: 48px;
-    line-height: 56px;
-    letter-spacing: -0.48px;
-  }
-}
-
-
