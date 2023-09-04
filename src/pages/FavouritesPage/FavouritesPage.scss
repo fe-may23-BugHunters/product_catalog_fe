@@ -1,0 +1,61 @@
+@import "src/styles/utils/variables";
+@import "src/styles/utils/breakpoints";
+@import "src/styles/utils/mixins";
+
+.favourites {
+  &__cards {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    margin-bottom: 30px;
+  }
+
+  &__card {
+    box-sizing: border-box;
+    width: 287px;
+    height: 100%;
+
+    @include onTablet {
+      width: 288px;
+    }
+
+    @include onDesktop {
+      width: 272px;
+    }
+  }
+}
+
+.headerContent {
+  padding-bottom: 32px;
+
+  @include onTablet {
+    padding-bottom: 40px;
+  }
+}
+
+.headerContent__itemsCount {
+  color: $color-secondary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px
+}
+
+.headerContent__title {
+  margin-top: 40px;
+  margin-bottom: 8px;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  letter-spacing: -0.32px;
+  text-align: left;
+  color: $color-white;
+
+  @include onTablet {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -0.48px;
+  }
+}
+
+

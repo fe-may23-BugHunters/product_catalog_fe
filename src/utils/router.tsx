@@ -11,6 +11,7 @@ import { AccessoriesPage } from '../pages/AccessoriesPage';
 import { PhonesPage } from '../pages/PhonesPage';
 import { TabletsPage } from '../pages/TabletsPage';
 import { NotFound } from '../pages/NotFound';
+import { FavouritesPage } from '../pages/FavouritesPage';
 import { ProductItem } from '../pages/ProductItem';
 
 export const AppRouter: React.FC = () => {
@@ -36,7 +37,7 @@ export const AppRouter: React.FC = () => {
             <Route path=":itemId" element={<ProductItem />} />
           </Route>
 
-          <Route path="favourites" element={<h1>Favourites Page</h1>} />
+          <Route path="favourites" element={<FavouritesPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
