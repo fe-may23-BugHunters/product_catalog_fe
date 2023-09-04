@@ -5,7 +5,6 @@ import { BtnBack } from '../../components/BtnBack';
 import { WideBtn } from '../../components/WideBtn';
 import { CartModal } from '../../components/CartModal';
 import { BannerSlider } from '../../components/BannerSlider';
-import { CardItem } from '../../components/CardItem';
 
 export const CartPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
