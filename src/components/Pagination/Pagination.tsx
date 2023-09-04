@@ -1,7 +1,8 @@
+/* eslint-disable max-len */
 import React from 'react';
 import './Pagination.scss';
-import arrowLeft from '../../assets/icons/arrowLeft.svg';
-import arrowRight from '../../assets/icons/arrowRight.svg';
+import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
+import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 import cn from 'classnames';
 
 type Props = {
@@ -60,21 +61,21 @@ export const Pagination: React.FC<Props> = ({
       <button
         onClick={onPrevClick}
         className={cn('pagination__item-arrow', {
-          disabledLeft: isFirstPage,
+          'arrow-left--disabled': isFirstPage,
         })}
         disabled={isFirstPage}
       >
-        <img src={arrowLeft} alt="arrowLeft" />
+        <ArrowLeft />
       </button>
       {pages}
       <button
         onClick={onNextClick}
         className={cn('pagination__item-arrow', {
-          disabledRight: isLastPage,
+          'arrow-right--disabled': isLastPage,
         })}
         disabled={isLastPage}
       >
-        <img src={arrowRight} alt="arrowRight" />
+        <ArrowRight />
       </button>
     </div>
   );

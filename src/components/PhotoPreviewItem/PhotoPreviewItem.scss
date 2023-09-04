@@ -10,12 +10,23 @@
   max-width: 50px;
   box-sizing: border-box;
   aspect-ratio: 1 / 1;
-  border: 1px solid $color-elements;
+  border: 1px solid $color-surface2;
   background-color: transparent;
   cursor: pointer;
+  transition:
+    transform $effectDuration,
+    border-color $effectDuration;
+
+  &:hover {
+    border-color: $color-icons;
+  }
+
+  &:active {
+    transform: $effectScaleBtn;
+  }
 
   &--active {
-    border: 1px solid $color-white;
+    border-color: $color-white;
   }
 
   @include onTablet {

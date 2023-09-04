@@ -34,28 +34,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 16px;
-    height: 16px;
-    padding: 0;
     box-sizing: border-box;
+    padding: 3px;
 
     background-color: transparent;
     border: 1px solid transparent;
-    border-radius: 2px;
-    transition: border $effectDuration;
-
-    @include onTablet {
-      width: 24px;
-      height: 24px;
-    }
+    transition:
+      border $effectDuration,
+      transform $effectDuration;
 
     &:hover {
       border: 1px solid $color-icons;
     }
+
+    &:active {
+      transform: $effectScaleBtn;
+    }
+  }
+
+  &__closeIcon {
+    display: block;
+    width: 16px;
+    height: 16px;
   }
 
   &__imageBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
     width: 80px;
     height: 80px;
@@ -64,8 +70,13 @@
   }
 
   &__image {
-    width: 100%;
     height: 100%;
+    object-fit: contain;
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: $effectScaleBtn;
+    }
   }
 
   &__title {
@@ -101,6 +112,9 @@
 
   &__increase,
   &__decreaseBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid $color-surface2;
     background-color: $color-surface2;
     transition: background-color $effectDuration;

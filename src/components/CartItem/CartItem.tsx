@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './CartItem.scss';
 import cn from 'classnames';
 import { ReactComponent as CloseImg } from '../../assets/icons/Close.svg';
@@ -10,16 +11,16 @@ export const CartItem: React.FC = () => {
     <article className="cartItem">
       <div className="cartItem__row">
         <button className="cartItem__remove">
-          <CloseImg />
+          <CloseImg className="cartItem__closeIcon" />
         </button>
 
-        <div className="cartItem__imageBlock">
+        <NavLink to="/phones/1" className="cartItem__imageBlock">
           <img
-            src="https://placehold.co/66x66"
+            src="http://surl.li/krahu"
             className="cartItem__image"
             alt="Apple iPhone 14 Pro 128GB Silver (MQ023)"
           />
-        </div>
+        </NavLink>
 
         <p className="cartItem__title">
           Apple iPhone 14 Pro 128GB Silver (MQ023)
