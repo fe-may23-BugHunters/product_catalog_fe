@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog_fe/static/css/main.841c2962.css",
-    "main.js": "/product_catalog_fe/static/js/main.3693faf0.js",
+    "main.css": "/product_catalog_fe/static/css/main.9d8b5cbb.css",
+    "main.js": "/product_catalog_fe/static/js/main.ff2d9f87.js",
     "static/media/banner-phones.png": "/product_catalog_fe/static/media/banner-phones.b4eeda8bd82b712057a2.png",
     "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.82f82c9ade36c8bb9559f23b90157ac2.svg",
     "static/media/banner-tablets.png": "/product_catalog_fe/static/media/banner-tablets.a962057c1043a08f7737.png",
@@ -16,17 +16,17 @@
     "static/media/Plus.svg": "/product_catalog_fe/static/media/Plus.08f7f20f1cd758732b0545239ea51c85.svg",
     "static/media/Menu.svg": "/product_catalog_fe/static/media/Menu.ccd1a9542b5bc584f2a1.svg",
     "static/media/backBtn.svg": "/product_catalog_fe/static/media/backBtn.c16de44b6624b08d63d1b5ceaf5a8c17.svg",
-    "static/media/arrowRight.svg": "/product_catalog_fe/static/media/arrowRight.ee76b677116bc9763c162fcbf84e3537.svg",
-    "static/media/arrowLeft.svg": "/product_catalog_fe/static/media/arrowLeft.330a88af5990d81969e6cb5038fc5ff0.svg",
-    "static/media/arrowDown.svg": "/product_catalog_fe/static/media/arrowDown.0a75b98d9165f32dc53134e728970af1.svg",
-    "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.d7ccf9e94d5187a54e6e787c5eea5faf.svg",
+    "static/media/arrowRight.svg": "/product_catalog_fe/static/media/arrowRight.eebd635dff9d7afc376479339b80d409.svg",
+    "static/media/arrowLeft.svg": "/product_catalog_fe/static/media/arrowLeft.5628590aa17bf04ef5940c09fc52beb7.svg",
+    "static/media/arrowDown.svg": "/product_catalog_fe/static/media/arrowDown.68f77a109ece62fb1794b40ba81f8bca.svg",
+    "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.c14c6ce9f0c1737bb3a93d4606420293.svg",
     "static/media/Minus.svg": "/product_catalog_fe/static/media/Minus.e55c0b179fefa1f8d7dffd63a5c7d0ed.svg",
     "index.html": "/product_catalog_fe/index.html",
-    "main.841c2962.css.map": "/product_catalog_fe/static/css/main.841c2962.css.map",
-    "main.3693faf0.js.map": "/product_catalog_fe/static/js/main.3693faf0.js.map"
+    "main.9d8b5cbb.css.map": "/product_catalog_fe/static/css/main.9d8b5cbb.css.map",
+    "main.ff2d9f87.js.map": "/product_catalog_fe/static/js/main.ff2d9f87.js.map"
   },
   "entrypoints": [
-    "static/css/main.841c2962.css",
-    "static/js/main.3693faf0.js"
+    "static/css/main.9d8b5cbb.css",
+    "static/js/main.ff2d9f87.js"
   ]
 }
