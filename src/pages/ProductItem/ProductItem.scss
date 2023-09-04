@@ -5,6 +5,14 @@
   padding-block-start: 25px;
   padding-block-end: 80px;
 
+  &__breadCrumbs {
+    margin-block-end: 24px;
+
+    @include onTablet {
+      margin-block-end: 40px;
+    }
+  }
+
   &__btnBack {
     margin-block-end: 16px;
   }

@@ -3,6 +3,20 @@
 @import "src/styles/utils/mixins";
 
 .favourites {
+  padding-block: 24px;
+  
+  @include onTablet {
+    padding-block: 40px;
+  }
+
+  &__breadCrumbs {
+    margin-block-end: 24px;
+
+    @include onTablet {
+      margin-block-end: 40px;
+    }
+  }
+
   &__cards {
     display: grid;
     justify-items: center;

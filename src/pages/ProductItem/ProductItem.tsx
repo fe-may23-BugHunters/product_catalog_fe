@@ -5,10 +5,18 @@ import { ProductTechSpecs } from '../../components/ProductTechSpecs';
 import { ProductAbout } from '../../components/ProductAbout';
 import { ProductVariants } from '../../components/ProductVariants';
 import { ProductPhotos } from '../../components/ProductPhotos';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { usePathname } from '../../hooks/usePathname';
 
 export const ProductItem: React.FC = () => {
+  const { pathname, onPathChange } = usePathname();
+
   return (
     <div className="product">
+      <div className="product__breadCrumbs">
+        <BreadCrumbs pathname={pathname} onPathChange={onPathChange}/>
+      </div>
+
       <div className="product__btnBack">
         <BtnBack />
       </div>
