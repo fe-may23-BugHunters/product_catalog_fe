@@ -44,9 +44,6 @@ export const CartPage: React.FC = () => {
       </div>
 
       <BannerSlider />
-      <div style={{ width: '300px', height: '100%' }}>
-        <CardItem />
-      </div>
     </section>
   );
 };
