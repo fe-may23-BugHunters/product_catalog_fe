@@ -1,27 +1,32 @@
 {
   "files": {
-    "main.css": "/product_catalog_fe/static/css/main.0b65efff.css",
-    "main.js": "/product_catalog_fe/static/js/main.e09597ba.js",
-    "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.97ac2d89d47762846b7204a50e125067.svg",
+    "main.css": "/product_catalog_fe/static/css/main.6a5f053e.css",
+    "main.js": "/product_catalog_fe/static/js/main.21e2a740.js",
+    "static/media/banner-phones.png": "/product_catalog_fe/static/media/banner-phones.b4eeda8bd82b712057a2.png",
+    "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.82f82c9ade36c8bb9559f23b90157ac2.svg",
+    "static/media/banner-tablets.png": "/product_catalog_fe/static/media/banner-tablets.a962057c1043a08f7737.png",
     "static/media/Mont-Regular.ttf": "/product_catalog_fe/static/media/Mont-Regular.7c9521719ef1f902cd6e.ttf",
     "static/media/Mont-SemiBold.ttf": "/product_catalog_fe/static/media/Mont-SemiBold.c21ff6b111e2dd3dc2cf.ttf",
     "static/media/Mont-Bold.ttf": "/product_catalog_fe/static/media/Mont-Bold.53b78fdf82658f151a04.ttf",
-    "static/media/Cart.svg": "/product_catalog_fe/static/media/Cart.5cf4607710e9e2939ef4.svg",
-    "static/media/likeBtn.svg": "/product_catalog_fe/static/media/likeBtn.61c076043c1edcaadef136e2e0c22f3f.svg",
-    "static/media/Favourites.svg": "/product_catalog_fe/static/media/Favourites.8b976ada41faa93407ca.svg",
-    "static/media/likeBtnRed.svg": "/product_catalog_fe/static/media/likeBtnRed.8457b086ba95c315f35e944de52883c4.svg",
-    "static/media/Close.svg": "/product_catalog_fe/static/media/Close.e89f0ac3fb120ea03d4e.svg",
-    "static/media/Menu.svg": "/product_catalog_fe/static/media/Menu.9503950cdeadb80fd96e.svg",
-    "static/media/arrowPaginationRight.svg": "/product_catalog_fe/static/media/arrowPaginationRight.5488d6be3b6a8c76367f3db8c4e9b67e.svg",
-    "static/media/arrowPaginationLeft.svg": "/product_catalog_fe/static/media/arrowPaginationLeft.938b70947071e7762e50202f6d4e7a33.svg",
-    "static/media/arrowDown.svg": "/product_catalog_fe/static/media/arrowDown.d33177d4a67dd09f5110fe8b0e0e4d28.svg",
-    "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.8186cfde0a392ac9780a052ac4386270.svg",
+    "static/media/banner-accessories.png": "/product_catalog_fe/static/media/banner-accessories.bdd2e0fca0159e52f41c.png",
+    "static/media/Cart.svg": "/product_catalog_fe/static/media/Cart.fbb7bb4b7513df420fa1.svg",
+    "static/media/heart.svg": "/product_catalog_fe/static/media/heart.75d1cf69424fbf740ba8401885512d6f.svg",
+    "static/media/heartRed.svg": "/product_catalog_fe/static/media/heartRed.0adbb61bbc593d135bdb24191c57730f.svg",
+    "static/media/Close.svg": "/product_catalog_fe/static/media/Close.c89cd55fcda471b596c2997cc48e5674.svg",
+    "static/media/Plus.svg": "/product_catalog_fe/static/media/Plus.08f7f20f1cd758732b0545239ea51c85.svg",
+    "static/media/Menu.svg": "/product_catalog_fe/static/media/Menu.ccd1a9542b5bc584f2a1.svg",
+    "static/media/backBtn.svg": "/product_catalog_fe/static/media/backBtn.c16de44b6624b08d63d1b5ceaf5a8c17.svg",
+    "static/media/arrowRight.svg": "/product_catalog_fe/static/media/arrowRight.ee76b677116bc9763c162fcbf84e3537.svg",
+    "static/media/arrowLeft.svg": "/product_catalog_fe/static/media/arrowLeft.330a88af5990d81969e6cb5038fc5ff0.svg",
+    "static/media/arrowDown.svg": "/product_catalog_fe/static/media/arrowDown.0a75b98d9165f32dc53134e728970af1.svg",
+    "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.d7ccf9e94d5187a54e6e787c5eea5faf.svg",
+    "static/media/Minus.svg": "/product_catalog_fe/static/media/Minus.e55c0b179fefa1f8d7dffd63a5c7d0ed.svg",
     "index.html": "/product_catalog_fe/index.html",
-    "main.0b65efff.css.map": "/product_catalog_fe/static/css/main.0b65efff.css.map",
-    "main.e09597ba.js.map": "/product_catalog_fe/static/js/main.e09597ba.js.map"
+    "main.6a5f053e.css.map": "/product_catalog_fe/static/css/main.6a5f053e.css.map",
+    "main.21e2a740.js.map": "/product_catalog_fe/static/js/main.21e2a740.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b65efff.css",
-    "static/js/main.e09597ba.js"
+    "static/css/main.6a5f053e.css",
+    "static/js/main.21e2a740.js"
   ]
 }
