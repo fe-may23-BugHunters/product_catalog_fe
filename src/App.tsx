@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
@@ -36,8 +37,6 @@ const App: React.FC = () => {
 
   return (
     <>
-      {JSON.stringify(products.rows)}
-      <img src={`product_catalog_fe/${product.image}`}></img>
       <MainLayout>
         <Outlet />
       </MainLayout>
