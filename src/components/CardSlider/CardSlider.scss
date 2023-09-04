@@ -44,43 +44,19 @@
   width: 32px;
   height: 32px;
   margin-left: 16px;
+  background-color: $color-surface2;
   border: 1px solid transparent;
   cursor: pointer;
 
-  &__left {
-    background: $color-surface2 url('../../assets/icons/Arrow-Right.svg')
-      no-repeat center;
-    transform: scaleX(-1);
-    &--disabled {
-      background:
-        $color-surface2
-        url('../../assets/icons/Arrow-Right__Disabled.svg')
-        center
-        no-repeat;
-      border-color: $color-surface2;
-      pointer-events: none;
-    }
-  }
+  &__left--disabled,
+  &__right--disabled {
+    pointer-events: none;
+    background-color: transparent;
+    border-color: $color-surface2;
 
-  &__right {
-    background:
-      $color-surface2
-      url('../../assets/icons/Arrow-Right.svg')
-      center
-      no-repeat;
-    &--disabled {
-      background:
-        $color-surface2
-        url('../../assets/icons/Arrow-Right__Disabled.svg')
-        center
-        no-repeat;
-      border-color: $color-surface2;
-      pointer-events: none;
+    svg {
+      fill: $color-icons;
     }
-  }
-
-  &:hover {
-    background-color: $color-icons;
   }
 }
 
@@ -100,11 +76,6 @@
 
   @include onTablet {
     font-size: 32px;
-    line-height: 56px;
-    letter-spacing: -0.48px;
-  }
-
-  @include onDesktop {
     line-height: 56px;
     letter-spacing: -0.48px;
   }
