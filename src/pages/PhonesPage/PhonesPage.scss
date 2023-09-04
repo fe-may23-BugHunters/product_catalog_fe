@@ -2,11 +2,17 @@
 @import '../../styles/utils/breakpoints';
 
 .phones {
-  padding-top: 24px;
+  padding-block: 24px;
+  
+  @include onTablet {
+    padding-block: 40px;
+  }
 
-  &__header {
+  &__breadCrumbs {
+    margin-block-end: 24px;
+
     @include onTablet {
-      padding-inline: 16px;
+      margin-block-end: 40px;
     }
   }
 
@@ -50,17 +56,14 @@
   &__card {
     box-sizing: border-box;
     width: 287px;
-    height: 440px;
-    border: 2px solid white;
+    height: 100%;
 
     @include onTablet {
       width: 288px;
-      height: 506px;
     }
 
     @include onDesktop {
       width: 272px;
-      height: 506px;
     }
   }
 

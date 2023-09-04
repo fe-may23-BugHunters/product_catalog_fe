@@ -3,6 +3,9 @@ import './PhonesPage.scss';
 import { SelectBlock } from '../../components/SelectBlock';
 import { getMockPages } from '../../helpers/getMockPages';
 import { Pagination } from '../../components/Pagination';
+import { CardItem } from '../../components/CardItem';
+import { usePathname } from '../../hooks/usePathname';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 const cards = getMockPages(0, 20);
 const options = [
@@ -14,6 +17,7 @@ const options = [
 ];
 
 export const PhonesPage: React.FC = () => {
+  const { pathname, onPathChange } = usePathname();
   const [perPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -28,6 +32,10 @@ export const PhonesPage: React.FC = () => {
 
   return (
     <article className="phones">
+      <div className="phones__breadCrumbs">
+        <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
+      </div>
+
       <div className="phones__header">
         <h2 className="phones__title">Phones</h2>
         <p className="phones__model">{displayedCards.length} models</p>
@@ -54,7 +62,7 @@ export const PhonesPage: React.FC = () => {
       <div className="phones__cards">
         {displayedCards.map((card) => (
           <div className="phones__card" key={card}>
-            {card}
+            <CardItem />
           </div>
         ))}
       </div>

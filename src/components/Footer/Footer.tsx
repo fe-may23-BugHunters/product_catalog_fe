@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
 import '../../styles/blocks/_container.scss';
 import './Footer.scss';
-import arrowUp from '../../assets/icons/gray-arrows/arrowUp.svg';
+import arrowUp from '../../assets/icons/arrowUp.svg';
 
 const footerLinks = [
   {

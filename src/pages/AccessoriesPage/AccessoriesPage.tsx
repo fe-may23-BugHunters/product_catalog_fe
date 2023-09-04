@@ -3,6 +3,9 @@ import './AccessoriesPage.scss';
 import { SelectBlock } from '../../components/SelectBlock';
 import { getMockPages } from '../../helpers/getMockPages';
 import { Pagination } from '../../components/Pagination';
+import { CardItem } from '../../components/CardItem';
+import { usePathname } from '../../hooks/usePathname';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
 
 const cards = getMockPages(0, 20);
 const options = [
@@ -16,6 +19,7 @@ const options = [
 export const AccessoriesPage: React.FC = () => {
   const [perPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
+  const { pathname, onPathChange } = usePathname();
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -28,6 +32,10 @@ export const AccessoriesPage: React.FC = () => {
 
   return (
     <article className="accessories">
+      <div className="accessories__breadCrumbs">
+        <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
+      </div>
+
       <div className="accessories__header">
         <h2 className="accessories__title">Accessories</h2>
         <p className="accessories__model">{displayedCards.length} models</p>
@@ -54,7 +62,7 @@ export const AccessoriesPage: React.FC = () => {
       <div className="accessories__cards">
         {displayedCards.map((card) => (
           <div className="accessories__card" key={card}>
-            {card}
+            <CardItem />
           </div>
         ))}
       </div>
