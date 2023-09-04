@@ -10,9 +10,7 @@ export const CardItem: React.FC = () => {
       <NavLink to="/products" target="_blank" className="card__photo">
         <img className="card__photo" src="http://surl.li/krahu" alt="name" />
       </NavLink>
-      <h2 className="card__title">
-        Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
-      </h2>
+      <h2 className="card__title">Apple iPhone Xs 64GB Silver (iMT9G2FS/A)</h2>
 
       <div className="card__price">
         <span className="card__price__now">$799</span>

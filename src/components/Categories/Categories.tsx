@@ -10,43 +10,43 @@ export const Categories: React.FC = () => {
     <section className="categories">
       <div className="categories__products">
         <article className="categories__card">
-          <NavLink to='/phones'>
+          <NavLink to="/phones">
             <img
               src={phones}
               alt="category_phones"
               className="categories__photo"
             />
           </NavLink>
-          <NavLink to='/phones' className="categories__title">
+          <h3 className="categories__title">
             Mobile phones
-          </NavLink>
+          </h3>
           <p className="categories__amount">95 models</p>
         </article>
         <article className="categories__card">
-          <NavLink to='/phones'>
+          <NavLink to="/phones">
             <img
               src={tablets}
               alt="category_phones"
               className="categories__photo"
             />
           </NavLink>
-          <NavLink to='/tablets' className="categories__title">
+          <h3 className="categories__title">
             Tablets
-          </NavLink>
+          </h3>
           <p className="categories__amount">24 models</p>
         </article>
 
         <article className="categories__card">
-          <NavLink to='/accessories'>
+          <NavLink to="/accessories">
             <img
               src={accessories}
               alt="category_accessories"
               className="categories__photo"
             />
           </NavLink>
-          <NavLink to='accessories' className="categories__title">
+          <h3 className="categories__title">
             Accessories
-          </NavLink>
+          </h3>
           <p className="categories__amount">100 models</p>
         </article>
       </div>
