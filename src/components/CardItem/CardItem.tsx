@@ -1,18 +1,16 @@
 import React from 'react';
-import { CartButton } from '../Buttons/CartButton/CartButton';
 import './CardItem.scss';
-import { FavouriteButton } from '../Buttons/FavouriteButton';
 import { NavLink } from 'react-router-dom';
+import { WideBtn } from '../WideBtn';
+import { LikeBtn } from '../LikeBtn';
 
 export const CardItem: React.FC = () => {
   return (
     <article className="card">
-      <NavLink to="/products" target="_blank" className="card__photo">
+      <NavLink to="/phones/1" className="card__photo">
         <img className="card__photo" src="http://surl.li/krahu" alt="name" />
       </NavLink>
-      <h2 className="card__title">
-        Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
-      </h2>
+      <h2 className="card__title">Apple iPhone Xs 64GB Silver (iMT9G2FS/A)</h2>
 
       <div className="card__price">
         <span className="card__price__now">$799</span>
@@ -35,8 +33,13 @@ export const CardItem: React.FC = () => {
         </li>
       </ul>
       <div className="card__buttons">
-        {<CartButton />}
-        {<FavouriteButton />}
+        <div className="card__addToCartBtn">
+          <WideBtn mainTitle="Add to cart" secondaryTitle="Added to cart" />
+        </div>
+
+        <div className="card__likeBtn">
+          <LikeBtn />
+        </div>
       </div>
     </article>
   );

@@ -35,9 +35,12 @@
     padding: 0;
     background-color: $color-surface2;
     border: 0px;
+    transition: background-color $effectDuration;
+    cursor: default;
 
-    &:hover {
+    &:hover:not(.arrow-left--disabled, .arrow-right--disabled) {
       background-color: $color-icons;
+      cursor: pointer;
     }
 
     &:last-child {
@@ -45,14 +48,22 @@
       margin-right: 0px;
     }
   }
+}
 
-  &__item-arrow.disabledLeft {
-    background-color: $color-surface1;
-    border: 1px solid $color-elements;
+.arrow-left--disabled,
+.arrow-right--disabled {
+  background-color: transparent;
+  border: 1px solid $color-elements;
+}
+
+.arrow-left--disabled {
+  #arrowLeft {
+    fill: $color-icons;
   }
+}
 
-  &__item-arrow.disabledRight {
-    background-color: $color-surface1;
-    border: 1px solid $color-elements;
+.arrow-right--disabled {
+  #arrowRight {
+    fill: $color-icons;
   }
 }
