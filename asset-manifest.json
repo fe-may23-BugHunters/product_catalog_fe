@@ -1,29 +1,30 @@
 {
   "files": {
-    "main.css": "/product_catalog_fe/static/css/main.e52db6eb.css",
-    "main.js": "/product_catalog_fe/static/js/main.9c435a7f.js",
-    "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.97ac2d89d47762846b7204a50e125067.svg",
+    "main.css": "/product_catalog_fe/static/css/main.a73dfa71.css",
+    "main.js": "/product_catalog_fe/static/js/main.8a961587.js",
+    "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.82f82c9ade36c8bb9559f23b90157ac2.svg",
     "static/media/Mont-Regular.ttf": "/product_catalog_fe/static/media/Mont-Regular.7c9521719ef1f902cd6e.ttf",
     "static/media/Mont-SemiBold.ttf": "/product_catalog_fe/static/media/Mont-SemiBold.c21ff6b111e2dd3dc2cf.ttf",
     "static/media/Mont-Bold.ttf": "/product_catalog_fe/static/media/Mont-Bold.53b78fdf82658f151a04.ttf",
-    "static/media/Cart.svg": "/product_catalog_fe/static/media/Cart.5cf4607710e9e2939ef4.svg",
-    "static/media/heart.svg": "/product_catalog_fe/static/media/heart.61c076043c1edcaadef136e2e0c22f3f.svg",
-    "static/media/heartRed.svg": "/product_catalog_fe/static/media/heartRed.8457b086ba95c315f35e944de52883c4.svg",
-    "static/media/Close.svg": "/product_catalog_fe/static/media/Close.e89f0ac3fb120ea03d4e72140d9f3667.svg",
-    "static/media/Plus.svg": "/product_catalog_fe/static/media/Plus.b438557684e5dd813e97dc6691b1249c.svg",
-    "static/media/Menu.svg": "/product_catalog_fe/static/media/Menu.9503950cdeadb80fd96e.svg",
-    "static/media/backBtn.svg": "/product_catalog_fe/static/media/backBtn.78dd960e43c4344f74680bf773747f4e.svg",
-    "static/media/arrowRight.svg": "/product_catalog_fe/static/media/arrowRight.cb929a534bfecdab8810ba8ecb9be438.svg",
-    "static/media/arrowLeft.svg": "/product_catalog_fe/static/media/arrowLeft.3d7559cb92815256b6eba12b9ab29f2a.svg",
-    "static/media/arrowDown.svg": "/product_catalog_fe/static/media/arrowDown.645f3491550661139124de1ab2429786.svg",
-    "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.15e0f1e4520c281ff9f3b9a2acb1687c.svg",
-    "static/media/Minus.svg": "/product_catalog_fe/static/media/Minus.abaa5c8dd4e1b11c9d2855ce648ae5b5.svg",
+    "static/media/Category_tablets.jpg": "/product_catalog_fe/static/media/Category_tablets.e9479f3f870125299d9e.jpg",
+    "static/media/Category_accessories.jpg": "/product_catalog_fe/static/media/Category_accessories.fcfc0e03193ac666740c.jpg",
+    "static/media/Category_phones.jpg": "/product_catalog_fe/static/media/Category_phones.eb4e7a703a6a58fa6a93.jpg",
+    "static/media/Cart.svg": "/product_catalog_fe/static/media/Cart.fbb7bb4b7513df420fa1.svg",
+    "static/media/likeBtn.svg": "/product_catalog_fe/static/media/likeBtn.75d1cf69424fbf740ba8401885512d6f.svg",
+    "static/media/Favourites.svg": "/product_catalog_fe/static/media/Favourites.28f6088c83570782c6af.svg",
+    "static/media/likeBtnRed.svg": "/product_catalog_fe/static/media/likeBtnRed.0adbb61bbc593d135bdb24191c57730f.svg",
+    "static/media/Close.svg": "/product_catalog_fe/static/media/Close.c89cd55fcda471b596c2.svg",
+    "static/media/Menu.svg": "/product_catalog_fe/static/media/Menu.ccd1a9542b5bc584f2a1.svg",
+    "static/media/arrowPaginationRight.svg": "/product_catalog_fe/static/media/arrowPaginationRight.ee76b677116bc9763c162fcbf84e3537.svg",
+    "static/media/arrowPaginationLeft.svg": "/product_catalog_fe/static/media/arrowPaginationLeft.330a88af5990d81969e6cb5038fc5ff0.svg",
+    "static/media/arrowDown.svg": "/product_catalog_fe/static/media/arrowDown.0a75b98d9165f32dc53134e728970af1.svg",
+    "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.d7ccf9e94d5187a54e6e787c5eea5faf.svg",
     "index.html": "/product_catalog_fe/index.html",
-    "main.e52db6eb.css.map": "/product_catalog_fe/static/css/main.e52db6eb.css.map",
-    "main.9c435a7f.js.map": "/product_catalog_fe/static/js/main.9c435a7f.js.map"
+    "main.a73dfa71.css.map": "/product_catalog_fe/static/css/main.a73dfa71.css.map",
+    "main.8a961587.js.map": "/product_catalog_fe/static/js/main.8a961587.js.map"
   },
   "entrypoints": [
-    "static/css/main.e52db6eb.css",
-    "static/js/main.9c435a7f.js"
+    "static/css/main.a73dfa71.css",
+    "static/js/main.8a961587.js"
   ]
 }
