@@ -2,18 +2,6 @@
 @import '../../styles/utils/variables';
 @import '../../styles/utils/mixins';
 
-.test {
-  width: 212px;
-
-  @include onTablet {
-    width: 237px;
-  }
-
-  @include onDesktop {
-    width: 272px;
-  }
-}
-
 .card {
   display: flex;
   box-sizing: border-box;
