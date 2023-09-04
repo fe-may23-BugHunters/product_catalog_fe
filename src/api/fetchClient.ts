@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://fe-may23-bughunters.onrender.com';
 
-export function getSpecifiedProducts(limit = 10, offset = 0) {
+export function getProductsByCategory(limit = 10, offset = 0) {
   return axios.get(`${BASE_URL}/products?limit=${limit}&offset=${offset}`);
 }
 

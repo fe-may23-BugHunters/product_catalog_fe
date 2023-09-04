@@ -4,14 +4,14 @@ import React, { useEffect, useState } from 'react';
 import './styles/main.scss';
 import { MainLayout } from './layouts/MainLayout';
 import { Outlet } from 'react-router-dom';
-import { getProductById, getSpecifiedProducts } from './api/fetchClient';
+import { getProductById, getProductsByCategory } from './api/fetchClient';
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<any>([]);
   const [product, setProduct] = useState<any>({});
 
   useEffect(() => {
-    getSpecifiedProducts()
+    getProductsByCategory()
       .then((someProducts) => {
         setProducts(someProducts.data);
         console.log(someProducts);
