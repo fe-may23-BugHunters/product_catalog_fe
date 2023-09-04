@@ -50,17 +50,14 @@
   &__card {
     box-sizing: border-box;
     width: 287px;
-    height: 440px;
-    border: 2px solid white;
+    height: 100%;
 
     @include onTablet {
       width: 288px;
-      height: 506px;
     }
 
     @include onDesktop {
       width: 272px;
-      height: 506px;
     }
   }
 
