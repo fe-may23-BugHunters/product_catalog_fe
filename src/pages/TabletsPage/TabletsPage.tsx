@@ -4,6 +4,8 @@ import { SelectBlock } from '../../components/SelectBlock';
 import { getMockPages } from '../../helpers/getMockPages';
 import { Pagination } from '../../components/Pagination';
 import { CardItem } from '../../components/CardItem';
+import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { usePathname } from '../../hooks/usePathname';
 
 const cards = getMockPages(0, 20);
 const options = [
@@ -17,6 +19,7 @@ const options = [
 export const TabletsPage: React.FC = () => {
   const [perPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
+  const { pathname, onPathChange } = usePathname();
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -29,6 +32,10 @@ export const TabletsPage: React.FC = () => {
 
   return (
     <article className="tablets">
+      <div className="tablets__breadCrumbs">
+        <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
+      </div>
+
       <div className="tablets__header">
         <h2 className="tablets__title">Tablets</h2>
         <p className="tablets__model">{displayedCards.length} models</p>

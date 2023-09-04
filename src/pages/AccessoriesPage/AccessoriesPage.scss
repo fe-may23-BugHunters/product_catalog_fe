@@ -2,11 +2,17 @@
 @import '../../styles/utils/breakpoints';
 
 .accessories {
-  padding-top: 24px;
+  padding-block: 24px;
 
-  &__header {
+  @include onTablet {
+    padding-block: 40px;
+  }
+
+  &__breadCrumbs {
+    margin-block-end: 24px;
+
     @include onTablet {
-      padding-inline: 16px;
+      margin-block-end: 40px;
     }
   }
 
