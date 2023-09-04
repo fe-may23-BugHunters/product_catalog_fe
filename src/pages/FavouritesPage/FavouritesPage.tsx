@@ -1,36 +1,43 @@
 import React from 'react';
 import './FavouritesPage.scss';
+import { CardItem } from '../../components/CardItem';
 
 export const FavouritesPage: React.FC = () => {
   return (
-    <div className='container'>
-       <div className='contentHeader'>
-          <div className='contentHeader__title'>
+    <article className='favourites'>
+       <div className='headerContent'>
+          <div className='headerContent__title'>
             Favourites
           </div>
 
-          <div className='contentHeader__itemsCount'>
+          <div className='headerContent__itemsCount'>
             5 items
           </div>
         </div>
 
-        <div className='cardsGridContainer'>
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
-          <div className='card' />
+        <div className="favourites__cards">
+          <div className="favourites__card">
+            <CardItem />
+          </div>
+          <div className="favourites__card">
+            <CardItem />
+          </div>
+          <div className="favourites__card">
+            <CardItem />
+          </div>
+          <div className="favourites__card">
+            <CardItem />
+          </div>
+          <div className="favourites__card">
+            <CardItem />
+          </div>
+          <div className="favourites__card">
+            <CardItem />
+          </div>
+          <div className="favourites__card">
+            <CardItem />
+          </div>
         </div>
-
-    </div>
+    </article>
   );
 };
