@@ -10,7 +10,7 @@ export const Categories: React.FC = () => {
     <section className="categories">
       <div className="categories__products">
         <article className="categories__card">
-          <NavLink to="/phones" className="categories__photo">
+          <NavLink to="/phones" className="categories__link">
             <img
               src={phones}
               alt="category_phones"
@@ -21,7 +21,7 @@ export const Categories: React.FC = () => {
           <p className="categories__amount">95 models</p>
         </article>
         <article className="categories__card">
-          <NavLink to="/tablets" className="categories__photo">
+          <NavLink to="/tablets" className="categories__link">
             <img
               src={tablets}
               alt="category_phones"
@@ -33,7 +33,7 @@ export const Categories: React.FC = () => {
         </article>
 
         <article className="categories__card">
-          <NavLink to="/accessories" className="categories__photo">
+          <NavLink to="/accessories" className="categories__link">
             <img
               src={accessories}
               alt="category_accessories"
