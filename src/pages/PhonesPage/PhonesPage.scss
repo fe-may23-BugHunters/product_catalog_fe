@@ -54,12 +54,10 @@
 
     @include onTablet {
       width: 288px;
-      height: 100%;
     }
 
     @include onDesktop {
       width: 272px;
-      height: 100%;
     }
   }
 
