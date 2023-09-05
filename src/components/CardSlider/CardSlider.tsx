@@ -2,12 +2,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import './CardSlider.scss';
 import classNames from 'classnames';
 import { CardItem } from '../CardItem';
-import {
-  ReactComponent as ArrowLeft,
-} from '../../assets/icons/arrowLeft.svg';
-import {
-  ReactComponent as ArrowRight,
-} from '../../assets/icons/arrowRight.svg';
+import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
+// eslint-disable-next-line max-len
+import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 
 interface Props {}
 
@@ -17,13 +14,18 @@ export const CardSlider: React.FC<Props> = () => {
   const [maxScroll, setMaxScroll] = useState(0);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const maxScrollValue
-        = containerRef.current.scrollWidth - containerRef.current.offsetWidth;
+    const setOrUpdateMaxScroll = () => {
+      if (containerRef.current) {
+        const maxScrollValue
+          = containerRef.current.scrollWidth - containerRef.current.offsetWidth;
 
-      setMaxScroll(maxScrollValue);
-    }
-  }, [window.innerWidth]);
+        setMaxScroll(maxScrollValue);
+      }
+    };
+
+    setOrUpdateMaxScroll();
+    window.addEventListener('resize', setOrUpdateMaxScroll);
+  }, []);
 
   const handleScrollLeft = () => {
     if (containerRef.current) {
@@ -45,7 +47,7 @@ export const CardSlider: React.FC<Props> = () => {
 
   const cardWidth
     = document?.querySelector('.cardContainer')?.getBoundingClientRect().width
-      || 0;
+    || 0;
 
   return (
     <div className="carouselContainer">
@@ -65,7 +67,7 @@ export const CardSlider: React.FC<Props> = () => {
           <div
             className={classNames('carouselArrow', 'carouselArrow-right', {
               'carouselArrow__right--disabled':
-                maxScroll - scrollPosition <= cardWidth,
+                maxScroll - scrollPosition <= cardWidth / 2,
             })}
             onClick={handleScrollRight}
           >
