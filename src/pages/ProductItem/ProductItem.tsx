@@ -7,6 +7,7 @@ import { ProductVariants } from '../../components/ProductVariants';
 import { ProductPhotos } from '../../components/ProductPhotos';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { usePathname } from '../../hooks/usePathname';
+import { CardSlider } from '../../components/CardSlider';
 
 export const ProductItem: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
@@ -43,7 +44,9 @@ export const ProductItem: React.FC = () => {
         </div>
       </div>
 
-      <div className="product__recommended">{/* <ProductsSlider /> */}</div>
+      <div className="product__recommended">
+        <CardSlider title={'You may also like'}/>
+      </div>
     </div>
   );
 };
