@@ -40,27 +40,27 @@ export const PhonesPage: React.FC = () => {
       <div className="phones__header">
         <h2 className="phones__title">Phones</h2>
         <p className="phones__model">{displayedCards.length} models</p>
-        {displayedCards.length > 0
-          && <>
-                <div className="phones__select__block">
-                  <div className="phones__select__item">
-                    <SelectBlock
-                      selectName="Sort by"
-                      defaultValue="Newest"
-                      options={options}
-                    />
-                  </div>
+        {displayedCards.length > 0 && (
+          <>
+            <div className="phones__select__block">
+              <div className="phones__select__item">
+                <SelectBlock
+                  selectName="Sort by"
+                  defaultValue="Newest"
+                  options={options}
+                />
+              </div>
 
-                  <div className="phones__select__item">
-                    <SelectBlock
-                      selectName="Items on page"
-                      defaultValue={4}
-                      options={[4, 8, 12, 16]}
-                    />
-                  </div>
-                </div>
-              </>
-        }
+              <div className="phones__select__item">
+                <SelectBlock
+                  selectName="Items on page"
+                  defaultValue={4}
+                  options={[4, 8, 12, 16]}
+                />
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <Loader isLoading={false}>
@@ -84,7 +84,6 @@ export const PhonesPage: React.FC = () => {
               onPageChange={handlePageChange}
             />
           </div>
-
         </EmptyComponent>
       </Loader>
     </article>
