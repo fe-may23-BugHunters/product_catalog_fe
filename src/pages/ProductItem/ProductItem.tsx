@@ -45,7 +45,7 @@ export const ProductItem: React.FC = () => {
       </div>
 
       <div className="product__recommended">
-        <CardSlider />
+        <CardSlider title={'You may also like'}/>
       </div>
     </div>
   );
