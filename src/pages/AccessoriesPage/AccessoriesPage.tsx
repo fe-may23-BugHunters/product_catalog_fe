@@ -6,6 +6,8 @@ import { Pagination } from '../../components/Pagination';
 import { CardItem } from '../../components/CardItem';
 import { usePathname } from '../../hooks/usePathname';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
+import { Loader } from '../../components/Loader';
+import { EmptyComponent } from '../../components/EmptyComponent';
 
 const cards = getMockPages(0, 20);
 const options = [
@@ -39,42 +41,52 @@ export const AccessoriesPage: React.FC = () => {
       <div className="accessories__header">
         <h2 className="accessories__title">Accessories</h2>
         <p className="accessories__model">{displayedCards.length} models</p>
+        {displayedCards.length > 0 && (
+          <>
+            <div className="accessories__select__block">
+              <div className="accessories__select__item">
+                <SelectBlock
+                  selectName="Sort by"
+                  defaultValue="Newest"
+                  options={options}
+                />
+              </div>
 
-        <div className="accessories__select__block">
-          <div className="accessories__select__item">
-            <SelectBlock
-              selectName="Sort by"
-              defaultValue="Newest"
-              options={options}
+              <div className="accessories__select__item">
+                <SelectBlock
+                  selectName="Items on page"
+                  defaultValue={4}
+                  options={[4, 8, 12, 16]}
+                />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+
+      <Loader isLoading={false}>
+        <EmptyComponent
+          data={displayedCards}
+          text={'There are no accessories available :('}
+        >
+          <div className="accessories__cards">
+            {displayedCards.map((card) => (
+              <div className="accessories__card" key={card}>
+                <CardItem />
+              </div>
+            ))}
+          </div>
+
+          <div className="accessories__pagination">
+            <Pagination
+              total={cards.length}
+              perPage={perPage}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
             />
           </div>
-
-          <div className="accessories__select__item">
-            <SelectBlock
-              selectName="Items on page"
-              defaultValue={4}
-              options={[4, 8, 12, 16]}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="accessories__cards">
-        {displayedCards.map((card) => (
-          <div className="accessories__card" key={card}>
-            <CardItem />
-          </div>
-        ))}
-      </div>
-
-      <div className="accessories__pagination">
-        <Pagination
-          total={cards.length}
-          perPage={perPage}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />
-      </div>
+        </EmptyComponent>
+      </Loader>
     </article>
   );
 };
