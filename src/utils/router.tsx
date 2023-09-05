@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
 import App from '../App';
+import { HomePage } from '../pages/HomePage/HomePage';
 import { AccessoriesPage } from '../pages/AccessoriesPage';
 import { PhonesPage } from '../pages/PhonesPage';
 import { TabletsPage } from '../pages/TabletsPage';
@@ -19,7 +20,7 @@ export const AppRouter: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<h1>Home Page</h1>} />
+          <Route index element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
 
           <Route path="phones">

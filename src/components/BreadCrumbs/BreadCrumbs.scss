@@ -2,7 +2,7 @@
 @import '../../styles/utils/variables';
 
 .breadCrumbs {
-
+  
   &__list {
     display: flex;
     justify-content: start;
@@ -43,7 +43,7 @@
 
     &--disabled {
       pointer-events: none;
-      color: $color-secondary
+      color: $color-secondary;
     }
   }
 
