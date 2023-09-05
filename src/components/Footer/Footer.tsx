@@ -8,10 +8,10 @@ import arrowUp from '../../assets/icons/arrowUp.svg';
 const footerLinks = [
   {
     title: 'Github',
-    path: 'https://fe-may23-BugHunters.github.io/product_catalog_fe',
+    path: 'https://github.com/fe-may23-BugHunters',
   },
-  { title: 'Contacts', path: '/' },
-  { title: 'Rights', path: '/' },
+  { title: 'Contacts', path: 'https://github.com/fe-may23-BugHunters' },
+  { title: 'Rights', path: 'https://github.com/fe-may23-BugHunters' },
 ];
 
 export const Footer: React.FC = () => {

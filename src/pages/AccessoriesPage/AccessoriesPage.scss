@@ -48,14 +48,15 @@
   &__cards {
     display: grid;
     justify-items: center;
+    justify-content: center;
     gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(auto, 288px));
     margin-bottom: 30px;
   }
 
   &__card {
     box-sizing: border-box;
-    width: 287px;
+    min-width: 230px;
     height: 100%;
 
     @include onTablet {
