@@ -14,7 +14,7 @@ export const CartContext = createContext({} as Context);
 
 type Props = {
   children: React.ReactNode;
-}
+};
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [cartProducts, setCartProducts] = useLocalStorage<Product[]>(
@@ -24,20 +24,21 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
 
   const addCartProduct = (cartProduct: Product) => {
     const isProductExist = cartProducts.find(
-      (product) => product.id === cartProduct.id);
+      (product) => product.id === cartProduct.id,
+    );
 
     if (isProductExist) {
       return;
     }
 
-    setCartProducts(current => [...current, cartProduct]);
+    setCartProducts((current) => [...current, cartProduct]);
   };
 
   const removeCartProduct = (id: string) => {
-    setCartProducts(current =>
-      current.filter(cartProductId => cartProductId.id !== id)
+    setCartProducts((current) =>
+      current.filter((cartProductId) => cartProductId.id !== id),
     );
-  }
+  };
 
   const value = {
     cartProducts,
@@ -46,9 +47,5 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     total: cartProducts.length,
   };
 
-  return (
-    <CartContext.Provider value={value}>
-        {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

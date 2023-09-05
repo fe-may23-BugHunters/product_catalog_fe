@@ -1,6 +1,6 @@
-@import "src/styles/utils/variables";
-@import "src/styles/utils/breakpoints";
-@import "src/styles/utils/mixins";
+@import 'src/styles/utils/variables';
+@import 'src/styles/utils/breakpoints';
+@import 'src/styles/utils/mixins';
 
 .favourites {
   padding-block-start: 24px;
@@ -47,12 +47,14 @@
     display: grid;
     gap: 16px;
     justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 288px));
   }
 
   &__card {
     box-sizing: border-box;
-    width: 287px;
+    min-width: 230px;
     height: 100%;
 
     @include onTablet {

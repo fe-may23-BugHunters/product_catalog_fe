@@ -8,7 +8,7 @@ import home from '../../assets/icons/Home.svg';
 interface Props {
   pathname: string;
   onPathChange: (newPath: string) => void;
-};
+}
 
 export const BreadCrumbs: React.FC<Props> = ({ pathname }) => {
   const links = pathname.split('/').filter((link) => link !== '');
@@ -18,11 +18,7 @@ export const BreadCrumbs: React.FC<Props> = ({ pathname }) => {
       <ul className="breadCrumbs__list">
         <li className="breadCrumbs__item">
           <Link to="/" className="breadCrumbs__home-link">
-            <img
-              src={home}
-              alt="home"
-              className="breadCrumbs__image"
-            />
+            <img src={home} alt="home" className="breadCrumbs__image" />
           </Link>
         </li>
 

@@ -35,8 +35,8 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   };
 
   const removeFavouriteProduct = (id: string) => {
-    setFavouriteProducts(current =>
-      current.filter(favouriteProductId => favouriteProductId.id !== id),
+    setFavouriteProducts((current) =>
+      current.filter((favouriteProductId) => favouriteProductId.id !== id),
     );
   };
 
