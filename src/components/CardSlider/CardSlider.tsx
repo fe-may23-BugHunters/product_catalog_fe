@@ -45,10 +45,6 @@ export const CardSlider: React.FC<Props> = () => {
     }
   };
 
-  const cardWidth
-    = document?.querySelector('.cardContainer')?.getBoundingClientRect().width
-    || 0;
-
   return (
     <div className="carouselContainer">
       <div className="carouselHeader">
@@ -67,7 +63,7 @@ export const CardSlider: React.FC<Props> = () => {
           <div
             className={classNames('carouselArrow', 'carouselArrow-right', {
               'carouselArrow__right--disabled':
-                maxScroll - scrollPosition <= cardWidth / 2,
+                maxScroll - scrollPosition <= 10,
             })}
             onClick={handleScrollRight}
           >
