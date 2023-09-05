@@ -6,9 +6,11 @@ import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
 // eslint-disable-next-line max-len
 import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 
-interface Props {}
+interface Props {
+  title: string;
+}
 
-export const CardSlider: React.FC<Props> = () => {
+export const CardSlider: React.FC<Props> = ({ title }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
@@ -48,7 +50,7 @@ export const CardSlider: React.FC<Props> = () => {
   return (
     <div className="carouselContainer">
       <div className="carouselHeader">
-        <div className="carouselHeader__title">You may also like</div>
+        <div className="carouselHeader__title">{title}</div>
 
         <div className="carouselHeader__arrows">
           <div
