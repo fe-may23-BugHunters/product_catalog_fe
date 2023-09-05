@@ -50,7 +50,7 @@ export const CardSlider: React.FC<Props> = ({ title }) => {
   return (
     <div className="carouselContainer">
       <div className="carouselHeader">
-        <div className="carouselHeader__title">{title}</div>
+        <h2 className="carouselHeader__title">{title}</h2>
 
         <div className="carouselHeader__arrows">
           <div
