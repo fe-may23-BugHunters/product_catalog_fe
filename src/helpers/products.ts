@@ -14,31 +14,31 @@ export function getNormalizedTechSpecs(product: Product) {
   return [
     {
       title: 'Screen',
-      value: product.screen,
+      value: product?.screen,
     },
     {
       title: 'Resolution',
-      value: product.resolution,
+      value: product?.resolution,
     },
     {
       title: 'Processor',
-      value: product.processor,
+      value: product?.processor,
     },
     {
       title: 'RAM',
-      value: product.ram,
+      value: product?.ram,
     },
     {
       title: 'Camera',
-      value: product.camera,
+      value: product?.camera,
     },
     {
       title: 'Zoom',
-      value: product.zoom,
+      value: product?.zoom,
     },
     {
       title: 'Cell',
-      value: product.cell,
+      value: product?.cell,
     },
   ].filter(({ value }) => value);
 }

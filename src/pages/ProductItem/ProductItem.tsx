@@ -22,6 +22,7 @@ import {
   VariantOptions,
 } from '../../types/product';
 import { getNormalizedTechSpecs } from '../../helpers/products';
+import { EmptyComponent } from '../../components/EmptyComponent';
 
 export const ProductItem: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
@@ -75,7 +76,12 @@ export const ProductItem: React.FC = () => {
   }, [itemId]);
 
   if (!product) {
-    return <>Nothing</>;
+    return (
+      <EmptyComponent
+        data={product}
+        text={'Product not found :('}
+      />
+    );
   }
 
   const techSpecs = getNormalizedTechSpecs(product);

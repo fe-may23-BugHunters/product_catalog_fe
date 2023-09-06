@@ -3,14 +3,14 @@ import React from 'react';
 import './EmptyComponent.scss';
 
 type Props = {
-  data: any[];
+  data: any;
   text: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const EmptyComponent: React.FC<Props> = ({ data, text, children }) => {
   if (data === null || (data && !data.length)) {
-    return <>{text && <p className="NoContent">{text}</p>}</>;
+    return <>{text && <p className="noContent">{text}</p>}</>;
   }
 
   return <>{children}</>;

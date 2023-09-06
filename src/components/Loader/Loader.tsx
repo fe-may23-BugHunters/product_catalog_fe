@@ -2,7 +2,7 @@ import React from 'react';
 import './Loader.scss';
 type Props = {
   isLoading?: boolean,
-  children: React.ReactNode,
+  children?: React.ReactNode,
 };
 
 export const Loader: React.FC<Props> = ({ isLoading, children }) => {
@@ -10,7 +10,7 @@ export const Loader: React.FC<Props> = ({ isLoading, children }) => {
     <>
       { isLoading
         ? <div className="spinner" />
-        : children
+        : <>{children}</>
       }
     </>
   );
