@@ -1,6 +1,6 @@
 import React from 'react';
 import './FavouritesPage.scss';
-import { CardItem } from '../../components/CardItem';
+// import { CardItem } from '../../components/CardItem';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { usePathname } from '../../hooks/usePathname';
 import { Loader } from '../../components/Loader';
@@ -24,7 +24,7 @@ export const FavouritesPage: React.FC = () => {
           text={'You haven\'t added anything to your favourites yet'}
         >
           <div className="favourites__cards">
-            <div className="favourites__card">
+            {/* <div className="favourites__card">
               <CardItem />
             </div>
             <div className="favourites__card">
@@ -44,7 +44,7 @@ export const FavouritesPage: React.FC = () => {
             </div>
             <div className="favourites__card">
               <CardItem />
-            </div>
+            </div> */}
           </div>
         </EmptyComponent>
       </Loader>

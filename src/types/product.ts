@@ -5,8 +5,8 @@ export interface Product {
   phoneId: string;
   itemId: string;
   name: string;
-  fullPrice: number;
-  price: number;
+  priceRegular: number;
+  priceDiscount: number;
   screen: string;
   capacity: string;
   color: string;

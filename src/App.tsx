@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import './styles/main.scss';
 import { MainLayout } from './layouts/MainLayout';
 import { Outlet } from 'react-router-dom';
-import { getProductById, getProductsByCategory } from './api/fetchClient';
+import { getProductById, getProductsByCategory } from './api/products';
 
 const App: React.FC = () => {
   const [products, setProducts] = useState<any>([]);
