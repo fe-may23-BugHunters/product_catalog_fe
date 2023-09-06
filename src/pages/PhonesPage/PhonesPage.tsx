@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PhonesPage.scss';
 import { SelectBlock } from '../../components/SelectBlock';
-import { getMockPages } from '../../helpers/getMockPages';
 import { Pagination } from '../../components/Pagination';
-import { CardItem } from '../../components/CardItem';
 import { usePathname } from '../../hooks/usePathname';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { EmptyComponent } from '../../components/EmptyComponent';
 import { Loader } from '../../components/Loader';
+import { Product } from '../../types/product';
+import { getProductsByCategory } from '../../api/products';
+import { CardItem } from '../../components/CardItem';
 
-const cards = getMockPages(0, 20);
 const options = [
   'Default',
   'Price Lowest',
@@ -22,11 +22,20 @@ export const PhonesPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
   const [perPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
+  const [phones, setPhones] = useState<Product[]>([]);
+
+  useEffect(() => {
+    getProductsByCategory()
+      .then((response) => setPhones(response.data.rows))
+      .catch((error) => {
+        throw new Error(error);
+      });
+  }, []);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-  const displayedCards = cards.slice(
+  const displayedCards = phones.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage,
   );
@@ -69,16 +78,16 @@ export const PhonesPage: React.FC = () => {
           text={'There are no phones available :('}
         >
           <div className="phones__cards">
-            {displayedCards.map((card) => (
-              <div className="phones__card" key={card}>
-                <CardItem />
+            {displayedCards.map((phone) => (
+              <div className="phones__card" key={phone.id}>
+                <CardItem product={phone} />
               </div>
             ))}
           </div>
 
           <div className="phones__pagination">
             <Pagination
-              total={cards.length}
+              total={phones.length}
               perPage={perPage}
               currentPage={currentPage}
               onPageChange={handlePageChange}

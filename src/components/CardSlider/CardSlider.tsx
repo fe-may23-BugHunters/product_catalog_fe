@@ -1,16 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './CardSlider.scss';
 import classNames from 'classnames';
-import { CardItem } from '../CardItem';
 import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
 // eslint-disable-next-line max-len
 import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
+import { Product } from '../../types/product';
+import { CardItem } from '../CardItem';
 
 interface Props {
   title: string;
+  models: Product[];
 }
 
-export const CardSlider: React.FC<Props> = ({ title }) => {
+export const CardSlider: React.FC<Props> = ({ title, models }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
@@ -79,39 +81,11 @@ export const CardSlider: React.FC<Props> = ({ title }) => {
         onScroll={handleScroll}
       >
         <div className="carouselSlider">
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
-          <div className="cardContainer">
-            <CardItem />
-          </div>
+          {models.map((model) => (
+            <div className="cardContainer" key={model.id}>
+              <CardItem product={model} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
