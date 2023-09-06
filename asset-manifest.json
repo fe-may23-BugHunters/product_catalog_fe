@@ -1,17 +1,11 @@
 {
   "files": {
-    "main.css": "/product_catalog_fe/static/css/main.603f8cdd.css",
-    "main.js": "/product_catalog_fe/static/js/main.44fb7932.js",
-    "static/media/banner-phones.png": "/product_catalog_fe/static/media/banner-phones.b4eeda8bd82b712057a2.png",
+    "main.css": "/product_catalog_fe/static/css/main.eb06dc40.css",
+    "main.js": "/product_catalog_fe/static/js/main.5ebaad42.js",
     "static/media/Logo.svg": "/product_catalog_fe/static/media/Logo.82f82c9ade36c8bb9559f23b90157ac2.svg",
-    "static/media/banner-tablets.png": "/product_catalog_fe/static/media/banner-tablets.a962057c1043a08f7737.png",
     "static/media/Mont-Regular.ttf": "/product_catalog_fe/static/media/Mont-Regular.7c9521719ef1f902cd6e.ttf",
     "static/media/Mont-SemiBold.ttf": "/product_catalog_fe/static/media/Mont-SemiBold.c21ff6b111e2dd3dc2cf.ttf",
     "static/media/Mont-Bold.ttf": "/product_catalog_fe/static/media/Mont-Bold.53b78fdf82658f151a04.ttf",
-    "static/media/Category_accessories.jpg": "/product_catalog_fe/static/media/Category_accessories.fcfc0e03193ac666740c.jpg",
-    "static/media/banner-accessories.png": "/product_catalog_fe/static/media/banner-accessories.bdd2e0fca0159e52f41c.png",
-    "static/media/Category_tablets.jpg": "/product_catalog_fe/static/media/Category_tablets.d0f6c542e485c8505183.jpg",
-    "static/media/Category_phones.jpg": "/product_catalog_fe/static/media/Category_phones.15938cdd57a15c0eb87f.jpg",
     "static/media/Cart.svg": "/product_catalog_fe/static/media/Cart.fbb7bb4b7513df420fa1.svg",
     "static/media/heart.svg": "/product_catalog_fe/static/media/heart.75d1cf69424fbf740ba8401885512d6f.svg",
     "static/media/Home.svg": "/product_catalog_fe/static/media/Home.901f72c9436f9e8c63573838c422c80d.svg",
@@ -26,11 +20,11 @@
     "static/media/arrowUp.svg": "/product_catalog_fe/static/media/arrowUp.c14c6ce9f0c1737bb3a93d4606420293.svg",
     "static/media/Minus.svg": "/product_catalog_fe/static/media/Minus.e55c0b179fefa1f8d7dffd63a5c7d0ed.svg",
     "index.html": "/product_catalog_fe/index.html",
-    "main.603f8cdd.css.map": "/product_catalog_fe/static/css/main.603f8cdd.css.map",
-    "main.44fb7932.js.map": "/product_catalog_fe/static/js/main.44fb7932.js.map"
+    "main.eb06dc40.css.map": "/product_catalog_fe/static/css/main.eb06dc40.css.map",
+    "main.5ebaad42.js.map": "/product_catalog_fe/static/js/main.5ebaad42.js.map"
   },
   "entrypoints": [
-    "static/css/main.603f8cdd.css",
-    "static/js/main.44fb7932.js"
+    "static/css/main.eb06dc40.css",
+    "static/js/main.5ebaad42.js"
   ]
 }
