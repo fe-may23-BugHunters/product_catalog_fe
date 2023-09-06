@@ -21,10 +21,7 @@ export const CartPage: React.FC = () => {
       <h1 className="cart__title">Cart</h1>
 
       <Loader isLoading={false}>
-        <EmptyComponent
-          data={['']}
-          text={'Your cart is empty :('}
-        >
+        <EmptyComponent data={['']} text={'Your cart is empty :('}>
           <div className="cart__content">
             <div className="cart__items">
               <CartItem />

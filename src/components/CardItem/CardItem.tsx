@@ -20,8 +20,8 @@ export const CardItem: React.FC<Props> = ({ product }) => {
       <div className="card__price">
         {product.priceDiscount ? (
           <>
-          <span className="card__price__now">${product.priceDiscount}</span>
-          <span className="card__price__old">${product.priceRegular}</span>
+            <span className="card__price__now">${product.priceDiscount}</span>
+            <span className="card__price__old">${product.priceRegular}</span>
           </>
         ) : (
           <span className="card__price__old">${product.priceRegular}</span>

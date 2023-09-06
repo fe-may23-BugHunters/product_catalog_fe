@@ -71,7 +71,7 @@ export const TabletsPage: React.FC = () => {
       <div className="tablets__cards">
         {displayedCards.map((tablet) => (
           <div className="tablets__card" key={tablet.id}>
-            <CardItem product={tablet}/>
+            <CardItem product={tablet} />
           </div>
         ))}
       </div>

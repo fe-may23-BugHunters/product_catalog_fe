@@ -81,9 +81,9 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
         onScroll={handleScroll}
       >
         <div className="carouselSlider">
-          {models.map(model => (
+          {models.map((model) => (
             <div className="cardContainer" key={model.id}>
-              <CardItem product={model}/>
+              <CardItem product={model} />
             </div>
           ))}
         </div>

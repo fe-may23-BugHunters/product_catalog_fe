@@ -69,11 +69,11 @@ export const AccessoriesPage: React.FC = () => {
       </div>
 
       <div className="accessories__cards">
-          {displayedCards.map((accessory) => (
-            <div className="accessories__card" key={accessory.id} >
-              <CardItem product={accessory} />
-            </div>
-          ))}
+        {displayedCards.map((accessory) => (
+          <div className="accessories__card" key={accessory.id}>
+            <CardItem product={accessory} />
+          </div>
+        ))}
       </div>
 
       <div className="accessories__pagination">

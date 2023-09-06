@@ -9,7 +9,9 @@ export function getProductsByCategory(
   category = Categories.PHONES,
   sortBy = SortBy.NAME,
 ) {
-  return axios.get(`${BASE_URL}?limit=${limit}&offset=${offset}&sortBy=${sortBy}&category=${category}`);
+  return axios.get(
+    `${BASE_URL}?limit=${limit}&offset=${offset}&sortBy=${sortBy}&category=${category}`,
+  );
 }
 
 export function getProductById(productId: string) {
