@@ -12,11 +12,18 @@ interface Props {
 export const CardItem: React.FC<Props> = ({ product }) => {
   return (
     <article className="card">
-      <NavLink to="/phones/1" className="card__photo">
-        <img className="card__photo" src="http://surl.li/krahu" alt="name" />
+      <NavLink
+        to={`/${product?.category}/${product?.id}`}
+        className="card__photo"
+      >
+        <img
+          className="card__photo"
+          src={`product_catalog_fe/${product?.images[0]}`}
+          alt="product?.name"
+        />
       </NavLink>
-      <h2 className="card__title">{product.name}</h2>
-
+      
+      <h2 className="card__title">{product?.name}</h2>
       <div className="card__price">
         {product.priceDiscount ? (
           <>
@@ -43,13 +50,14 @@ export const CardItem: React.FC<Props> = ({ product }) => {
           <span className="detailValue">{product.ram}</span>
         </li>
       </ul>
+
       <div className="card__buttons">
         <div className="card__addToCartBtn">
           <WideBtn mainTitle="Add to cart" secondaryTitle="Added to cart" />
         </div>
 
         <div className="card__likeBtn">
-          <LikeBtn />
+          <LikeBtn product={product} />
         </div>
       </div>
     </article>
