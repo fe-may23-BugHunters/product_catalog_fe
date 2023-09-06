@@ -18,7 +18,7 @@ export interface Product {
 
 export enum SortBy {
   NAME = 'name',
-  YEAR = 'year',
+  PRICE = 'priceRegular',
   CAPACITY = 'capacity',
 }
 
