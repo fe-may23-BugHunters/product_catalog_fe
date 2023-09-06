@@ -7,7 +7,7 @@ import { Product } from '../../types/product';
 
 type Props = {
   product: Product;
-}
+};
 
 export const CardItem: React.FC<Props> = ({ product }) => {
   return (
@@ -44,12 +44,10 @@ export const CardItem: React.FC<Props> = ({ product }) => {
           <span className="detailValue">4 GB</span>
         </li>
       </ul>
+
       <div className="card__buttons">
         <div className="card__addToCartBtn">
-          <WideBtn
-            mainTitle="Add to cart"
-            secondaryTitle="Added to cart"
-          />
+          <WideBtn mainTitle="Add to cart" secondaryTitle="Added to cart" />
         </div>
 
         <div className="card__likeBtn">
