@@ -12,7 +12,7 @@ export interface Product {
   color: string;
   ram: string;
   year: number;
-  image: string;
+  images: string[];
   createdAt: string;
 }
 
