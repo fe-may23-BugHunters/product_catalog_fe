@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -10,7 +9,7 @@ import { ProductAbout } from '../../components/ProductAbout';
 import { ProductVariants } from '../../components/ProductVariants';
 import { ProductPhotos } from '../../components/ProductPhotos';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
-// import { CardSlider } from '../../components/CardSlider';
+import { CardSlider } from '../../components/CardSlider';
 import { usePathname } from '../../hooks/usePathname';
 
 import {
@@ -28,7 +27,6 @@ export const ProductItem: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
   const [product, setProduct] = useState<Product | null>(null);
   const [
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     recommendedProducts,
     setRecommendedProducts,
   ] = useState<Product[]>([]);
@@ -70,11 +68,9 @@ export const ProductItem: React.FC = () => {
 
   useEffect(() => {
     getRecommendedProducts()
-      .then(productFromServer => {
-        setRecommendedProducts(productFromServer.data);
-      })
-      .catch(err => {
-        throw new Error(err);
+      .then((response) => setRecommendedProducts(response.data))
+      .catch((error) => {
+        throw new Error(error);
       });
   }, [itemId]);
 
@@ -124,12 +120,9 @@ export const ProductItem: React.FC = () => {
         </div>
       </div>
 
-      {/* <div className="product__recommended">
-        <CardSlider
-          title={'You may also like'}
-          products={recommendedProducts}
-        />
-      </div> */}
+      <div className="product__recommended">
+        <CardSlider models={recommendedProducts} title={'You may also like'} />
+      </div>
     </div>
   );
 };

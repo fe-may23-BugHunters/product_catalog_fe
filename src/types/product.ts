@@ -40,11 +40,11 @@ export enum Categories {
 }
 
 export interface VariantOptions {
-  color: string,
-  capacity: string,
+  color: string;
+  capacity: string;
 }
 
 export interface TechSpecs {
-  title: string,
-  value: string | string[] | null,
+  title: string;
+  value: string | string[] | null;
 }

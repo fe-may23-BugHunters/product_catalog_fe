@@ -25,3 +25,4 @@ export function deleteFavouriteProduct({
 } : FavouriteQueryParams) {
   return axios.delete(`${BASE_URL}/${userId}/${productId}`);
 }
+
