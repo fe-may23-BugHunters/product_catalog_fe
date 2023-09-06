@@ -8,6 +8,8 @@
   font-weight: 700;
   color: $color-white;
   transition: color $effectDuration;
+  background-color: transparent;
+  border: none;
 
   &:hover {
     color: $color-accent;

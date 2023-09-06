@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React, { createContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 import { Product } from '../types/product';
@@ -36,8 +35,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
 
   const removeCartProduct = (id: string) => {
     setCartProducts((current) =>
-      current.filter((cartProductId) => cartProductId.id !== id),
-    );
+      current.filter((cartProductId) => cartProductId.id !== id));
   };
 
   const value = {

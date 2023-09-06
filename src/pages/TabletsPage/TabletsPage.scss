@@ -3,7 +3,7 @@
 
 .tablets {
   padding-block: 24px;
-
+  
   @include onTablet {
     padding-block: 40px;
   }
@@ -48,15 +48,14 @@
   &__cards {
     display: grid;
     justify-items: center;
-    justify-content: center;
     gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(auto, 288px));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     margin-bottom: 30px;
   }
 
   &__card {
     box-sizing: border-box;
-    min-width: 230px;
+    width: 287px;
     height: 100%;
 
     @include onTablet {

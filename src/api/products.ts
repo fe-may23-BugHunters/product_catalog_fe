@@ -16,6 +16,18 @@ export function getProductById(productId: string) {
   return axios.get(`${BASE_URL}/${productId}`);
 }
 
+export function getProductByOptions({
+  color = '',
+  capacity = '',
+  namespaceId = '',
+}:{
+  color: string,
+  capacity: string,
+  namespaceId: string,
+}) {
+  return axios.get(`${BASE_URL}/variants?color=${color}&capacity=${capacity}&namespaceId=${namespaceId}`);
+}
+
 export function getRecommendedProducts() {
   return axios.get(`${BASE_URL}/recommended`);
 }

@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './ProductPhotos.scss';
 import { PhotoPreviewItem } from '../PhotoPreviewItem';
 
-export const ProductPhotos: React.FC = () => {
+interface Props {
+  photos: string[];
+}
+
+export const ProductPhotos: React.FC<Props> = ({ photos }) => {
+  const [largePhoto, setLargePhoto] = useState<string>(photos[0]);
+
+  useEffect(() => {
+    setLargePhoto(photos[0]);
+  }, [photos]);
+
+  const changeLargePhoto = useCallback((newPhoto: string) => {
+    setLargePhoto(newPhoto);
+  }, [largePhoto]);
+
   return (
     <section className="photos">
       <div className="photos__photo">
         <img
           className="photos__img"
-          src="http://surl.li/krahu"
-          alt="Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)"
+          src={`product_catalog_fe/${largePhoto}`}
+          alt="product photo"
         />
       </div>
 
       <div className="photos__list">
-        <PhotoPreviewItem />
-        <PhotoPreviewItem />
-        <PhotoPreviewItem />
-        <PhotoPreviewItem />
-        <PhotoPreviewItem />
+        {photos.slice(0, 5).map(smallPhoto => (
+          <PhotoPreviewItem
+            isActive={largePhoto === smallPhoto}
+            photo={smallPhoto}
+            key={smallPhoto}
+            showPhoto={changeLargePhoto}
+          />
+        ))}
       </div>
     </section>
   );

@@ -9,11 +9,12 @@ import 'swiper/swiper-bundle.min.css';
 
 import './BannerSlider.scss';
 import { BannerItem } from '../BannerItem';
-import PhonesBannerImg from '../../assets/banners/banner-phones.png';
-import TabletsBannerImg from '../../assets/banners/banner-tablets.png';
-import AccessoriesBannerImg from '../../assets/banners/banner-accessories.png';
 
-const banners = [PhonesBannerImg, TabletsBannerImg, AccessoriesBannerImg];
+const banners = [
+  'product_catalog_fe/img/banners/banner-1.webp',
+  'product_catalog_fe/img/banners/banner-2.webp',
+  'product_catalog_fe/img/banners/banner-3.webp',
+];
 
 SwiperCore.use([Autoplay]);
 

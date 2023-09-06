@@ -1,13 +1,30 @@
 import React from 'react';
+import cn from 'classnames';
 import './PhotoPreviewItem.scss';
 
-export const PhotoPreviewItem: React.FC = () => {
+interface Props {
+  isActive: boolean,
+  photo: string,
+  showPhoto: (value: string) => void,
+}
+
+export const PhotoPreviewItem: React.FC<Props> = ({
+  isActive,
+  photo,
+  showPhoto = () => {},
+}) => {
   return (
-    <button type="button" className="photo photo--active">
+    <button
+      type="button"
+      className={cn('photo', {
+        'photo--active': isActive,
+      })}
+      onClick={() => showPhoto(photo)}
+    >
       <img
         className="photo__img"
-        src="http://surl.li/krahu"
-        alt="Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)"
+        src={`product_catalog_fe/${photo}`}
+        alt="preview product photo"
       />
     </button>
   );

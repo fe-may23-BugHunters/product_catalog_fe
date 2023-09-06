@@ -1,55 +1,79 @@
-import React from 'react';
+import React, {
+  useMemo,
+  useState,
+  useEffect,
+} from 'react';
 import './ProductVariants.scss';
 import cn from 'classnames';
 import { TechSpecsRow } from '../TechSpecsRow';
 import { WideBtn } from '../WideBtn';
 import { LikeBtn } from '../LikeBtn';
+import {
+  Product,
+  TechSpecs,
+  VariantOptions,
+} from '../../types/product';
+import { hasDiscountPrice } from '../../helpers/products';
 
-const colors = ['#FCDBC1', '#5F7170', '#4C4C4C', '#F0F0F0'];
+interface Props {
+  setOptions: ({ color, capacity }: VariantOptions) => void,
+  product: Product,
+  techSpecs: TechSpecs[],
+}
 
-const data = [
-  {
-    param: 'Screen',
-    value: '6.5” OLED',
-  },
-  {
-    param: 'Resolution',
-    value: '2688x1242',
-  },
-  {
-    param: 'Processor',
-    value: 'Apple A12 Bionic',
-  },
-  {
-    param: 'RAM',
-    value: '3 GB',
-  },
-];
+export const ProductVariants: React.FC<Props> = ({
+  setOptions,
+  product,
+  techSpecs,
+}) => {
+  const {
+    capacityAvailable,
+    colorsAvailable,
+    priceRegular,
+    priceDiscount,
+  } = product;
+  const [
+    selectedColor,
+    setSelectedColor,
+  ] = useState<string>(product.color);
+  const [
+    selectedCapacity,
+    setSelectedCapacity,
+  ] = useState<string>(product.capacity);
 
-const memories = [64, 256, 512];
+  const hasDiscount = useMemo(
+    () => hasDiscountPrice({ priceDiscount, priceRegular }),
+    [priceRegular],
+  );
 
-export const ProductVariants: React.FC = () => {
-  const [selectedMemory, setMemory] = React.useState(memories[0]);
-  const [selectedColor, setColor] = React.useState(colors[0]);
+  useEffect(() => {
+    setOptions({
+      color: selectedColor,
+      capacity: selectedCapacity,
+    });
+  }, [selectedColor, selectedCapacity]);
 
   return (
     <section className="variants">
       <div className="variants__labels">
         <h2 className="variants__title">Available colors</h2>
 
-        <span className="variants__productId">ID: 802390</span>
+        <span className="variants__productId">
+          {`ID: ${product.id.slice(0, 6)}`}
+        </span>
       </div>
 
       <div className="variants__wrapper">
         <ul className="variants__colorsList">
-          {colors.map((hex) => (
-            <li className="variants__colorsItem" key={hex}>
+          {colorsAvailable.map((color) => (
+            <li className="variants__colorsItem" key={color}>
               <button
-                className={cn('variants__colorsBtn', {
-                  'variants__colorsBtn--active': hex === selectedColor,
-                })}
-                style={{ backgroundColor: `${hex}` }}
-                onClick={() => setColor(hex)}
+                className={cn('variants__colorsBtn',
+                  `variants__colorsBtn--${color.split(' ').join('')}`,
+                  {
+                    'variants__colorsBtn--active': color === selectedColor,
+                  })}
+                onClick={() => setSelectedColor(color)}
               />
             </li>
           ))}
@@ -58,42 +82,56 @@ export const ProductVariants: React.FC = () => {
         <h2 className="variants__label">Select capacity</h2>
 
         <ul className="variants__memories">
-          {memories.map((memory) => (
-            <li className="variants__memoryItem" key={memory}>
+          {capacityAvailable.map((capacity) => (
+            <li className="variants__memoryItem" key={capacity}>
               <button
                 className={cn('variants__memoryBtn', {
-                  'variants__memoryBtn--active': memory === selectedMemory,
+                  'variants__memoryBtn--active': capacity === selectedCapacity,
                 })}
-                onClick={() => setMemory(memory)}
+                onClick={() => setSelectedCapacity(capacity)}
               >
-                {memory} GB
+                {capacity}
               </button>
             </li>
           ))}
         </ul>
 
         <p className="variants__price">
-          <span className="variants__newPrice">$799</span>
-          <span className="variants__oldPrice">$1199</span>
+          <span className="variants__currentPrice">
+            {`$${hasDiscount ? priceDiscount : priceRegular}`}
+          </span>
+
+          {hasDiscount && (
+            <span className="variants__oldPrice">
+              {`$${priceRegular}`}
+            </span>
+          )}
         </p>
 
-        <p className="variants__buttons">
-          <div className="variants__wideBtn">
+        <div className="variants__buttons">
+          <div
+            className="variants__wideBtn"
+          >
             <WideBtn
+              product={product}
               mainTitle={'Add to cart'}
               secondaryTitle={'Added to cart'}
             />
           </div>
 
-          <div className="variants__favouriteBtn">
-            <LikeBtn />
+          <div
+            className="variants__favouriteBtn"
+          >
+            <LikeBtn product={product} />
           </div>
-        </p>
+        </div>
 
         <ul className="variants__techSpecs">
-          {data.map(({ param, value }) => (
-            <React.Fragment key={param}>
-              <TechSpecsRow param={param} value={value} />
+          {techSpecs.map(techSpec => (
+            <React.Fragment key={techSpec.title}>
+              <TechSpecsRow
+                techSpec={techSpec}
+              />
             </React.Fragment>
           ))}
         </ul>

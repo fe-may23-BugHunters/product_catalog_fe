@@ -50,6 +50,12 @@
     &--active {
       outline: 1px solid $color-white;
     }
+
+    @each $color, $product-color in $product-colors {
+      &--#{$color} {
+        background-color: $product-color;
+      }
+    }
   }
 
   &__label {
@@ -99,7 +105,7 @@
     margin-block-end: 16px;
   }
 
-  &__newPrice {
+  &__currentPrice {
     color: $color-white;
     font-size: 32px;
     font-weight: 700;
