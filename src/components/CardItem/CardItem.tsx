@@ -12,8 +12,8 @@ interface Props {
 export const CardItem: React.FC<Props> = ({ product }) => {
   return (
     <article className="card">
-      <NavLink to="/phones/1" className="card__photo">
-        <img className="card__photo" src="http://surl.li/krahu" alt="name" />
+      <NavLink to={`/${product.category}/${product.id}`} className="card__photo">
+        <img className="card__photo" src={`product_catalog_fe/${product.images[0]}`} alt="name" />
       </NavLink>
       <h2 className="card__title">{product.name}</h2>
 
