@@ -3,14 +3,26 @@ import './CardItem.scss';
 import { NavLink } from 'react-router-dom';
 import { WideBtn } from '../WideBtn';
 import { LikeBtn } from '../LikeBtn';
+import { Product } from '../../types/product';
 
-export const CardItem: React.FC = () => {
+type Props = {
+  product: Product;
+}
+
+export const CardItem: React.FC<Props> = ({ product }) => {
   return (
     <article className="card">
-      <NavLink to="/phones/1" className="card__photo">
-        <img className="card__photo" src="http://surl.li/krahu" alt="name" />
+      <NavLink
+        to={`/${product?.category}/${product?.id}`}
+        className="card__photo"
+      >
+        <img
+          className="card__photo"
+          src={`product_catalog_fe/${product?.images[0]}`}
+          alt="product?.name"
+        />
       </NavLink>
-      <h2 className="card__title">Apple iPhone Xs 64GB Silver (iMT9G2FS/A)</h2>
+      <h2 className="card__title">{product?.name}</h2>
 
       <div className="card__price">
         <span className="card__price__now">$799</span>
@@ -34,11 +46,14 @@ export const CardItem: React.FC = () => {
       </ul>
       <div className="card__buttons">
         <div className="card__addToCartBtn">
-          <WideBtn mainTitle="Add to cart" secondaryTitle="Added to cart" />
+          <WideBtn
+            mainTitle="Add to cart"
+            secondaryTitle="Added to cart"
+          />
         </div>
 
         <div className="card__likeBtn">
-          <LikeBtn />
+          <LikeBtn product={product} />
         </div>
       </div>
     </article>
