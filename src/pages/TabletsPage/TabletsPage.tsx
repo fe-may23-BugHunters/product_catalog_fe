@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TabletsPage.scss';
 import { SelectBlock } from '../../components/SelectBlock';
-import { getMockPages } from '../../helpers/getMockPages';
 import { Pagination } from '../../components/Pagination';
 import { CardItem } from '../../components/CardItem';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { usePathname } from '../../hooks/usePathname';
 import { Loader } from '../../components/Loader';
 import { EmptyComponent } from '../../components/EmptyComponent';
+import { Categories, Product } from '../../types/product';
+import { getProductsByCategory } from '../../api/products';
 
-const cards = getMockPages(0, 20);
 const options = [
   'Default',
   'Price Lowest',
@@ -22,12 +22,21 @@ export const TabletsPage: React.FC = () => {
   const [perPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const { pathname, onPathChange } = usePathname();
+  const [tablets, setTablets] = useState<Product[]>([]);
+
+  useEffect(() => {
+    getProductsByCategory(10, 0, Categories.TABLETS)
+      .then((response) => setTablets(response.data.rows))
+      .catch((error) => {
+        throw new Error(error);
+      });
+  }, []);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
-  const displayedCards = cards.slice(
+  const displayedCards = tablets.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage,
   );
@@ -70,16 +79,16 @@ export const TabletsPage: React.FC = () => {
           text={'There are no tablets available :('}
         >
           <div className="tablets__cards">
-            {displayedCards.map((card) => (
-              <div className="tablets__card" key={card}>
-                <CardItem />
+            {displayedCards.map((tablet) => (
+              <div className="tablets__card" key={tablet.id}>
+                <CardItem product={tablet} />
               </div>
             ))}
           </div>
 
           <div className="tablets__pagination">
             <Pagination
-              total={cards.length}
+              total={tablets.length}
               perPage={perPage}
               currentPage={currentPage}
               onPageChange={handlePageChange}

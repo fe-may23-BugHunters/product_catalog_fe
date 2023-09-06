@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProductItem.scss';
 import { BtnBack } from '../../components/BtnBack';
 import { ProductTechSpecs } from '../../components/ProductTechSpecs';
@@ -8,9 +8,20 @@ import { ProductPhotos } from '../../components/ProductPhotos';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { usePathname } from '../../hooks/usePathname';
 import { CardSlider } from '../../components/CardSlider';
+import { Product } from '../../types/product';
+import { getRecommendedProducts } from '../../api/products';
 
 export const ProductItem: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
+  const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    getRecommendedProducts()
+      .then((response) => setRecommendedProducts(response.data))
+      .catch((error) => {
+        throw new Error(error);
+      });
+  }, []);
 
   return (
     <div className="product">
@@ -45,7 +56,7 @@ export const ProductItem: React.FC = () => {
       </div>
 
       <div className="product__recommended">
-        <CardSlider title={'You may also like'} />
+        <CardSlider models={recommendedProducts} title={'You may also like'} />
       </div>
     </div>
   );
