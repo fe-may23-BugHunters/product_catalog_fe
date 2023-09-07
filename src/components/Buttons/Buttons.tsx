@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 import './Buttons.scss';
 import { BurgerMenu } from '../BurgerMenu';
+import { FavouriteContext } from '../../context/FavouriteContext';
+import { CartContext } from '../../context/CartContext';
 
 export const Buttons: React.FC = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
 
-  const favouriteItemsCount = 10;
-  const cartItemIds = null;
+  const { favouriteProducts } = useContext(FavouriteContext);
+  const { cartProducts } = useContext(CartContext);
+
+  const favouriteItemsCount = favouriteProducts.length
+    ? favouriteProducts.length
+    : null;
+  const cartItemIds = cartProducts.length ? cartProducts.length : null;
 
   useEffect(() => {
     const body = document.querySelector('body') as HTMLBodyElement;

@@ -19,7 +19,7 @@ export const LikeBtn: React.FC<Props> = ({ product }) => {
     = useContext(FavouriteContext);
 
   const isFavourite = React.useMemo(() => {
-    return favouriteProducts.includes(product?.id as string);
+    return favouriteProducts.find((item) => item.id === product?.id);
   }, [product, favouriteProducts.length]);
 
   const onAdd = () => {
@@ -27,7 +27,7 @@ export const LikeBtn: React.FC<Props> = ({ product }) => {
       productId: product?.id as string,
     })
       .then(() => {
-        addFavouriteProduct(product?.id as string);
+        addFavouriteProduct(product as Product);
       })
       .catch(() => {
         throw new Error('Product is not removed from favorites');

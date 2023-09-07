@@ -4,6 +4,7 @@ import { Product } from '../types/product';
 
 interface Context {
   cartProducts: Product[];
+  totalPrice?: number;
   addCartProduct: (product: Product) => void;
   removeCartProduct: (id: string) => void;
   total: number;
@@ -38,8 +39,21 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       current.filter((cartProductId) => cartProductId.id !== id));
   };
 
+  const countPrice = () => {
+    if (cartProducts.length === 0) {
+      return;
+    }
+
+    return cartProducts
+      .map((product) => product.priceDiscount || product.priceRegular)
+      .reduce((a, b) => a + b);
+  };
+
+  const totalPrice = countPrice();
+
   const value = {
     cartProducts,
+    totalPrice,
     addCartProduct,
     removeCartProduct,
     total: cartProducts.length,

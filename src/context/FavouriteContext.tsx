@@ -1,9 +1,11 @@
 import React, { createContext } from 'react';
 import { getAllByUserId } from '../api/favourites';
+import { Product } from '../types/product';
 
 interface Context {
-  favouriteProducts: string[];
-  addFavouriteProduct: (id: string) => void;
+  favouriteProducts: Product[];
+  isLoading: boolean;
+  addFavouriteProduct: (product: Product) => void;
   removeFavouriteProduct: (id: string) => void;
   total: number;
 }
@@ -15,40 +17,48 @@ type Props = {
 };
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
-  const [favouriteProducts, setFavouriteProducts] = React.useState<string[]>(
+  const [favouriteProducts, setFavouriteProducts] = React.useState<Product[]>(
     [],
   );
 
+  const [isLoading, setIsLoading] = React.useState(false);
+
   React.useEffect(() => {
+    setIsLoading(true);
+
     getAllByUserId()
       .then((dataFromServer) => {
         setFavouriteProducts(() =>
           dataFromServer.data.map(
-            ({ productId }: { productId: string }) => productId,
+            ({ product }: { product: Product }) => product,
           ));
       })
       .catch(() => {
         throw new Error('Product by id is not found');
-      });
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
-  const addFavouriteProduct = (favouriteId: string) => {
-    const isProductExist = favouriteProducts.find((id) => id === favouriteId);
+  const addFavouriteProduct = (newFavourite: Product) => {
+    const isProductExist = favouriteProducts.find(
+      (product) => product.id === newFavourite.id,
+    );
 
     if (isProductExist) {
       return;
     }
 
-    setFavouriteProducts((ids) => [...ids, favouriteId]);
+    setFavouriteProducts((products) => [...products, newFavourite]);
   };
 
   const removeFavouriteProduct = (id: string) => {
     setFavouriteProducts((current) =>
-      current.filter((favouriteProductId) => favouriteProductId !== id));
+      current.filter((product) => product.id !== id));
   };
 
   const value = {
     favouriteProducts,
+    isLoading,
     addFavouriteProduct,
     removeFavouriteProduct,
     total: favouriteProducts.length,
