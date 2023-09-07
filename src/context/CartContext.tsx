@@ -45,7 +45,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     }
 
     return cartProducts
-      .map((product) => product.priceDiscount)
+      .map((product) => product.priceDiscount || product.priceRegular)
       .reduce((a, b) => a + b);
   };
 

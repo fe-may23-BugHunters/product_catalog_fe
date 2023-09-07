@@ -63,7 +63,7 @@ export const CartItem: React.FC<Props> = ({ product }) => {
               <span className="card__price__old">${product?.priceRegular}</span>
             </>
           ) : (
-            <span className="card__price__old">${product?.priceRegular}</span>
+            <span className="card__price__now">${product?.priceRegular}</span>
           )}
         </p>
       </div>
