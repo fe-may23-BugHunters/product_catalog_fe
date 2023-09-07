@@ -57,3 +57,9 @@ export enum CartItemAction {
   ADD = 'add',
   SUBTRACT = 'subtract',
 }
+
+export const sortByOptions = [
+  { title: 'Name', value: SortBy.NAME },
+  { title: 'Price', value: SortBy.PRICE },
+  { title: 'Capacity', value: SortBy.CAPACITY },
+];

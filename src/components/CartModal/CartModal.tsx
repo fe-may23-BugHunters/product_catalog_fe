@@ -21,7 +21,7 @@ export const CartModal: React.FC<Props> = ({ handleClick }) => {
         <p className="cartModal__orderDate">Order date: {orderDate}</p>
 
         <NavLink
-          to="/phones"
+          to="/"
           className="cartModal__backBtn"
           onClick={handleClick}
         >

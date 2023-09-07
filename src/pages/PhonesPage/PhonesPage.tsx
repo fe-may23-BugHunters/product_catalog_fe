@@ -2,73 +2,89 @@ import React, { useState, useEffect } from 'react';
 import './PhonesPage.scss';
 import { SelectBlock } from '../../components/SelectBlock';
 import { Pagination } from '../../components/Pagination';
+import { CardItem } from '../../components/CardItem';
 import { usePathname } from '../../hooks/usePathname';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
-import { EmptyComponent } from '../../components/EmptyComponent';
 import { Loader } from '../../components/Loader';
-import { Product } from '../../types/product';
+import { EmptyComponent } from '../../components/EmptyComponent';
 import { getProductsByCategory } from '../../api/products';
-import { CardItem } from '../../components/CardItem';
-
-const options = [
-  'Default',
-  'Price Lowest',
-  'Price Highest',
-  'Newest',
-  'Oldest',
-];
+import {
+  Categories,
+  Product,
+  SortBy,
+  sortByOptions,
+} from '../../types/product';
 
 export const PhonesPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
-  const [perPage] = useState(4);
-  const [currentPage, setCurrentPage] = useState(1);
+
   const [phones, setPhones] = useState<Product[]>([]);
+  const [perPage, setPerPage] = useState<string | number>(4);
+  const [sortBy, setSortBy] = useState<SortBy>(SortBy.NAME);
+  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [total, setTotal] = useState(0);
+
+  const perPageOptions = [
+    { title: '4', value: 4 },
+    { title: '8', value: 8 },
+    { title: '16', value: 16 },
+  ];
+
+  function onItemsChange(option: number) {
+    setPerPage(option);
+  }
+
+  function onSortChange(option: SortBy) {
+    setSortBy(option);
+  }
 
   useEffect(() => {
     setIsLoading(true);
 
-    getProductsByCategory()
-      .then((response) => setPhones(response.data.rows))
+    getProductsByCategory(+perPage, +perPage * (currentPage - 1),
+      Categories.PHONES, sortBy)
+      .then((response) => {
+        setPhones(response.data.rows);
+        setTotal(response.data.count);
+      })
       .catch((error) => {
         throw new Error(error);
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [perPage, currentPage, sortBy]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-  const displayedCards = phones.slice(
-    (currentPage - 1) * perPage,
-    currentPage * perPage,
-  );
 
   return (
-    <article className="phones">
-      <div className="phones__breadCrumbs">
+    <article className="accessories">
+      <div className="accessories__breadCrumbs">
         <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
       </div>
 
-      <div className="phones__header">
-        <h2 className="phones__title">Phones</h2>
-        <p className="phones__model">{displayedCards.length} models</p>
-        {displayedCards.length > 0 && (
+      <div className="accessories__header">
+        <h2 className="accessories__title">Phones</h2>
+        <p className="accessories__model">{total} models</p>
+        {phones.length > 0 && (
           <>
-            <div className="phones__select__block">
-              <div className="phones__select__item">
+            <div className="accessories__select__block">
+              <div className="accessories__select__item">
                 <SelectBlock
                   selectName="Sort by"
-                  defaultValue="Newest"
-                  options={options}
+                  value={sortBy}
+                  options={sortByOptions}
+                  onChangeSortBy={onSortChange}
                 />
               </div>
 
-              <div className="phones__select__item">
+              <div className="accessories__select__item">
                 <SelectBlock
                   selectName="Items on page"
-                  defaultValue={4}
-                  options={[4, 8, 12, 16]}
+                  value={perPage}
+                  onChangePerPage={onItemsChange}
+                  options={perPageOptions}
                 />
               </div>
             </div>
@@ -77,19 +93,22 @@ export const PhonesPage: React.FC = () => {
       </div>
 
       <Loader isLoading={isLoading}>
-        <EmptyComponent data={displayedCards} text={'Cannot get phones :('}>
-          <div className="phones__cards">
-            {displayedCards.map((phone) => (
-              <div className="phones__card" key={phone.id}>
+        <EmptyComponent
+          data={phones}
+          text={'Cannot get accessories :('}
+        >
+          <div className="accessories__cards">
+            {phones.map((phone) => (
+              <div className="accessories__card" key={phone.id}>
                 <CardItem product={phone} />
               </div>
             ))}
           </div>
 
-          <div className="phones__pagination">
+          <div className="accessories__pagination">
             <Pagination
-              total={phones.length}
-              perPage={perPage}
+              total={total}
+              perPage={+perPage}
               currentPage={currentPage}
               onPageChange={handlePageChange}
             />
