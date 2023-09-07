@@ -77,10 +77,7 @@ export const PhonesPage: React.FC = () => {
       </div>
 
       <Loader isLoading={isLoading}>
-        <EmptyComponent
-          data={displayedCards}
-          text={'Cannot get phones :('}
-        >
+        <EmptyComponent data={displayedCards} text={'Cannot get phones :('}>
           <div className="phones__cards">
             {displayedCards.map((phone) => (
               <div className="phones__card" key={phone.id}>

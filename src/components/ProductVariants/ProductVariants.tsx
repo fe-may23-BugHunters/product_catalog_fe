@@ -31,8 +31,9 @@ export const ProductVariants: React.FC<Props> = ({
   );
 
   useEffect(() => {
-    if (selectedColor === product.color
-        && selectedCapacity === product.capacity
+    if (
+      selectedColor === product.color
+      && selectedCapacity === product.capacity
     ) {
       return;
     }

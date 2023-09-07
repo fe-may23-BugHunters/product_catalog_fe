@@ -78,10 +78,7 @@ export const TabletsPage: React.FC = () => {
       </div>
 
       <Loader isLoading={isLoading}>
-        <EmptyComponent
-          data={displayedCards}
-          text={'Cannot get tablets :('}
-        >
+        <EmptyComponent data={displayedCards} text={'Cannot get tablets :('}>
           <div className="tablets__cards">
             {displayedCards.map((tablet) => (
               <div className="tablets__card" key={tablet.id}>
