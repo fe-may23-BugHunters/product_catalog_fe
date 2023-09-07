@@ -81,5 +81,5 @@ function addZero(number: number): string {
 }
 
 export function normalizeColorName(color: string) {
-  return color.replace(/[\W-_]+/ig, '');
+  return color.replace(/[\W-_]+/gi, '');
 }
