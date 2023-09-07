@@ -5,7 +5,7 @@ import { TechSpecsRow } from '../TechSpecsRow';
 import { WideBtn } from '../WideBtn';
 import { LikeBtn } from '../LikeBtn';
 import { Product, TechSpecs, VariantOptions } from '../../types/product';
-import { hasDiscountPrice } from '../../helpers/products';
+import { hasDiscountPrice, normalizeColorName } from '../../helpers/products';
 
 interface Props {
   setOptions: ({ color, capacity }: VariantOptions) => void;
@@ -37,6 +37,11 @@ export const ProductVariants: React.FC<Props> = ({
     });
   }, [selectedColor, selectedCapacity]);
 
+  const sortedColors = React.useMemo(
+    () => [...colorsAvailable].sort(),
+    [product],
+  );
+
   return (
     <section className="variants">
       <div className="variants__labels">
@@ -49,12 +54,12 @@ export const ProductVariants: React.FC<Props> = ({
 
       <div className="variants__wrapper">
         <ul className="variants__colorsList">
-          {colorsAvailable.map((color) => (
+          {sortedColors.map((color) => (
             <li className="variants__colorsItem" key={color}>
               <button
                 className={cn(
                   'variants__colorsBtn',
-                  `variants__colorsBtn--${color.split(' ').join('')}`,
+                  `variants__colorsBtn--${normalizeColorName(color)}`,
                   {
                     'variants__colorsBtn--active': color === selectedColor,
                   },
