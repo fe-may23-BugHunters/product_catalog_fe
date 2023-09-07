@@ -20,8 +20,8 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
   useEffect(() => {
     const setOrUpdateMaxScroll = () => {
       if (containerRef.current) {
-        const scrollWidth = containerRef.current?.scrollWidth;
-        const offsetWidth = containerRef.current?.scrollWidth;
+        const scrollWidth = +containerRef.current?.scrollWidth;
+        const offsetWidth = +containerRef.current?.offsetWidth;
         const maxScrollValue = scrollWidth - offsetWidth;
 
         setMaxScroll(maxScrollValue);
@@ -49,7 +49,7 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
     if (containerRef.current) {
       const current = containerRef.current as HTMLDivElement;
 
-      if (current.scrollLeft != null && current.offsetWidth) {
+      if (current.scrollLeft >= 0 && current.offsetWidth) {
         current.scrollTo({
           left: current.scrollLeft + current.offsetWidth / 2,
           behavior: 'smooth',
@@ -82,7 +82,7 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
           <div
             className={classNames('carouselArrow', 'carouselArrow-right', {
               'carouselArrow__right--disabled':
-                maxScroll - scrollPosition <= 10,
+                +maxScroll - +scrollPosition <= 10,
             })}
             onClick={handleScrollRight}
           >
