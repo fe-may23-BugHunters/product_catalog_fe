@@ -28,12 +28,14 @@ export const CartPage: React.FC = () => {
           text={"You haven't added anything to your cart yet"}
         >
           <div className="cart__content">
-            {cartProducts.map((cartProduct) => (
-              <div key={cartProduct.id} className="cart__items">
-                <CartItem product={cartProduct} />
-              </div>
-            ))}
-
+            <div className="cart__items">
+              {cartProducts.map((cartProduct) => (
+                <CartItem
+                  product={cartProduct}
+                  key={cartProduct.id}
+                />
+              ))}
+            </div>
             <div className="cart__checkout">
               <p className="cart__sum">${totalPrice}</p>
               <p className="cart__count">
