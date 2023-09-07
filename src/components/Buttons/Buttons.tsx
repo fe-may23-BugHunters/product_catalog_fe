@@ -5,15 +5,20 @@ import cn from 'classnames';
 import './Buttons.scss';
 import { BurgerMenu } from '../BurgerMenu';
 import { FavouriteContext } from '../../context/FavouriteContext';
+import { CartContext } from '../../context/CartContext';
 
 export const Buttons: React.FC = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
 
   const { favouriteProducts } = useContext(FavouriteContext);
+  const { cartProducts } = useContext(CartContext);
 
   const favouriteItemsCount = favouriteProducts.length
-    ? favouriteProducts.length : null;
-  const cartItemIds = null;
+    ? favouriteProducts.length
+    : null;
+  const cartItemIds = cartProducts.length
+    ? cartProducts.length
+    : null;
 
   useEffect(() => {
     const body = document.querySelector('body') as HTMLBodyElement;
