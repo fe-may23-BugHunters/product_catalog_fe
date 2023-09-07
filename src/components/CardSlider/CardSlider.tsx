@@ -21,8 +21,8 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
     const setOrUpdateMaxScroll = () => {
       if (containerRef.current) {
         const maxScrollValue
-          = +containerRef.current?.scrollWidth
-          - +containerRef.current?.offsetWidth;
+          = containerRef.current?.scrollWidth
+          - containerRef.current?.offsetWidth;
 
         setMaxScroll(maxScrollValue);
       }
@@ -31,8 +31,6 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
     setOrUpdateMaxScroll();
     window.addEventListener('resize', setOrUpdateMaxScroll);
   }, [models.length]);
-
-        console.log(scrollPosition, maxScroll)
 
   const handleScrollLeft = () => {
     if (containerRef.current) {
@@ -51,7 +49,7 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
     if (containerRef.current) {
       const current = containerRef.current as HTMLDivElement;
 
-      if (current.scrollLeft >= 0 && current.offsetWidth) {
+      if (current.scrollLeft != null && current.offsetWidth) {
         current.scrollTo({
           left: current.scrollLeft + current.offsetWidth / 2,
           behavior: 'smooth',
