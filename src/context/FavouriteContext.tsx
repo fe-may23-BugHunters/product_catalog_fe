@@ -7,7 +7,6 @@ interface Context {
   isLoading: boolean;
   addFavouriteProduct: (product: Product) => void;
   removeFavouriteProduct: (id: string) => void;
-  total: number;
 }
 
 export const FavouriteContext = createContext({} as Context);
@@ -61,7 +60,6 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
     isLoading,
     addFavouriteProduct,
     removeFavouriteProduct,
-    total: favouriteProducts.length,
   };
 
   return (

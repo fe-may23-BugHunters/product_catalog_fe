@@ -11,7 +11,12 @@ import { EmptyComponent } from '../../components/EmptyComponent';
 export const CartPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-  const { cartProducts, totalPrice } = useContext(CartContext);
+  const {
+    cartProducts,
+    totalPrice,
+    totalAmount,
+    clearCart,
+  } = useContext(CartContext);
 
   return (
     <section className="cart">
@@ -31,7 +36,7 @@ export const CartPage: React.FC = () => {
             <div className="cart__items">
               {cartProducts.map((cartProduct) => (
                 <CartItem
-                  product={cartProduct}
+                  cartProduct={cartProduct}
                   key={cartProduct.id}
                 />
               ))}
@@ -39,14 +44,17 @@ export const CartPage: React.FC = () => {
             <div className="cart__checkout">
               <p className="cart__sum">${totalPrice}</p>
               <p className="cart__count">
-                Total for {cartProducts.length} items
+                Total for {totalAmount} items
               </p>
               <div className="cart__decor"></div>
 
               <div
                 className="cart__checkoutBtn"
                 role="button"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  clearCart();
+                  setIsModalOpen(true);
+                }}
               >
                 <WideBtn mainTitle={'Checkout'} />
               </div>

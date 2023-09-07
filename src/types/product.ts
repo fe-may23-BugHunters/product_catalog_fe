@@ -27,6 +27,10 @@ export interface Product {
   createdAt: string;
 }
 
+export interface ProductWithCount extends Product {
+  count: number;
+}
+
 export enum SortBy {
   NAME = 'name',
   PRICE = 'priceRegular',
@@ -47,4 +51,9 @@ export interface VariantOptions {
 export interface TechSpecs {
   title: string;
   value: string | string[] | null;
+}
+
+export enum CartItemAction {
+  ADD = 'add',
+  SUBTRACT = 'subtract',
 }

@@ -144,18 +144,8 @@
   }
 
   &__price {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     font-size: 22px;
     font-weight: 700;
     line-height: 140%;
-
-    &__old {
-      color: $color-secondary;
-      font-size: 22px;
-      font-weight: 600;
-      text-decoration-line: line-through;
-    }
   }
 }
