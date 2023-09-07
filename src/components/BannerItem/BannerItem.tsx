@@ -8,7 +8,11 @@ interface Props {
 export const BannerItem: React.FC<Props> = ({ banner }) => {
   return (
     <div className="bannerItem">
-      <img className="bannerItem__img" src={banner} alt="Banner" />
+      <img
+        className="bannerItem__img"
+        src={`${location.origin}/product_catalog_fe/${banner}`}
+        alt="Banner"
+      />
     </div>
   );
 };

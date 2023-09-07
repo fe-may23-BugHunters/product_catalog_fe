@@ -23,7 +23,7 @@ export const PhotoPreviewItem: React.FC<Props> = ({
     >
       <img
         className="photo__img"
-        src={`product_catalog_fe/${photo}`}
+        src={`${location.origin}/product_catalog_fe/${photo}`}
         alt="preview product photo"
       />
     </button>

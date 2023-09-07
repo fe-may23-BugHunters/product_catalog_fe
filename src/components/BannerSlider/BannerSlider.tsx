@@ -11,9 +11,9 @@ import './BannerSlider.scss';
 import { BannerItem } from '../BannerItem';
 
 const banners = [
-  'product_catalog_fe/img/banners/banner-1.webp',
-  'product_catalog_fe/img/banners/banner-2.webp',
-  'product_catalog_fe/img/banners/banner-3.webp',
+  'img/banners/banner-1.webp',
+  'img/banners/banner-2.webp',
+  'img/banners/banner-3.webp',
 ];
 
 SwiperCore.use([Autoplay]);

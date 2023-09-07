@@ -25,7 +25,7 @@ export const ProductPhotos: React.FC<Props> = ({ photos }) => {
       <div className="photos__photo">
         <img
           className="photos__img"
-          src={`product_catalog_fe/${largePhoto}`}
+          src={`${location.origin}/product_catalog_fe/${largePhoto}`}
           alt="product photo"
         />
       </div>
