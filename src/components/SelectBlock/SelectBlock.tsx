@@ -3,28 +3,44 @@ import './SelectBlock.scss';
 import arrowDown from '../../assets/icons/arrowDown.svg';
 import arrowUp from '../../assets/icons/arrowUp.svg';
 import cn from 'classnames';
+import { SortBy } from '../../types/product';
+
+interface SortByOptions {
+  title: string;
+  value: SortBy | number;
+}
 
 type Props = {
   selectName: string;
-  options: (string | number)[];
-  defaultValue: string | number;
+  options: SortByOptions[];
+  defaultValue?: string | number;
+  value?: string | number | SortBy;
+  onChangeSortBy?: (value: SortBy) => void;
+  onChangePerPage?: (value: number) => void;
 };
 
 export const SelectBlock: React.FC<Props> = ({
   selectName,
   options,
-  defaultValue,
+  value,
+  onChangeSortBy,
+  onChangePerPage,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(defaultValue);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+  const selectTitle = options.find(option => option.value === value)?.title;
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (option: string | number) => {
-    setSelectedValue(option);
+  const handleOptionClick = (option:number | SortBy) => {
+    if (selectName === 'Sort by') {
+      onChangeSortBy?.(option as SortBy);
+    } else {
+      onChangePerPage?.(option as number);
+    }
     setIsOpen(false);
   };
 
@@ -54,7 +70,7 @@ export const SelectBlock: React.FC<Props> = ({
           tabIndex={0}
           onClick={toggleDropdown}
         >
-          <div className="selectBlock__selected-option">{selectedValue}</div>
+          <div className="selectBlock__selected-option">{selectTitle}</div>
           <div className="selectBlock__img">
             {isOpen ? (
               <img
@@ -74,11 +90,11 @@ export const SelectBlock: React.FC<Props> = ({
         <ul className={cn('selectBlock__options', { active: isOpen })}>
           {options.map((option) => (
             <li
-              key={option}
+              key={option.title}
               className="selectBlock__option"
-              onClick={() => handleOptionClick(option)}
+              onClick={() => handleOptionClick(option.value)}
             >
-              {option}
+              {option.title}
             </li>
           ))}
         </ul>

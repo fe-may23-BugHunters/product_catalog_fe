@@ -8,42 +8,55 @@ import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { Loader } from '../../components/Loader';
 import { EmptyComponent } from '../../components/EmptyComponent';
 import { getProductsByCategory } from '../../api/products';
-import { Categories, Product } from '../../types/product';
-
-const options = [
-  'Default',
-  'Price Lowest',
-  'Price Highest',
-  'Newest',
-  'Oldest',
-];
+import {
+  Categories,
+  Product,
+  SortBy,
+  sortByOptions,
+} from '../../types/product';
 
 export const AccessoriesPage: React.FC = () => {
-  const [perPage] = useState(4);
-  const [currentPage, setCurrentPage] = useState(1);
   const { pathname, onPathChange } = usePathname();
+
   const [accessories, setAccessories] = useState<Product[]>([]);
+  const [perPage, setPerPage] = useState<string | number>(4);
+  const [sortBy, setSortBy] = useState<SortBy>(SortBy.NAME);
+  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [total, setTotal] = useState(0);
+
+  const perPageOptions = [
+    { title: '4', value: 4 },
+    { title: '8', value: 8 },
+    { title: '16', value: 16 },
+  ];
+
+  function onItemsChange(option: number) {
+    setPerPage(option);
+  }
+
+  function onSortChange(option: SortBy) {
+    setSortBy(option);
+  }
 
   useEffect(() => {
     setIsLoading(true);
 
-    getProductsByCategory(10, 0, Categories.ACCESSORIES)
-      .then((response) => setAccessories(response.data.rows))
+    getProductsByCategory(+perPage, +perPage * (currentPage - 1),
+      Categories.ACCESSORIES, sortBy)
+      .then((response) => {
+        setAccessories(response.data.rows);
+        setTotal(response.data.count);
+      })
       .catch((error) => {
         throw new Error(error);
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [perPage, currentPage, sortBy]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-
-  const displayedCards = accessories.slice(
-    (currentPage - 1) * perPage,
-    currentPage * perPage,
-  );
 
   return (
     <article className="accessories">
@@ -53,23 +66,25 @@ export const AccessoriesPage: React.FC = () => {
 
       <div className="accessories__header">
         <h2 className="accessories__title">Accessories</h2>
-        <p className="accessories__model">{displayedCards.length} models</p>
-        {displayedCards.length > 0 && (
+        <p className="accessories__model">{total} models</p>
+        {accessories.length > 0 && (
           <>
             <div className="accessories__select__block">
               <div className="accessories__select__item">
                 <SelectBlock
                   selectName="Sort by"
-                  defaultValue="Newest"
-                  options={options}
+                  value={sortBy}
+                  options={sortByOptions}
+                  onChangeSortBy={onSortChange}
                 />
               </div>
 
               <div className="accessories__select__item">
                 <SelectBlock
                   selectName="Items on page"
-                  defaultValue={4}
-                  options={[4, 8, 12, 16]}
+                  value={perPage}
+                  onChangePerPage={onItemsChange}
+                  options={perPageOptions}
                 />
               </div>
             </div>
@@ -79,11 +94,11 @@ export const AccessoriesPage: React.FC = () => {
 
       <Loader isLoading={isLoading}>
         <EmptyComponent
-          data={displayedCards}
+          data={accessories}
           text={'Cannot get accessories :('}
         >
           <div className="accessories__cards">
-            {displayedCards.map((accessory) => (
+            {accessories.map((accessory) => (
               <div className="accessories__card" key={accessory.id}>
                 <CardItem product={accessory} />
               </div>
@@ -92,8 +107,8 @@ export const AccessoriesPage: React.FC = () => {
 
           <div className="accessories__pagination">
             <Pagination
-              total={accessories.length}
-              perPage={perPage}
+              total={total}
+              perPage={+perPage}
               currentPage={currentPage}
               onPageChange={handlePageChange}
             />
