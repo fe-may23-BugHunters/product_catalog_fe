@@ -79,3 +79,7 @@ function addZero(number: number): string {
 
   return number.toString();
 }
+
+export function normalizeColorName(color: string) {
+  return color.replace(/[\W-_]+/gi, '');
+}

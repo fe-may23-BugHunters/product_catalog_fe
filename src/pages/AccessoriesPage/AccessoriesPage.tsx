@@ -23,13 +23,17 @@ export const AccessoriesPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { pathname, onPathChange } = usePathname();
   const [accessories, setAccessories] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     getProductsByCategory(10, 0, Categories.ACCESSORIES)
       .then((response) => setAccessories(response.data.rows))
       .catch((error) => {
         throw new Error(error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   const handlePageChange = (page: number) => {
@@ -73,10 +77,10 @@ export const AccessoriesPage: React.FC = () => {
         )}
       </div>
 
-      <Loader isLoading={false}>
+      <Loader isLoading={isLoading}>
         <EmptyComponent
           data={displayedCards}
-          text={'There are no accessories available :('}
+          text={'Cannot get accessories :('}
         >
           <div className="accessories__cards">
             {displayedCards.map((accessory) => (

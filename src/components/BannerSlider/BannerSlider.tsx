@@ -35,8 +35,8 @@ export const BannerSlider: React.FC = () => {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
       >
-        {banners.map((banner, index) => (
-          <React.Fragment key={banner + index}>
+        {banners.map((banner) => (
+          <React.Fragment key={banner}>
             <SwiperSlide className="bannerSlider__slide">
               <BannerItem banner={banner} />
             </SwiperSlide>

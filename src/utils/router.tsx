@@ -14,6 +14,8 @@ import { TabletsPage } from '../pages/TabletsPage';
 import { NotFound } from '../pages/NotFound';
 import { FavouritesPage } from '../pages/FavouritesPage';
 import { ProductItem } from '../pages/ProductItem';
+import { RightsPage } from '../pages/RightsPage';
+import { ContactsPage } from '../pages/ContactsPage';
 
 export const AppRouter: React.FC = () => {
   return (
@@ -39,6 +41,8 @@ export const AppRouter: React.FC = () => {
           </Route>
 
           <Route path="favourites" element={<FavouritesPage />} />
+          <Route path="rights" element={<RightsPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -23,13 +23,17 @@ export const TabletsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { pathname, onPathChange } = usePathname();
   const [tablets, setTablets] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     getProductsByCategory(10, 0, Categories.TABLETS)
       .then((response) => setTablets(response.data.rows))
       .catch((error) => {
         throw new Error(error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   const handlePageChange = (page: number) => {
@@ -73,11 +77,8 @@ export const TabletsPage: React.FC = () => {
         )}
       </div>
 
-      <Loader isLoading={false}>
-        <EmptyComponent
-          data={displayedCards}
-          text={'There are no tablets available :('}
-        >
+      <Loader isLoading={isLoading}>
+        <EmptyComponent data={displayedCards} text={'Cannot get tablets :('}>
           <div className="tablets__cards">
             {displayedCards.map((tablet) => (
               <div className="tablets__card" key={tablet.id}>

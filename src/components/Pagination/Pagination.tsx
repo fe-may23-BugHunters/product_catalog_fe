@@ -4,6 +4,7 @@ import './Pagination.scss';
 import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
 import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 import cn from 'classnames';
+import { useScrollUp } from '../../hooks/useScrollUp';
 
 type Props = {
   total: number;
@@ -21,6 +22,7 @@ export const Pagination: React.FC<Props> = ({
   const totalPages = Math.ceil(total / perPage);
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
+  const { handleScrollUp } = useScrollUp();
 
   const pages = [];
 
@@ -28,7 +30,10 @@ export const Pagination: React.FC<Props> = ({
     pages.push(
       <button
         key={page}
-        onClick={() => onPageClick(page)}
+        onClick={() => {
+          onPageClick(page);
+          handleScrollUp();
+        }}
         className={cn('pagination__item', {
           selected: page === currentPage,
         })}

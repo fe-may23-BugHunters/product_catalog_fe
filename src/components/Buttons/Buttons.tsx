@@ -21,6 +21,7 @@ export const Buttons: React.FC = () => {
   useEffect(() => {
     const body = document.querySelector('body') as HTMLBodyElement;
 
+    body.style.height = isActiveBurger ? '100vh' : 'auto';
     body.style.overflow = isActiveBurger ? 'hidden' : 'visible';
   }, [isActiveBurger]);
 
