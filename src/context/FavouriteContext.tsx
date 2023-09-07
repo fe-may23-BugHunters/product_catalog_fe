@@ -15,17 +15,16 @@ type Props = {
 };
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
-  const [
-    favouriteProducts,
-    setFavouriteProducts,
-  ] = React.useState<string[]>([]);
+  const [favouriteProducts, setFavouriteProducts] = React.useState<string[]>(
+    [],
+  );
 
   React.useEffect(() => {
     getAllByUserId()
-      .then(dataFromServer => {
+      .then((dataFromServer) => {
         setFavouriteProducts(() =>
           dataFromServer.data.map(
-            ({ productId }: { productId: string}) => productId,
+            ({ productId }: { productId: string }) => productId,
           ));
       })
       .catch(() => {
@@ -34,9 +33,7 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   }, []);
 
   const addFavouriteProduct = (favouriteId: string) => {
-    const isProductExist = favouriteProducts.find(
-      (id) => id === favouriteId,
-    );
+    const isProductExist = favouriteProducts.find((id) => id === favouriteId);
 
     if (isProductExist) {
       return;

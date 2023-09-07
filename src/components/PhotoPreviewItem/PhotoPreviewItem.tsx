@@ -3,9 +3,9 @@ import cn from 'classnames';
 import './PhotoPreviewItem.scss';
 
 interface Props {
-  isActive: boolean,
-  photo: string,
-  showPhoto: (value: string) => void,
+  isActive: boolean;
+  photo: string;
+  showPhoto: (value: string) => void;
 }
 
 export const PhotoPreviewItem: React.FC<Props> = ({

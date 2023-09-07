@@ -12,14 +12,11 @@ import {
 
 type Props = {
   product?: Product;
-}
+};
 
 export const LikeBtn: React.FC<Props> = ({ product }) => {
-  const {
-    favouriteProducts,
-    addFavouriteProduct,
-    removeFavouriteProduct,
-  } = useContext(FavouriteContext);
+  const { favouriteProducts, addFavouriteProduct, removeFavouriteProduct }
+    = useContext(FavouriteContext);
 
   const isFavourite = React.useMemo(() => {
     return favouriteProducts.includes(product?.id as string);

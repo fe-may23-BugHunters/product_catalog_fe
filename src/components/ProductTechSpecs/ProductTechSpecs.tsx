@@ -4,12 +4,10 @@ import { TechSpecsRow } from '../TechSpecsRow';
 import { TechSpecs } from '../../types/product';
 
 interface Props {
-  techSpecs: TechSpecs[],
+  techSpecs: TechSpecs[];
 }
 
-export const ProductTechSpecs: React.FC<Props> = ({
-  techSpecs,
-}) => {
+export const ProductTechSpecs: React.FC<Props> = ({ techSpecs }) => {
   return (
     <section className="techSpecs">
       <h2 className="techSpecs__title">Tech specs</h2>

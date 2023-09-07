@@ -3,7 +3,7 @@
 
 .tablets {
   padding-block: 24px;
-  
+
   @include onTablet {
     padding-block: 40px;
   }

@@ -13,8 +13,7 @@ export const TechSpecsRow: React.FC<Props> = ({ techSpec }) => {
       <span className="techSpecsRow__value">
         {Array.isArray(techSpec.value)
           ? techSpec.value.join(', ')
-          : techSpec.value
-        }
+          : techSpec.value}
       </span>
     </li>
   );

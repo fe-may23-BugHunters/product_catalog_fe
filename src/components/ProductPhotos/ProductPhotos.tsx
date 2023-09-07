@@ -13,9 +13,12 @@ export const ProductPhotos: React.FC<Props> = ({ photos }) => {
     setLargePhoto(photos[0]);
   }, [photos]);
 
-  const changeLargePhoto = useCallback((newPhoto: string) => {
-    setLargePhoto(newPhoto);
-  }, [largePhoto]);
+  const changeLargePhoto = useCallback(
+    (newPhoto: string) => {
+      setLargePhoto(newPhoto);
+    },
+    [largePhoto],
+  );
 
   return (
     <section className="photos">
@@ -28,7 +31,7 @@ export const ProductPhotos: React.FC<Props> = ({ photos }) => {
       </div>
 
       <div className="photos__list">
-        {photos.slice(0, 5).map(smallPhoto => (
+        {photos.slice(0, 5).map((smallPhoto) => (
           <PhotoPreviewItem
             isActive={largePhoto === smallPhoto}
             photo={smallPhoto}

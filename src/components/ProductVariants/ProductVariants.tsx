@@ -1,24 +1,16 @@
-import React, {
-  useMemo,
-  useState,
-  useEffect,
-} from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import './ProductVariants.scss';
 import cn from 'classnames';
 import { TechSpecsRow } from '../TechSpecsRow';
 import { WideBtn } from '../WideBtn';
 import { LikeBtn } from '../LikeBtn';
-import {
-  Product,
-  TechSpecs,
-  VariantOptions,
-} from '../../types/product';
+import { Product, TechSpecs, VariantOptions } from '../../types/product';
 import { hasDiscountPrice } from '../../helpers/products';
 
 interface Props {
-  setOptions: ({ color, capacity }: VariantOptions) => void,
-  product: Product,
-  techSpecs: TechSpecs[],
+  setOptions: ({ color, capacity }: VariantOptions) => void;
+  product: Product;
+  techSpecs: TechSpecs[];
 }
 
 export const ProductVariants: React.FC<Props> = ({
@@ -26,20 +18,12 @@ export const ProductVariants: React.FC<Props> = ({
   product,
   techSpecs,
 }) => {
-  const {
-    capacityAvailable,
-    colorsAvailable,
-    priceRegular,
-    priceDiscount,
-  } = product;
-  const [
-    selectedColor,
-    setSelectedColor,
-  ] = useState<string>(product.color);
-  const [
-    selectedCapacity,
-    setSelectedCapacity,
-  ] = useState<string>(product.capacity);
+  const { capacityAvailable, colorsAvailable, priceRegular, priceDiscount }
+    = product;
+  const [selectedColor, setSelectedColor] = useState<string>(product.color);
+  const [selectedCapacity, setSelectedCapacity] = useState<string>(
+    product.capacity,
+  );
 
   const hasDiscount = useMemo(
     () => hasDiscountPrice({ priceDiscount, priceRegular }),
@@ -68,11 +52,13 @@ export const ProductVariants: React.FC<Props> = ({
           {colorsAvailable.map((color) => (
             <li className="variants__colorsItem" key={color}>
               <button
-                className={cn('variants__colorsBtn',
+                className={cn(
+                  'variants__colorsBtn',
                   `variants__colorsBtn--${color.split(' ').join('')}`,
                   {
                     'variants__colorsBtn--active': color === selectedColor,
-                  })}
+                  },
+                )}
                 onClick={() => setSelectedColor(color)}
               />
             </li>
@@ -102,16 +88,12 @@ export const ProductVariants: React.FC<Props> = ({
           </span>
 
           {hasDiscount && (
-            <span className="variants__oldPrice">
-              {`$${priceRegular}`}
-            </span>
+            <span className="variants__oldPrice">{`$${priceRegular}`}</span>
           )}
         </p>
 
         <div className="variants__buttons">
-          <div
-            className="variants__wideBtn"
-          >
+          <div className="variants__wideBtn">
             <WideBtn
               product={product}
               mainTitle={'Add to cart'}
@@ -119,19 +101,15 @@ export const ProductVariants: React.FC<Props> = ({
             />
           </div>
 
-          <div
-            className="variants__favouriteBtn"
-          >
+          <div className="variants__favouriteBtn">
             <LikeBtn product={product} />
           </div>
         </div>
 
         <ul className="variants__techSpecs">
-          {techSpecs.map(techSpec => (
+          {techSpecs.map((techSpec) => (
             <React.Fragment key={techSpec.title}>
-              <TechSpecsRow
-                techSpec={techSpec}
-              />
+              <TechSpecsRow techSpec={techSpec} />
             </React.Fragment>
           ))}
         </ul>

@@ -53,7 +53,11 @@ export const CardItem: React.FC<Props> = ({ product }) => {
 
       <div className="card__buttons">
         <div className="card__addToCartBtn">
-          <WideBtn mainTitle="Add to cart" secondaryTitle="Added to cart" />
+          <WideBtn
+            product={product}
+            mainTitle="Add to cart"
+            secondaryTitle="Added to cart"
+          />
         </div>
 
         <div className="card__likeBtn">

@@ -3,12 +3,12 @@ import { Product } from '../types/product';
 export function hasDiscountPrice({
   priceRegular,
   priceDiscount,
-}:{
-  priceRegular: number,
-  priceDiscount: number,
+}: {
+  priceRegular: number;
+  priceDiscount: number;
 }) {
   return priceDiscount || priceRegular - priceDiscount > 0;
-};
+}
 
 export function getNormalizedTechSpecs(product: Product) {
   return [

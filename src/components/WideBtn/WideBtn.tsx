@@ -15,16 +15,11 @@ export const WideBtn: React.FC<Props> = ({
   mainTitle,
   secondaryTitle = '',
 }) => {
-  const {
-    cartProducts,
-    addCartProduct,
-    removeCartProduct,
-  } = React.useContext(CartContext);
+  const { cartProducts, addCartProduct, removeCartProduct }
+    = React.useContext(CartContext);
 
   const isAddedToCart = React.useMemo(() => {
-    return cartProducts.some(
-      (cartProduct) => cartProduct.id === product?.id,
-    );
+    return cartProducts.some((cartProduct) => cartProduct.id === product?.id);
   }, [product, cartProducts]);
 
   return (

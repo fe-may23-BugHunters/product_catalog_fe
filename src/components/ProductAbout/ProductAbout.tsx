@@ -4,7 +4,7 @@ import './ProductAbout.scss';
 import { DescriptionItem } from '../../types/product';
 
 interface Props {
-  desciption: DescriptionItem[],
+  desciption: DescriptionItem[];
 }
 
 export const ProductAbout: React.FC<Props> = ({ desciption }) => {
@@ -24,7 +24,6 @@ export const ProductAbout: React.FC<Props> = ({ desciption }) => {
                 </p>
               ))}
             </div>
-
           </article>
         ))}
       </ul>

@@ -17,20 +17,14 @@ import {
   getProductByOptions,
   getRecommendedProducts,
 } from '../../api/products';
-import {
-  Product,
-  VariantOptions,
-} from '../../types/product';
+import { Product, VariantOptions } from '../../types/product';
 import { getNormalizedTechSpecs } from '../../helpers/products';
 import { EmptyComponent } from '../../components/EmptyComponent';
 
 export const ProductItem: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
   const [product, setProduct] = useState<Product | null>(null);
-  const [
-    recommendedProducts,
-    setRecommendedProducts,
-  ] = useState<Product[]>([]);
+  const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
 
   const { itemId } = useParams();
 
@@ -41,7 +35,7 @@ export const ProductItem: React.FC = () => {
 
   useEffect(() => {
     getProductById(itemId as string)
-      .then(dataFromServer => {
+      .then((dataFromServer) => {
         setProduct(dataFromServer.data);
       })
       .catch(() => {
@@ -59,7 +53,7 @@ export const ProductItem: React.FC = () => {
       capacity: options.capacity,
       namespaceId: product?.namespaceId as string,
     })
-      .then(productFromServer => {
+      .then((productFromServer) => {
         setProduct(productFromServer.data[0]);
       })
       .catch(() => {
@@ -76,12 +70,7 @@ export const ProductItem: React.FC = () => {
   }, [itemId]);
 
   if (!product) {
-    return (
-      <EmptyComponent
-        data={product}
-        text={'Product not found :('}
-      />
-    );
+    return <EmptyComponent data={product} text={'Product not found :('} />;
   }
 
   const techSpecs = getNormalizedTechSpecs(product);
@@ -100,9 +89,7 @@ export const ProductItem: React.FC = () => {
         <BtnBack />
       </div>
 
-      <h1 className="product__title">
-        {product.name}
-      </h1>
+      <h1 className="product__title">{product.name}</h1>
 
       <div className="product__content">
         <div className="product__photos">
