@@ -1,13 +1,15 @@
 import React, { createContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
-import { Product } from '../types/product';
+import { CartItemAction, Product, ProductWithCount } from '../types/product';
 
 interface Context {
-  cartProducts: Product[];
+  cartProducts: ProductWithCount[];
   totalPrice?: number;
+  totalAmount?: number;
   addCartProduct: (product: Product) => void;
   removeCartProduct: (id: string) => void;
-  total: number;
+  clearCart: () => void;
+  changeCount: (id: string, action: CartItemAction) => void;
 }
 
 export const CartContext = createContext({} as Context);
@@ -17,7 +19,7 @@ type Props = {
 };
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
-  const [cartProducts, setCartProducts] = useLocalStorage<Product[]>(
+  const [cartProducts, setCartProducts] = useLocalStorage<ProductWithCount[]>(
     'cartProducts',
     [],
   );
@@ -31,7 +33,13 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       return;
     }
 
-    setCartProducts((current) => [...current, cartProduct]);
+    setCartProducts((current) => [
+      ...current,
+      {
+        ...cartProduct,
+        count: 1,
+      },
+    ]);
   };
 
   const removeCartProduct = (id: string) => {
@@ -39,24 +47,59 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       current.filter((cartProductId) => cartProductId.id !== id));
   };
 
-  const countPrice = () => {
+  const changeCount = (id: string, action: CartItemAction) => {
+    setCartProducts((current) =>
+      current.map((product) => {
+        if (product.id === id) {
+          const changedCount
+            = action === CartItemAction.ADD
+              ? product.count + 1
+              : product.count - 1;
+
+          return {
+            ...product,
+            count: changedCount,
+          };
+        }
+
+        return product;
+      }));
+  };
+
+  const clearCart = () => {
+    setCartProducts(() => []);
+  };
+
+  const totalPrice = React.useMemo(() => {
     if (cartProducts.length === 0) {
       return;
     }
 
     return cartProducts
-      .map((product) => product.priceDiscount || product.priceRegular)
-      .reduce((a, b) => a + b);
-  };
+      .map((product) => {
+        const price = product.priceDiscount || product.priceRegular || 0;
 
-  const totalPrice = countPrice();
+        return price * product.count;
+      })
+      .reduce((a, b) => a + b);
+  }, [cartProducts]);
+
+  const totalAmount = React.useMemo(() => {
+    if (cartProducts.length === 0) {
+      return;
+    }
+
+    return cartProducts.map((product) => product.count).reduce((a, b) => a + b);
+  }, [cartProducts]);
 
   const value = {
     cartProducts,
     totalPrice,
+    totalAmount,
     addCartProduct,
     removeCartProduct,
-    total: cartProducts.length,
+    changeCount,
+    clearCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

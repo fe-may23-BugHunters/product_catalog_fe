@@ -11,12 +11,10 @@ export const Buttons: React.FC = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
 
   const { favouriteProducts } = useContext(FavouriteContext);
-  const { cartProducts } = useContext(CartContext);
+  const { totalAmount } = useContext(CartContext);
 
-  const favouriteItemsCount = favouriteProducts.length
-    ? favouriteProducts.length
-    : null;
-  const cartItemIds = cartProducts.length ? cartProducts.length : null;
+  const favouriteItemsCount = favouriteProducts.length || null;
+  const cartItemIds = totalAmount || null;
 
   useEffect(() => {
     const body = document.querySelector('body') as HTMLBodyElement;
