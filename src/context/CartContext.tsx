@@ -33,10 +33,13 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       return;
     }
 
-    setCartProducts((current) => [...current, {
-      ...cartProduct,
-      count: 1,
-    }]);
+    setCartProducts((current) => [
+      ...current,
+      {
+        ...cartProduct,
+        count: 1,
+      },
+    ]);
   };
 
   const removeCartProduct = (id: string) => {
@@ -45,20 +48,22 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   };
 
   const changeCount = (id: string, action: CartItemAction) => {
-    setCartProducts((current) => current.map(product => {
-      if (product.id === id) {
-        const changedCount = action === CartItemAction.ADD
-          ? product.count + 1
-          : product.count - 1;
+    setCartProducts((current) =>
+      current.map((product) => {
+        if (product.id === id) {
+          const changedCount
+            = action === CartItemAction.ADD
+              ? product.count + 1
+              : product.count - 1;
 
-        return {
-          ...product,
-          count: changedCount,
-        };
-      }
+          return {
+            ...product,
+            count: changedCount,
+          };
+        }
 
-      return product;
-    }));
+        return product;
+      }));
   };
 
   const clearCart = () => {
@@ -84,9 +89,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       return;
     }
 
-    return cartProducts
-      .map((product) => product.count)
-      .reduce((a, b) => a + b);
+    return cartProducts.map((product) => product.count).reduce((a, b) => a + b);
   }, [cartProducts]);
 
   const value = {

@@ -13,70 +13,68 @@ type Props = {
 };
 
 export const CartItem: React.FC<Props> = ({ cartProduct }) => {
-  const {
-    removeCartProduct,
-    changeCount,
-  } = useContext(CartContext);
+  const { removeCartProduct, changeCount } = useContext(CartContext);
 
   return (
     <>
       {!cartProduct ? (
         <h3>Product not found</h3>
       ) : (
-      <article className="cartItem">
-        <div className="cartItem__row">
-          <button
-            className="cartItem__remove"
-            onClick={() => removeCartProduct(cartProduct.id)}
-          >
-            <CloseImg className="cartItem__closeIcon" />
-          </button>
-
-          <NavLink
-            to={`/${cartProduct.category}/${cartProduct.id}`}
-            className="cartItem__imageBlock"
-          >
-            <img
-              src={`${location.origin}/product_catalog_fe/${cartProduct.images[0]}`}
-              className="cartItem__image"
-              alt={cartProduct.name}
-            />
-          </NavLink>
-
-          <p className="cartItem__title">{cartProduct.name}</p>
-        </div>
-
-        <div className="cartItem__row">
-          <div className="cartItem__count">
+        <article className="cartItem">
+          <div className="cartItem__row">
             <button
-              className={cn('cartItem__decreaseBtn', {
-                cartItem__disabled: cartProduct.count <= 1,
-              })}
-              onClick={() => changeCount(
-                cartProduct.id,
-                CartItemAction.SUBTRACT,
-              )}
+              className="cartItem__remove"
+              onClick={() => removeCartProduct(cartProduct.id)}
             >
-              <MinusImg />
+              <CloseImg className="cartItem__closeIcon" />
             </button>
-            <span className="cartItem__amount">
-              {cartProduct.count}
-            </span>
-            <button
-              className={cn('cartItem__increase', {
-                cartItem__disabled: cartProduct.count >= 99,
-              })}
-              onClick={() => changeCount(cartProduct.id, CartItemAction.ADD)}
+
+            <NavLink
+              to={`/${cartProduct.category}/${cartProduct.id}`}
+              className="cartItem__imageBlock"
             >
-              <PlusImg />
-            </button>
+              <img
+                src={`${location.origin}/product_catalog_fe/${cartProduct.images[0]}`}
+                className="cartItem__image"
+                alt={cartProduct.name}
+              />
+            </NavLink>
+
+            <p className="cartItem__title">{cartProduct.name}</p>
           </div>
 
-          <p className="cartItem__price">
-            <span>{`$${cartProduct.priceDiscount || cartProduct.priceRegular}`}</span>
-          </p>
-        </div>
-      </article>
+          <div className="cartItem__row">
+            <div className="cartItem__count">
+              <button
+                className={cn('cartItem__decreaseBtn', {
+                  cartItem__disabled: cartProduct.count <= 1,
+                })}
+                disabled={cartProduct.count <= 1}
+                onClick={() =>
+                  changeCount(cartProduct.id, CartItemAction.SUBTRACT)
+                }
+              >
+                <MinusImg />
+              </button>
+              <span className="cartItem__amount">{cartProduct.count}</span>
+              <button
+                className={cn('cartItem__increase', {
+                  cartItem__disabled: cartProduct.count >= 99,
+                })}
+                disabled={cartProduct.count >= 99}
+                onClick={() => changeCount(cartProduct.id, CartItemAction.ADD)}
+              >
+                <PlusImg />
+              </button>
+            </div>
+
+            <p className="cartItem__price">
+              <span>{`$${
+                cartProduct.priceDiscount || cartProduct.priceRegular
+              }`}</span>
+            </p>
+          </div>
+        </article>
       )}
     </>
   );
