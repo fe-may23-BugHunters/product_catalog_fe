@@ -10,7 +10,7 @@ import { CartContext } from '../../context/CartContext';
 
 type Props = {
   product: Product;
-}
+};
 
 export const CartItem: React.FC<Props> = ({ product }) => {
   const { removeCartProduct } = useContext(CartContext);
@@ -36,9 +36,7 @@ export const CartItem: React.FC<Props> = ({ product }) => {
           />
         </NavLink>
 
-        <p className="cartItem__title">
-          {product.name}
-        </p>
+        <p className="cartItem__title">{product.name}</p>
       </div>
 
       <div className="cartItem__row">

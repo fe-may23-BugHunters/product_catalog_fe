@@ -1,6 +1,4 @@
-import React, {
-  createContext,
-} from 'react';
+import React, { createContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 import { Product } from '../types/product';
 
@@ -46,9 +44,8 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       return;
     }
 
-    return cartProducts.map(product => (
-      product.priceDiscount
-    ))
+    return cartProducts
+      .map((product) => product.priceDiscount)
       .reduce((a, b) => a + b);
   };
 

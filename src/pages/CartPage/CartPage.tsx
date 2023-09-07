@@ -28,7 +28,7 @@ export const CartPage: React.FC = () => {
           text={"You haven't added anything to your cart yet"}
         >
           <div className="cart__content">
-            {cartProducts.map(cartProduct => (
+            {cartProducts.map((cartProduct) => (
               <div key={cartProduct.id} className="cart__items">
                 <CartItem product={cartProduct} />
               </div>

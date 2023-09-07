@@ -16,9 +16,7 @@ export const Buttons: React.FC = () => {
   const favouriteItemsCount = favouriteProducts.length
     ? favouriteProducts.length
     : null;
-  const cartItemIds = cartProducts.length
-    ? cartProducts.length
-    : null;
+  const cartItemIds = cartProducts.length ? cartProducts.length : null;
 
   useEffect(() => {
     const body = document.querySelector('body') as HTMLBodyElement;
