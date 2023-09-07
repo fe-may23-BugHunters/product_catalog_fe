@@ -20,9 +20,9 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
   useEffect(() => {
     const setOrUpdateMaxScroll = () => {
       if (containerRef.current) {
-        const maxScrollValue
-          = containerRef.current?.scrollWidth
-          - containerRef.current?.offsetWidth;
+        const scrollWidth = containerRef.current?.scrollWidth;
+        const offsetWidth = containerRef.current?.scrollWidth;
+        const maxScrollValue = scrollWidth - offsetWidth;
 
         setMaxScroll(maxScrollValue);
       }

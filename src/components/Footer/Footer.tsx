@@ -9,10 +9,11 @@ import { useScrollUp } from '../../hooks/useScrollUp';
 const footerLinks = [
   {
     title: 'Github',
-    path: 'https://fe-may23-BugHunters.github.io/product_catalog_fe',
+    path: 'https://github.com/fe-may23-BugHunters',
+    target: '_blank',
   },
-  { title: 'Contacts', path: '/' },
-  { title: 'Rights', path: '/' },
+  { title: 'Contacts', path: '/contacts', target: '_self' },
+  { title: 'Rights', path: '/rights', target: '_self' },
 ];
 
 export const Footer: React.FC = () => {
@@ -32,7 +33,7 @@ export const Footer: React.FC = () => {
                 <li key={link.title} className="footerNav__item">
                   <NavLink
                     to={link.path}
-                    target="_blank"
+                    target={link.target}
                     className="footerNav__link"
                   >
                     {link.title}
