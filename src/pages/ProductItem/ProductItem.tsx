@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import './ProductItem.scss';
 
@@ -20,57 +20,64 @@ import {
 import { Product, VariantOptions } from '../../types/product';
 import { getNormalizedTechSpecs } from '../../helpers/products';
 import { EmptyComponent } from '../../components/EmptyComponent';
+import { Loader } from '../../components/Loader';
 
 export const ProductItem: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
   const [product, setProduct] = useState<Product | null>(null);
   const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
+  const [isLoadingProduct, setIsLoadingProduct] = useState(false);
+  const [isLoadingRecommended, setIsLoadingRecommended] = useState(false);
 
   const { itemId } = useParams();
+  const navigate = useNavigate();
 
-  const [options, setOptions] = useState<VariantOptions>({
-    color: product?.colorsAvailable[0] as string,
-    capacity: product?.capacityAvailable[0] as string,
-  });
+  const changeVariant = ({ color, capacity }: VariantOptions) => {
+    getProductByOptions({
+      color,
+      capacity,
+      namespaceId: product?.namespaceId as string,
+    })
+      .then((productFromServer) => {
+        const page = pathname.split('/')[1];
+
+        navigate(`/${page}/${productFromServer.data[0].id}`);
+      })
+      .catch(() => {
+        throw new Error('Product by options not found');
+      });
+  };
 
   useEffect(() => {
+    setIsLoadingProduct(true);
+
     getProductById(itemId as string)
       .then((dataFromServer) => {
         setProduct(dataFromServer.data);
       })
       .catch(() => {
         throw new Error('Product by id is not found');
-      });
+      })
+      .finally(() => setIsLoadingProduct(false));
   }, [itemId]);
 
   useEffect(() => {
-    if (!options?.color || !options?.capacity || !product?.namespaceId) {
-      return;
-    }
+    setIsLoadingRecommended(true);
 
-    getProductByOptions({
-      color: options.color,
-      capacity: options.capacity,
-      namespaceId: product?.namespaceId as string,
-    })
-      .then((productFromServer) => {
-        setProduct(productFromServer.data[0]);
-      })
-      .catch(() => {
-        throw new Error('Product by options is not found');
-      });
-  }, [options]);
-
-  useEffect(() => {
     getRecommendedProducts()
       .then((response) => setRecommendedProducts(response.data))
       .catch((error) => {
         throw new Error(error);
-      });
+      })
+      .finally(() => setIsLoadingRecommended(false));
   }, [itemId]);
 
+  if (isLoadingProduct) {
+    return <Loader isLoading={isLoadingProduct} />;
+  }
+
   if (!product) {
-    return <EmptyComponent data={product} text={'Product not found :('} />;
+    return <EmptyComponent data={product} text={'Cannot get product :('} />;
   }
 
   const techSpecs = getNormalizedTechSpecs(product);
@@ -98,7 +105,7 @@ export const ProductItem: React.FC = () => {
 
         <div className="product__variants">
           <ProductVariants
-            setOptions={setOptions}
+            setOptions={changeVariant}
             product={product}
             techSpecs={techSpecs.slice(0, 4)}
           />
@@ -113,9 +120,14 @@ export const ProductItem: React.FC = () => {
         </div>
       </div>
 
-      <div className="product__recommended">
-        <CardSlider models={recommendedProducts} title={'You may also like'} />
-      </div>
+      <Loader isLoading={isLoadingRecommended}>
+        <div className="product__recommended">
+          <CardSlider
+            models={recommendedProducts}
+            title={'You may also like'}
+          />
+        </div>
+      </Loader>
     </div>
   );
 };

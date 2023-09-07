@@ -31,6 +31,12 @@ export const ProductVariants: React.FC<Props> = ({
   );
 
   useEffect(() => {
+    if (selectedColor === product.color
+        && selectedCapacity === product.capacity
+    ) {
+      return;
+    }
+
     setOptions({
       color: selectedColor,
       capacity: selectedCapacity,

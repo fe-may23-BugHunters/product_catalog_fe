@@ -23,13 +23,17 @@ export const PhonesPage: React.FC = () => {
   const [perPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const [phones, setPhones] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     getProductsByCategory()
       .then((response) => setPhones(response.data.rows))
       .catch((error) => {
         throw new Error(error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   const handlePageChange = (page: number) => {
@@ -72,10 +76,10 @@ export const PhonesPage: React.FC = () => {
         )}
       </div>
 
-      <Loader isLoading={false}>
+      <Loader isLoading={isLoading}>
         <EmptyComponent
           data={displayedCards}
-          text={'There are no phones available :('}
+          text={'Cannot get phones :('}
         >
           <div className="phones__cards">
             {displayedCards.map((phone) => (
