@@ -4,6 +4,7 @@ import { Logo } from '../Logo/Logo';
 import '../../styles/blocks/_container.scss';
 import './Footer.scss';
 import arrowUp from '../../assets/icons/arrowUp.svg';
+import { useScrollUp } from '../../hooks/useScrollUp';
 
 const footerLinks = [
   {
@@ -15,9 +16,7 @@ const footerLinks = [
 ];
 
 export const Footer: React.FC = () => {
-  function goUp() {
-    window.scrollTo(0, 0);
-  }
+  const { handleScrollUp } = useScrollUp();
 
   return (
     <footer className="footer">
@@ -43,7 +42,7 @@ export const Footer: React.FC = () => {
             </ul>
           </nav>
 
-          <div className="footer__moveUp" onClick={goUp}>
+          <div className="footer__moveUp" onClick={handleScrollUp}>
             <span className="footer__label">Back to top</span>
             <button type="button" className="footer__btn-wrapper">
               <img className="footer__btn" src={arrowUp} alt="arrowUp" />
