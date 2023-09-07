@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './FavouritesPage.scss';
-// import { CardItem } from '../../components/CardItem';
+import { CardItem } from '../../components/CardItem';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { usePathname } from '../../hooks/usePathname';
 import { Loader } from '../../components/Loader';
 import { EmptyComponent } from '../../components/EmptyComponent';
+import { FavouriteContext } from '../../context/FavouriteContext';
 
 export const FavouritesPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
+  const { favouriteProducts } = useContext(FavouriteContext);
 
   return (
     <article className="favourites">
@@ -17,34 +19,18 @@ export const FavouritesPage: React.FC = () => {
 
       <h1 className="favourites__title">Favourites</h1>
 
-      <p className="favourites__count">5 items</p>
+      <p className="favourites__count">{favouriteProducts.length} items</p>
       <Loader isLoading={false}>
         <EmptyComponent
           data={['']}
           text={"You haven't added anything to your favourites yet"}
         >
           <div className="favourites__cards">
-            {/* <div className="favourites__card">
-              <CardItem />
-            </div>
-            <div className="favourites__card">
-              <CardItem />
-            </div>
-            <div className="favourites__card">
-              <CardItem />
-            </div>
-            <div className="favourites__card">
-              <CardItem />
-            </div>
-            <div className="favourites__card">
-              <CardItem />
-            </div>
-            <div className="favourites__card">
-              <CardItem />
-            </div>
-            <div className="favourites__card">
-              <CardItem />
-            </div> */}
+            {favouriteProducts.map(product => (
+              <div key={product.id} className="favourites__card">
+                <CardItem product={product} />
+              </div>
+            ))}
           </div>
         </EmptyComponent>
       </Loader>

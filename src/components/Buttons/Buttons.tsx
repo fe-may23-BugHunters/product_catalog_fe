@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 import './Buttons.scss';
 import { BurgerMenu } from '../BurgerMenu';
+import { FavouriteContext } from '../../context/FavouriteContext';
 
 export const Buttons: React.FC = () => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
 
-  const favouriteItemsCount = 10;
+  const { favouriteProducts } = useContext(FavouriteContext);
+
+  const favouriteItemsCount = favouriteProducts.length
+    ? favouriteProducts.length : null;
   const cartItemIds = null;
 
   useEffect(() => {

@@ -1,9 +1,10 @@
 import React, { createContext } from 'react';
 import { getAllByUserId } from '../api/favourites';
+import { Product } from '../types/product';
 
 interface Context {
-  favouriteProducts: string[];
-  addFavouriteProduct: (id: string) => void;
+  favouriteProducts: Product[];
+  addFavouriteProduct: (product: Product) => void;
   removeFavouriteProduct: (id: string) => void;
   total: number;
 }
@@ -15,7 +16,7 @@ type Props = {
 };
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
-  const [favouriteProducts, setFavouriteProducts] = React.useState<string[]>(
+  const [favouriteProducts, setFavouriteProducts] = React.useState<Product[]>(
     [],
   );
 
@@ -24,7 +25,7 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
       .then((dataFromServer) => {
         setFavouriteProducts(() =>
           dataFromServer.data.map(
-            ({ productId }: { productId: string }) => productId,
+            ({ product }: { product: Product }) => product,
           ));
       })
       .catch(() => {
@@ -32,19 +33,20 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
       });
   }, []);
 
-  const addFavouriteProduct = (favouriteId: string) => {
-    const isProductExist = favouriteProducts.find((id) => id === favouriteId);
+  const addFavouriteProduct = (newFavourite: Product) => {
+    const isProductExist = favouriteProducts
+      .find((product) => product.id === newFavourite.id);
 
     if (isProductExist) {
       return;
     }
 
-    setFavouriteProducts((ids) => [...ids, favouriteId]);
+    setFavouriteProducts((products) => [...products, newFavourite]);
   };
 
   const removeFavouriteProduct = (id: string) => {
     setFavouriteProducts((current) =>
-      current.filter((favouriteProductId) => favouriteProductId !== id));
+      current.filter((product) => product.id !== id));
   };
 
   const value = {
