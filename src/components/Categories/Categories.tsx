@@ -1,9 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Categories.scss';
-import phones from '../../../src/assets/Category_phones.jpg';
-import tablets from '../../../src/assets/Category_tablets.jpg';
-import accessories from '../../../src/assets/Category_accessories.jpg';
 
 export const Categories: React.FC = () => {
   return (
@@ -12,7 +9,7 @@ export const Categories: React.FC = () => {
         <article className="categories__card">
           <NavLink to="/phones" className="categories__link">
             <img
-              src={phones}
+              src={`${location.origin}/product_catalog_fe/img/Category_phones.jpg`}
               alt="category_phones"
               className="categories__photo"
             />
@@ -23,7 +20,7 @@ export const Categories: React.FC = () => {
         <article className="categories__card">
           <NavLink to="/tablets" className="categories__link">
             <img
-              src={tablets}
+              src={`${location.origin}/product_catalog_fe/img/Category_tablets.jpg`}
               alt="category_phones"
               className="categories__photo"
             />
@@ -35,7 +32,7 @@ export const Categories: React.FC = () => {
         <article className="categories__card">
           <NavLink to="/accessories" className="categories__link">
             <img
-              src={accessories}
+              src={`${location.origin}/product_catalog_fe/img/Category_accessories.jpg`}
               alt="category_accessories"
               className="categories__photo"
             />

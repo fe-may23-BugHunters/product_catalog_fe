@@ -21,7 +21,7 @@ export const FavouritesPage: React.FC = () => {
       <Loader isLoading={false}>
         <EmptyComponent
           data={['']}
-          text={'You haven\'t added anything to your favourites yet'}
+          text={"You haven't added anything to your favourites yet"}
         >
           <div className="favourites__cards">
             {/* <div className="favourites__card">
@@ -48,7 +48,6 @@ export const FavouritesPage: React.FC = () => {
           </div>
         </EmptyComponent>
       </Loader>
-
     </article>
   );
 };

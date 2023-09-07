@@ -1,8 +1,8 @@
 import React from 'react';
 import './CartModal.scss';
-import { getCurrentTime } from '../../utils/products';
 import { WideBtn } from '../WideBtn';
 import { NavLink } from 'react-router-dom';
+import { getCurrentTime } from '../../helpers/products';
 
 interface Props {
   handleClick: () => void;

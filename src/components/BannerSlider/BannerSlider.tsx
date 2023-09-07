@@ -9,11 +9,12 @@ import 'swiper/swiper-bundle.min.css';
 
 import './BannerSlider.scss';
 import { BannerItem } from '../BannerItem';
-import PhonesBannerImg from '../../assets/banners/banner-phones.png';
-import TabletsBannerImg from '../../assets/banners/banner-tablets.png';
-import AccessoriesBannerImg from '../../assets/banners/banner-accessories.png';
 
-const banners = [PhonesBannerImg, TabletsBannerImg, AccessoriesBannerImg];
+const banners = [
+  'img/banners/banner-1.webp',
+  'img/banners/banner-2.webp',
+  'img/banners/banner-3.webp',
+];
 
 SwiperCore.use([Autoplay]);
 
@@ -35,7 +36,7 @@ export const BannerSlider: React.FC = () => {
         modules={[Autoplay, Pagination, Navigation]}
       >
         {banners.map((banner, index) => (
-          <React.Fragment key={index}>
+          <React.Fragment key={banner + index}>
             <SwiperSlide className="bannerSlider__slide">
               <BannerItem banner={banner} />
             </SwiperSlide>

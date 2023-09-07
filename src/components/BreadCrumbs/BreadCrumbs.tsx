@@ -7,11 +7,17 @@ import home from '../../assets/icons/Home.svg';
 
 interface Props {
   pathname: string;
+  productTitle?: string;
   onPathChange: (newPath: string) => void;
 }
 
-export const BreadCrumbs: React.FC<Props> = ({ pathname }) => {
+export const BreadCrumbs: React.FC<Props> = ({ pathname, productTitle }) => {
   const links = pathname.split('/').filter((link) => link !== '');
+
+  if (productTitle) {
+    links.pop();
+    links.push(productTitle);
+  }
 
   return (
     <nav className="breadCrumbs">

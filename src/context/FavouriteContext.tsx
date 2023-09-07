@@ -1,11 +1,9 @@
-/*eslint-disable*/
 import React, { createContext } from 'react';
-import { useLocalStorage } from 'usehooks-ts';
-import { Product } from '../types/product';
+import { getAllByUserId } from '../api/favourites';
 
 interface Context {
-  favouriteProducts: Product[];
-  addFavouriteProduct: (product: Product) => void;
+  favouriteProducts: string[];
+  addFavouriteProduct: (id: string) => void;
   removeFavouriteProduct: (id: string) => void;
   total: number;
 }
@@ -17,27 +15,36 @@ type Props = {
 };
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
-  const [favouriteProducts, setFavouriteProducts] = useLocalStorage<Product[]>(
-    'favouriteProducts',
+  const [favouriteProducts, setFavouriteProducts] = React.useState<string[]>(
     [],
   );
 
-  const addFavouriteProduct = (favouriteProduct: Product) => {
-    const isProductExist = favouriteProducts.find(
-      (product) => product.id === favouriteProduct.id,
-    );
+  React.useEffect(() => {
+    getAllByUserId()
+      .then((dataFromServer) => {
+        setFavouriteProducts(() =>
+          dataFromServer.data.map(
+            ({ productId }: { productId: string }) => productId,
+          ));
+      })
+      .catch(() => {
+        throw new Error('Product by id is not found');
+      });
+  }, []);
+
+  const addFavouriteProduct = (favouriteId: string) => {
+    const isProductExist = favouriteProducts.find((id) => id === favouriteId);
 
     if (isProductExist) {
       return;
     }
 
-    setFavouriteProducts((current) => [...current, favouriteProduct]);
+    setFavouriteProducts((ids) => [...ids, favouriteId]);
   };
 
   const removeFavouriteProduct = (id: string) => {
     setFavouriteProducts((current) =>
-      current.filter((favouriteProductId) => favouriteProductId.id !== id),
-    );
+      current.filter((favouriteProductId) => favouriteProductId !== id));
   };
 
   const value = {

@@ -9,11 +9,27 @@ export function getProductsByCategory(
   category = Categories.PHONES,
   sortBy = SortBy.NAME,
 ) {
-  return axios.get(`${BASE_URL}?limit=${limit}&offset=${offset}&sortBy=${sortBy}&category=${category}`);
+  return axios.get(
+    `${BASE_URL}?limit=${limit}&offset=${offset}&sortBy=${sortBy}&category=${category}`,
+  );
 }
 
 export function getProductById(productId: string) {
   return axios.get(`${BASE_URL}/${productId}`);
+}
+
+export function getProductByOptions({
+  color = '',
+  capacity = '',
+  namespaceId = '',
+}: {
+  color: string;
+  capacity: string;
+  namespaceId: string;
+}) {
+  return axios.get(
+    `${BASE_URL}/variants?color=${color}&capacity=${capacity}&namespaceId=${namespaceId}`,
+  );
 }
 
 export function getRecommendedProducts() {

@@ -18,20 +18,20 @@ export const CardItem: React.FC<Props> = ({ product }) => {
       >
         <img
           className="card__photo"
-          src={`product_catalog_fe/${product?.images[0]}`}
+          src={`${location.origin}/product_catalog_fe/${product?.images[0]}`}
           alt="product?.name"
         />
       </NavLink>
-      
+
       <h2 className="card__title">{product?.name}</h2>
       <div className="card__price">
         {product.priceDiscount ? (
           <>
-            <span className="card__price__now">${product.priceDiscount}</span>
-            <span className="card__price__old">${product.priceRegular}</span>
+            <span className="card__price__now">${product?.priceDiscount}</span>
+            <span className="card__price__old">${product?.priceRegular}</span>
           </>
         ) : (
-          <span className="card__price__old">${product.priceRegular}</span>
+          <span className="card__price__old">${product?.priceRegular}</span>
         )}
       </div>
       <span className="card__line" />
@@ -39,21 +39,25 @@ export const CardItem: React.FC<Props> = ({ product }) => {
       <ul className="card__details">
         <li className="detail">
           <span className="detailTitle">Screen</span>
-          <span className="detailValue">{product.screen}</span>
+          <span className="detailValue">{product?.screen}</span>
         </li>
         <li className="detail">
           <span className="detailTitle">Capacity</span>
-          <span className="detailValue">{product.capacity}</span>
+          <span className="detailValue">{product?.capacity}</span>
         </li>
         <li className="detail">
           <span className="detailTitle">RAM</span>
-          <span className="detailValue">{product.ram}</span>
+          <span className="detailValue">{product?.ram}</span>
         </li>
       </ul>
 
       <div className="card__buttons">
         <div className="card__addToCartBtn">
-          <WideBtn mainTitle="Add to cart" secondaryTitle="Added to cart" />
+          <WideBtn
+            product={product}
+            mainTitle="Add to cart"
+            secondaryTitle="Added to cart"
+          />
         </div>
 
         <div className="card__likeBtn">

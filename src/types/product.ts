@@ -1,18 +1,29 @@
 /* eslint-disable no-shadow */
+export interface DescriptionItem {
+  title: string;
+  text: string[];
+}
+
 export interface Product {
   id: string;
-  category: string;
-  phoneId: string;
-  itemId: string;
+  namespaceId: string;
   name: string;
+  category: string;
+  capacityAvailable: string[];
+  capacity: string;
   priceRegular: number;
   priceDiscount: number;
-  screen: string;
-  capacity: string;
+  colorsAvailable: string[];
   color: string;
-  ram: string;
-  year: number;
   images: string[];
+  description: DescriptionItem[];
+  screen: string;
+  resolution: string;
+  processor: string;
+  ram: string;
+  camera: string | null;
+  zoom: string | null;
+  cell: string[];
   createdAt: string;
 }
 
@@ -26,4 +37,14 @@ export enum Categories {
   PHONES = 'phones',
   TABLETS = 'tablets',
   ACCESSORIES = 'accessories',
+}
+
+export interface VariantOptions {
+  color: string;
+  capacity: string;
+}
+
+export interface TechSpecs {
+  title: string;
+  value: string | string[] | null;
 }

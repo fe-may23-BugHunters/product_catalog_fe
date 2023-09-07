@@ -78,13 +78,13 @@ export const AccessoriesPage: React.FC = () => {
           data={displayedCards}
           text={'There are no accessories available :('}
         >
-        <div className="accessories__cards">
-          {displayedCards.map((accessory) => (
-            <div className="accessories__card" key={accessory.id}>
-              <CardItem product={accessory} />
-            </div>
-          ))}
-        </div>
+          <div className="accessories__cards">
+            {displayedCards.map((accessory) => (
+              <div className="accessories__card" key={accessory.id}>
+                <CardItem product={accessory} />
+              </div>
+            ))}
+          </div>
 
           <div className="accessories__pagination">
             <Pagination
